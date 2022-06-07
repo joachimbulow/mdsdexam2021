@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.mydsl.exTwentyOne.DataAccess;
 import org.xtext.example.mydsl.exTwentyOne.DataDecl;
 import org.xtext.example.mydsl.exTwentyOne.Declaration;
 import org.xtext.example.mydsl.exTwentyOne.Divide;
@@ -18,9 +19,11 @@ import org.xtext.example.mydsl.exTwentyOne.ExTwentyOneFactory;
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
 import org.xtext.example.mydsl.exTwentyOne.Expression;
 import org.xtext.example.mydsl.exTwentyOne.Function;
+import org.xtext.example.mydsl.exTwentyOne.IfThenElse;
 import org.xtext.example.mydsl.exTwentyOne.Input;
 import org.xtext.example.mydsl.exTwentyOne.InputOrNode;
 import org.xtext.example.mydsl.exTwentyOne.Lambda;
+import org.xtext.example.mydsl.exTwentyOne.LetBinding;
 import org.xtext.example.mydsl.exTwentyOne.LogicExp;
 import org.xtext.example.mydsl.exTwentyOne.Minus;
 import org.xtext.example.mydsl.exTwentyOne.Mult;
@@ -172,6 +175,27 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   private EClass divideEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dataAccessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ifThenElseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass letBindingEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -583,94 +607,6 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
-  public EAttribute getExpression_AccessedData()
-  {
-    return (EAttribute)expressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getExpression_AccessedField()
-  {
-    return (EAttribute)expressionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpression_IfLogicExp()
-  {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpression_ThenExp()
-  {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpression_ElseExp()
-  {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getExpression_Name()
-  {
-    return (EAttribute)expressionEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpression_Binding()
-  {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(6);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpression_Body()
-  {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(7);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getNewInput()
   {
     return newInputEClass;
@@ -880,6 +816,127 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
+  public EClass getDataAccess()
+  {
+    return dataAccessEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDataAccess_AccessedData()
+  {
+    return (EAttribute)dataAccessEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDataAccess_AccessedField()
+  {
+    return (EAttribute)dataAccessEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIfThenElse()
+  {
+    return ifThenElseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfThenElse_IfLogicExp()
+  {
+    return (EReference)ifThenElseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfThenElse_ThenExp()
+  {
+    return (EReference)ifThenElseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIfThenElse_ElseExp()
+  {
+    return (EReference)ifThenElseEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLetBinding()
+  {
+    return letBindingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLetBinding_Name()
+  {
+    return (EAttribute)letBindingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLetBinding_Binding()
+  {
+    return (EReference)letBindingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLetBinding_Body()
+  {
+    return (EReference)letBindingEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ExTwentyOneFactory getExTwentyOneFactory()
   {
     return (ExTwentyOneFactory)getEFactoryInstance();
@@ -948,14 +1005,6 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     nodeOrFunctionEClass = createEClass(NODE_OR_FUNCTION);
 
     expressionEClass = createEClass(EXPRESSION);
-    createEAttribute(expressionEClass, EXPRESSION__ACCESSED_DATA);
-    createEAttribute(expressionEClass, EXPRESSION__ACCESSED_FIELD);
-    createEReference(expressionEClass, EXPRESSION__IF_LOGIC_EXP);
-    createEReference(expressionEClass, EXPRESSION__THEN_EXP);
-    createEReference(expressionEClass, EXPRESSION__ELSE_EXP);
-    createEAttribute(expressionEClass, EXPRESSION__NAME);
-    createEReference(expressionEClass, EXPRESSION__BINDING);
-    createEReference(expressionEClass, EXPRESSION__BODY);
 
     newInputEClass = createEClass(NEW_INPUT);
     createEAttribute(newInputEClass, NEW_INPUT__NEW_ARRAY_ID);
@@ -981,6 +1030,20 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     divideEClass = createEClass(DIVIDE);
     createEReference(divideEClass, DIVIDE__LEFT);
     createEReference(divideEClass, DIVIDE__RIGHT);
+
+    dataAccessEClass = createEClass(DATA_ACCESS);
+    createEAttribute(dataAccessEClass, DATA_ACCESS__ACCESSED_DATA);
+    createEAttribute(dataAccessEClass, DATA_ACCESS__ACCESSED_FIELD);
+
+    ifThenElseEClass = createEClass(IF_THEN_ELSE);
+    createEReference(ifThenElseEClass, IF_THEN_ELSE__IF_LOGIC_EXP);
+    createEReference(ifThenElseEClass, IF_THEN_ELSE__THEN_EXP);
+    createEReference(ifThenElseEClass, IF_THEN_ELSE__ELSE_EXP);
+
+    letBindingEClass = createEClass(LET_BINDING);
+    createEAttribute(letBindingEClass, LET_BINDING__NAME);
+    createEReference(letBindingEClass, LET_BINDING__BINDING);
+    createEReference(letBindingEClass, LET_BINDING__BODY);
   }
 
   /**
@@ -1028,6 +1091,9 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     minusEClass.getESuperTypes().add(this.getExpression());
     multEClass.getESuperTypes().add(this.getExpression());
     divideEClass.getESuperTypes().add(this.getExpression());
+    dataAccessEClass.getESuperTypes().add(this.getExpression());
+    ifThenElseEClass.getESuperTypes().add(this.getExpression());
+    letBindingEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1073,14 +1139,6 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     initEClass(nodeOrFunctionEClass, NodeOrFunction.class, "NodeOrFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getExpression_AccessedData(), ecorePackage.getEString(), "accessedData", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getExpression_AccessedField(), ecorePackage.getEString(), "accessedField", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpression_IfLogicExp(), this.getLogicExp(), null, "ifLogicExp", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpression_ThenExp(), this.getExpression(), null, "thenExp", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpression_ElseExp(), this.getExpression(), null, "elseExp", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpression_Binding(), this.getExpression(), null, "binding", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpression_Body(), this.getExpression(), null, "body", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(newInputEClass, NewInput.class, "NewInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNewInput_NewArrayId(), ecorePackage.getEString(), "newArrayId", null, 0, 1, NewInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1106,6 +1164,20 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     initEClass(divideEClass, Divide.class, "Divide", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDivide_Left(), this.getExpression(), null, "left", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDivide_Right(), this.getExpression(), null, "right", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dataAccessEClass, DataAccess.class, "DataAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDataAccess_AccessedData(), ecorePackage.getEString(), "accessedData", null, 0, 1, DataAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataAccess_AccessedField(), ecorePackage.getEString(), "accessedField", null, 0, 1, DataAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ifThenElseEClass, IfThenElse.class, "IfThenElse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIfThenElse_IfLogicExp(), this.getLogicExp(), null, "ifLogicExp", null, 0, 1, IfThenElse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfThenElse_ThenExp(), this.getExpression(), null, "thenExp", null, 0, 1, IfThenElse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfThenElse_ElseExp(), this.getExpression(), null, "elseExp", null, 0, 1, IfThenElse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(letBindingEClass, LetBinding.class, "LetBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLetBinding_Name(), ecorePackage.getEString(), "name", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLetBinding_Binding(), this.getExpression(), null, "binding", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLetBinding_Body(), this.getExpression(), null, "body", null, 0, 1, LetBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

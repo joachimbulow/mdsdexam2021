@@ -222,6 +222,30 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ExTwentyOnePackage.DATA_ACCESS:
+      {
+        DataAccess dataAccess = (DataAccess)theEObject;
+        T result = caseDataAccess(dataAccess);
+        if (result == null) result = caseExpression(dataAccess);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.IF_THEN_ELSE:
+      {
+        IfThenElse ifThenElse = (IfThenElse)theEObject;
+        T result = caseIfThenElse(ifThenElse);
+        if (result == null) result = caseExpression(ifThenElse);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.LET_BINDING:
+      {
+        LetBinding letBinding = (LetBinding)theEObject;
+        T result = caseLetBinding(letBinding);
+        if (result == null) result = caseExpression(letBinding);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -526,6 +550,54 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDivide(Divide object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Access</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Access</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataAccess(DataAccess object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Then Else</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Then Else</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfThenElse(IfThenElse object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Let Binding</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Let Binding</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLetBinding(LetBinding object)
   {
     return null;
   }

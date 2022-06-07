@@ -171,6 +171,21 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
         return createDivideAdapter();
       }
       @Override
+      public Adapter caseDataAccess(DataAccess object)
+      {
+        return createDataAccessAdapter();
+      }
+      @Override
+      public Adapter caseIfThenElse(IfThenElse object)
+      {
+        return createIfThenElseAdapter();
+      }
+      @Override
+      public Adapter caseLetBinding(LetBinding object)
+      {
+        return createLetBindingAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -473,6 +488,51 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDivideAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.DataAccess <em>Data Access</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.DataAccess
+   * @generated
+   */
+  public Adapter createDataAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.IfThenElse <em>If Then Else</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.IfThenElse
+   * @generated
+   */
+  public Adapter createIfThenElseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.LetBinding <em>Let Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.LetBinding
+   * @generated
+   */
+  public Adapter createLetBindingAdapter()
   {
     return null;
   }

@@ -84,6 +84,9 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
       case ExTwentyOnePackage.MINUS: return createMinus();
       case ExTwentyOnePackage.MULT: return createMult();
       case ExTwentyOnePackage.DIVIDE: return createDivide();
+      case ExTwentyOnePackage.DATA_ACCESS: return createDataAccess();
+      case ExTwentyOnePackage.IF_THEN_ELSE: return createIfThenElse();
+      case ExTwentyOnePackage.LET_BINDING: return createLetBinding();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -315,6 +318,42 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
   {
     DivideImpl divide = new DivideImpl();
     return divide;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DataAccess createDataAccess()
+  {
+    DataAccessImpl dataAccess = new DataAccessImpl();
+    return dataAccess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IfThenElse createIfThenElse()
+  {
+    IfThenElseImpl ifThenElse = new IfThenElseImpl();
+    return ifThenElse;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LetBinding createLetBinding()
+  {
+    LetBindingImpl letBinding = new LetBindingImpl();
+    return letBinding;
   }
 
   /**

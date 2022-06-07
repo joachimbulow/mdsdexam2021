@@ -14,6 +14,14 @@ import java.util.List
 import java.util.ArrayList
 import java.util.stream.Collectors
 import org.xtext.example.mydsl.exTwentyOne.Expression
+import org.xtext.example.mydsl.exTwentyOne.Plus
+import org.xtext.example.mydsl.exTwentyOne.Minus
+import org.xtext.example.mydsl.exTwentyOne.NewInput
+import org.xtext.example.mydsl.exTwentyOne.LogicExp
+import org.xtext.example.mydsl.exTwentyOne.DataAccess
+import org.xtext.example.mydsl.exTwentyOne.IfThenElse
+import org.xtext.example.mydsl.exTwentyOne.LetBinding
+import java.util.Arrays
 
 /**
  * Generates code from your model files on save.
@@ -37,16 +45,15 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 			...
 			public class «program.name.toUpper»Main extends GenericMainX21 {
 			// Code for function add1
-			«FOR function : filterDeclarations(program.declarations, typeof(Function)) as ArrayList<Function>»
-				«compileFunction(function)»
+			«FOR function : filterDeclarations(program.declarations, typeof(Function))»
+				«compileFunction(function as Function)»
 			«ENDFOR»
 			
 			// Code for node add1node
-			private ComputeNode <Object,Object> node_add1node = new AbstractComputeNode<Object,Object>() {
-			protected Object function(Object input) {
-			return fun_add1(input);
-			}
-			};
+			«FOR function : filterDeclarations(program.declarations, typeof(Function))»
+				«compileFunction(function as Function)»
+			«ENDFOR»
+			
 			...
 			// Output nodes
 			private OutputNode<Object> node_inc_number_1 = new OutputNode<Object>();
@@ -72,13 +79,50 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 		private Object fun_«function.name»(Object arg) {
 			return funimpl_«function.name»((Integer)arg);
 		}
-		private Object funimpl_«function.name»(Integer _«function.lambda.name»){ return ((_x)+(1)); }
-		'''
-		
+		private Object funimpl_«function.name»(Integer _«function.lambda.name»){ return («function.lambda.lambdaExp.compileExpression»); }
+		'''	
 	}
 	
-	def static dispatch compileExpression(Primary primary) {
-		
+	def static compileNode(Node node) {
+		'''
+		private ComputeNode <Object,Object> node_add1node = new AbstractComputeNode<Object,Object>() {
+			protected Object function(Object input) {
+			return fun_add1(input);
+				}
+		};
+		'''	
+	}
+	
+	def static dispatch compileExpression(Plus exp) {
+		"Plus!"
+	}
+	
+	def static dispatch compileExpression(Minus exp) {
+		"Minus!"
+	}
+	
+	def static dispatch compileExpression(LetBinding exp) {
+		"LetBinding!"
+	}
+	
+	def static dispatch compileExpression(IfThenElse exp) {
+		"IfThenElse!"
+	}
+	
+	def static dispatch compileExpression(LogicExp exp) {
+		"LogicExp!"
+	}
+	
+	def static dispatch compileExpression(DataAccess exp) {
+		"DataAccess!"
+	}
+	
+	def static dispatch compileExpression(NewInput exp) {
+		"NewInput!"	
+	}
+	
+	def static dispatch compileExpression(Expression exp) {
+		"Expression!"
 	}
 	
 	 def static toUpper(String it) {

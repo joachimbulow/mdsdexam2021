@@ -485,85 +485,13 @@ public interface ExTwentyOnePackage extends EPackage
   int EXPRESSION = 12;
 
   /**
-   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__ACCESSED_DATA = 0;
-
-  /**
-   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__ACCESSED_FIELD = 1;
-
-  /**
-   * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__IF_LOGIC_EXP = 2;
-
-  /**
-   * The feature id for the '<em><b>Then Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__THEN_EXP = 3;
-
-  /**
-   * The feature id for the '<em><b>Else Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__ELSE_EXP = 4;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__NAME = 5;
-
-  /**
-   * The feature id for the '<em><b>Binding</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__BINDING = 6;
-
-  /**
-   * The feature id for the '<em><b>Body</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__BODY = 7;
-
-  /**
    * The number of structural features of the '<em>Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 8;
+  int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.NewInputImpl <em>New Input</em>}' class.
@@ -574,78 +502,6 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   int NEW_INPUT = 13;
-
-  /**
-   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NEW_INPUT__ACCESSED_DATA = EXPRESSION__ACCESSED_DATA;
-
-  /**
-   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NEW_INPUT__ACCESSED_FIELD = EXPRESSION__ACCESSED_FIELD;
-
-  /**
-   * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NEW_INPUT__IF_LOGIC_EXP = EXPRESSION__IF_LOGIC_EXP;
-
-  /**
-   * The feature id for the '<em><b>Then Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NEW_INPUT__THEN_EXP = EXPRESSION__THEN_EXP;
-
-  /**
-   * The feature id for the '<em><b>Else Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NEW_INPUT__ELSE_EXP = EXPRESSION__ELSE_EXP;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NEW_INPUT__NAME = EXPRESSION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Binding</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NEW_INPUT__BINDING = EXPRESSION__BINDING;
-
-  /**
-   * The feature id for the '<em><b>Body</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NEW_INPUT__BODY = EXPRESSION__BODY;
 
   /**
    * The feature id for the '<em><b>New Array Id</b></em>' attribute.
@@ -731,78 +587,6 @@ public interface ExTwentyOnePackage extends EPackage
   int PLUS = 15;
 
   /**
-   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS__ACCESSED_DATA = EXPRESSION__ACCESSED_DATA;
-
-  /**
-   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS__ACCESSED_FIELD = EXPRESSION__ACCESSED_FIELD;
-
-  /**
-   * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS__IF_LOGIC_EXP = EXPRESSION__IF_LOGIC_EXP;
-
-  /**
-   * The feature id for the '<em><b>Then Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS__THEN_EXP = EXPRESSION__THEN_EXP;
-
-  /**
-   * The feature id for the '<em><b>Else Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS__ELSE_EXP = EXPRESSION__ELSE_EXP;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS__NAME = EXPRESSION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Binding</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS__BINDING = EXPRESSION__BINDING;
-
-  /**
-   * The feature id for the '<em><b>Body</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PLUS__BODY = EXPRESSION__BODY;
-
-  /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -838,78 +622,6 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   int MINUS = 16;
-
-  /**
-   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS__ACCESSED_DATA = EXPRESSION__ACCESSED_DATA;
-
-  /**
-   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS__ACCESSED_FIELD = EXPRESSION__ACCESSED_FIELD;
-
-  /**
-   * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS__IF_LOGIC_EXP = EXPRESSION__IF_LOGIC_EXP;
-
-  /**
-   * The feature id for the '<em><b>Then Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS__THEN_EXP = EXPRESSION__THEN_EXP;
-
-  /**
-   * The feature id for the '<em><b>Else Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS__ELSE_EXP = EXPRESSION__ELSE_EXP;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS__NAME = EXPRESSION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Binding</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS__BINDING = EXPRESSION__BINDING;
-
-  /**
-   * The feature id for the '<em><b>Body</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MINUS__BODY = EXPRESSION__BODY;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -949,78 +661,6 @@ public interface ExTwentyOnePackage extends EPackage
   int MULT = 17;
 
   /**
-   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULT__ACCESSED_DATA = EXPRESSION__ACCESSED_DATA;
-
-  /**
-   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULT__ACCESSED_FIELD = EXPRESSION__ACCESSED_FIELD;
-
-  /**
-   * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULT__IF_LOGIC_EXP = EXPRESSION__IF_LOGIC_EXP;
-
-  /**
-   * The feature id for the '<em><b>Then Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULT__THEN_EXP = EXPRESSION__THEN_EXP;
-
-  /**
-   * The feature id for the '<em><b>Else Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULT__ELSE_EXP = EXPRESSION__ELSE_EXP;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULT__NAME = EXPRESSION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Binding</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULT__BINDING = EXPRESSION__BINDING;
-
-  /**
-   * The feature id for the '<em><b>Body</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MULT__BODY = EXPRESSION__BODY;
-
-  /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1058,78 +698,6 @@ public interface ExTwentyOnePackage extends EPackage
   int DIVIDE = 18;
 
   /**
-   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIVIDE__ACCESSED_DATA = EXPRESSION__ACCESSED_DATA;
-
-  /**
-   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIVIDE__ACCESSED_FIELD = EXPRESSION__ACCESSED_FIELD;
-
-  /**
-   * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIVIDE__IF_LOGIC_EXP = EXPRESSION__IF_LOGIC_EXP;
-
-  /**
-   * The feature id for the '<em><b>Then Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIVIDE__THEN_EXP = EXPRESSION__THEN_EXP;
-
-  /**
-   * The feature id for the '<em><b>Else Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIVIDE__ELSE_EXP = EXPRESSION__ELSE_EXP;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIVIDE__NAME = EXPRESSION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Binding</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIVIDE__BINDING = EXPRESSION__BINDING;
-
-  /**
-   * The feature id for the '<em><b>Body</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIVIDE__BODY = EXPRESSION__BODY;
-
-  /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1155,6 +723,135 @@ public interface ExTwentyOnePackage extends EPackage
    * @ordered
    */
   int DIVIDE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.DataAccessImpl <em>Data Access</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.DataAccessImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getDataAccess()
+   * @generated
+   */
+  int DATA_ACCESS = 19;
+
+  /**
+   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_ACCESS__ACCESSED_DATA = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_ACCESS__ACCESSED_FIELD = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Data Access</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_ACCESS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.IfThenElseImpl <em>If Then Else</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.IfThenElseImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getIfThenElse()
+   * @generated
+   */
+  int IF_THEN_ELSE = 20;
+
+  /**
+   * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_THEN_ELSE__IF_LOGIC_EXP = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Then Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_THEN_ELSE__THEN_EXP = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Else Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_THEN_ELSE__ELSE_EXP = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>If Then Else</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_THEN_ELSE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.LetBindingImpl <em>Let Binding</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.LetBindingImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getLetBinding()
+   * @generated
+   */
+  int LET_BINDING = 21;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING__NAME = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING__BINDING = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING__BODY = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Let Binding</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
 
   /**
@@ -1486,94 +1183,6 @@ public interface ExTwentyOnePackage extends EPackage
   EClass getExpression();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedData <em>Accessed Data</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Accessed Data</em>'.
-   * @see org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedData()
-   * @see #getExpression()
-   * @generated
-   */
-  EAttribute getExpression_AccessedData();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedField <em>Accessed Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Accessed Field</em>'.
-   * @see org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedField()
-   * @see #getExpression()
-   * @generated
-   */
-  EAttribute getExpression_AccessedField();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getIfLogicExp <em>If Logic Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>If Logic Exp</em>'.
-   * @see org.xtext.example.mydsl.exTwentyOne.Expression#getIfLogicExp()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_IfLogicExp();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getThenExp <em>Then Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Then Exp</em>'.
-   * @see org.xtext.example.mydsl.exTwentyOne.Expression#getThenExp()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_ThenExp();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getElseExp <em>Else Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Else Exp</em>'.
-   * @see org.xtext.example.mydsl.exTwentyOne.Expression#getElseExp()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_ElseExp();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.exTwentyOne.Expression#getName()
-   * @see #getExpression()
-   * @generated
-   */
-  EAttribute getExpression_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getBinding <em>Binding</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Binding</em>'.
-   * @see org.xtext.example.mydsl.exTwentyOne.Expression#getBinding()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_Binding();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getBody <em>Body</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Body</em>'.
-   * @see org.xtext.example.mydsl.exTwentyOne.Expression#getBody()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_Body();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.NewInput <em>New Input</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1775,6 +1384,124 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   EReference getDivide_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.DataAccess <em>Data Access</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Data Access</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.DataAccess
+   * @generated
+   */
+  EClass getDataAccess();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.DataAccess#getAccessedData <em>Accessed Data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Accessed Data</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.DataAccess#getAccessedData()
+   * @see #getDataAccess()
+   * @generated
+   */
+  EAttribute getDataAccess_AccessedData();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.DataAccess#getAccessedField <em>Accessed Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Accessed Field</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.DataAccess#getAccessedField()
+   * @see #getDataAccess()
+   * @generated
+   */
+  EAttribute getDataAccess_AccessedField();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.IfThenElse <em>If Then Else</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Then Else</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.IfThenElse
+   * @generated
+   */
+  EClass getIfThenElse();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.IfThenElse#getIfLogicExp <em>If Logic Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>If Logic Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.IfThenElse#getIfLogicExp()
+   * @see #getIfThenElse()
+   * @generated
+   */
+  EReference getIfThenElse_IfLogicExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.IfThenElse#getThenExp <em>Then Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Then Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.IfThenElse#getThenExp()
+   * @see #getIfThenElse()
+   * @generated
+   */
+  EReference getIfThenElse_ThenExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.IfThenElse#getElseExp <em>Else Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.IfThenElse#getElseExp()
+   * @see #getIfThenElse()
+   * @generated
+   */
+  EReference getIfThenElse_ElseExp();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.LetBinding <em>Let Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Let Binding</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.LetBinding
+   * @generated
+   */
+  EClass getLetBinding();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.LetBinding#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.LetBinding#getName()
+   * @see #getLetBinding()
+   * @generated
+   */
+  EAttribute getLetBinding_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.LetBinding#getBinding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Binding</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.LetBinding#getBinding()
+   * @see #getLetBinding()
+   * @generated
+   */
+  EReference getLetBinding_Binding();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.LetBinding#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.LetBinding#getBody()
+   * @see #getLetBinding()
+   * @generated
+   */
+  EReference getLetBinding_Body();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2074,70 +1801,6 @@ public interface ExTwentyOnePackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
-     * The meta object literal for the '<em><b>Accessed Data</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPRESSION__ACCESSED_DATA = eINSTANCE.getExpression_AccessedData();
-
-    /**
-     * The meta object literal for the '<em><b>Accessed Field</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPRESSION__ACCESSED_FIELD = eINSTANCE.getExpression_AccessedField();
-
-    /**
-     * The meta object literal for the '<em><b>If Logic Exp</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__IF_LOGIC_EXP = eINSTANCE.getExpression_IfLogicExp();
-
-    /**
-     * The meta object literal for the '<em><b>Then Exp</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__THEN_EXP = eINSTANCE.getExpression_ThenExp();
-
-    /**
-     * The meta object literal for the '<em><b>Else Exp</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__ELSE_EXP = eINSTANCE.getExpression_ElseExp();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPRESSION__NAME = eINSTANCE.getExpression_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__BINDING = eINSTANCE.getExpression_Binding();
-
-    /**
-     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__BODY = eINSTANCE.getExpression_Body();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.NewInputImpl <em>New Input</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2300,6 +1963,100 @@ public interface ExTwentyOnePackage extends EPackage
      * @generated
      */
     EReference DIVIDE__RIGHT = eINSTANCE.getDivide_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.DataAccessImpl <em>Data Access</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.DataAccessImpl
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getDataAccess()
+     * @generated
+     */
+    EClass DATA_ACCESS = eINSTANCE.getDataAccess();
+
+    /**
+     * The meta object literal for the '<em><b>Accessed Data</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_ACCESS__ACCESSED_DATA = eINSTANCE.getDataAccess_AccessedData();
+
+    /**
+     * The meta object literal for the '<em><b>Accessed Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_ACCESS__ACCESSED_FIELD = eINSTANCE.getDataAccess_AccessedField();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.IfThenElseImpl <em>If Then Else</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.IfThenElseImpl
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getIfThenElse()
+     * @generated
+     */
+    EClass IF_THEN_ELSE = eINSTANCE.getIfThenElse();
+
+    /**
+     * The meta object literal for the '<em><b>If Logic Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_THEN_ELSE__IF_LOGIC_EXP = eINSTANCE.getIfThenElse_IfLogicExp();
+
+    /**
+     * The meta object literal for the '<em><b>Then Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_THEN_ELSE__THEN_EXP = eINSTANCE.getIfThenElse_ThenExp();
+
+    /**
+     * The meta object literal for the '<em><b>Else Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_THEN_ELSE__ELSE_EXP = eINSTANCE.getIfThenElse_ElseExp();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.LetBindingImpl <em>Let Binding</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.LetBindingImpl
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getLetBinding()
+     * @generated
+     */
+    EClass LET_BINDING = eINSTANCE.getLetBinding();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LET_BINDING__NAME = eINSTANCE.getLetBinding_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_BINDING__BINDING = eINSTANCE.getLetBinding_Binding();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_BINDING__BODY = eINSTANCE.getLetBinding_Body();
 
   }
 

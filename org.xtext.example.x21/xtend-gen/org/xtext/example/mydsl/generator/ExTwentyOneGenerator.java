@@ -4,17 +4,26 @@
 package org.xtext.example.mydsl.generator;
 
 import com.google.common.collect.Iterators;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.xtext.example.mydsl.exTwentyOne.DataAccess;
 import org.xtext.example.mydsl.exTwentyOne.Declaration;
+import org.xtext.example.mydsl.exTwentyOne.Expression;
 import org.xtext.example.mydsl.exTwentyOne.Function;
+import org.xtext.example.mydsl.exTwentyOne.IfThenElse;
+import org.xtext.example.mydsl.exTwentyOne.LetBinding;
+import org.xtext.example.mydsl.exTwentyOne.LogicExp;
+import org.xtext.example.mydsl.exTwentyOne.Minus;
+import org.xtext.example.mydsl.exTwentyOne.NewInput;
+import org.xtext.example.mydsl.exTwentyOne.Plus;
 import org.xtext.example.mydsl.exTwentyOne.Program;
 
 /**
@@ -55,8 +64,8 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
       _builder.newLine();
       {
         List<Declaration> _filterDeclarations = ExTwentyOneGenerator.filterDeclarations(program.getDeclarations(), Function.class);
-        for(final Function function : ((ArrayList<Function>) _filterDeclarations)) {
-          CharSequence _compileFunction = ExTwentyOneGenerator.compileFunction(function);
+        for(final Declaration function : _filterDeclarations) {
+          CharSequence _compileFunction = ExTwentyOneGenerator.compileFunction(((Function) function));
           _builder.append(_compileFunction);
           _builder.newLineIfNotEmpty();
         }
@@ -64,15 +73,14 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
       _builder.newLine();
       _builder.append("// Code for node add1node");
       _builder.newLine();
-      _builder.append("private ComputeNode <Object,Object> node_add1node = new AbstractComputeNode<Object,Object>() {");
-      _builder.newLine();
-      _builder.append("protected Object function(Object input) {");
-      _builder.newLine();
-      _builder.append("return fun_add1(input);");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("};");
+      {
+        List<Declaration> _filterDeclarations_1 = ExTwentyOneGenerator.filterDeclarations(program.getDeclarations(), Function.class);
+        for(final Declaration function_1 : _filterDeclarations_1) {
+          CharSequence _compileFunction_1 = ExTwentyOneGenerator.compileFunction(((Function) function_1));
+          _builder.append(_compileFunction_1);
+          _builder.newLineIfNotEmpty();
+        }
+      }
       _builder.newLine();
       _builder.append("...");
       _builder.newLine();
@@ -134,13 +142,62 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
     _builder.append("(Integer _");
     String _name_3 = function.getLambda().getName();
     _builder.append(_name_3);
-    _builder.append("){ return ((_x)+(1)); }");
+    _builder.append("){ return (");
+    String _compileExpression = ExTwentyOneGenerator.compileExpression(function.getLambda().getLambdaExp());
+    _builder.append(_compileExpression);
+    _builder.append("); }");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  protected static Object _compileExpression(final /* Primary */Object primary) {
-    return null;
+  public static CharSequence compileNode(final /* Node */Object node) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("private ComputeNode <Object,Object> node_add1node = new AbstractComputeNode<Object,Object>() {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("protected Object function(Object input) {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("return fun_add1(input);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("};");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected static String _compileExpression(final Plus exp) {
+    return "Plus!";
+  }
+  
+  protected static String _compileExpression(final Minus exp) {
+    return "Minus!";
+  }
+  
+  protected static String _compileExpression(final LetBinding exp) {
+    return "LetBinding!";
+  }
+  
+  protected static String _compileExpression(final IfThenElse exp) {
+    return "IfThenElse!";
+  }
+  
+  protected static String _compileExpression(final LogicExp exp) {
+    return "LogicExp!";
+  }
+  
+  protected static String _compileExpression(final DataAccess exp) {
+    return "DataAccess!";
+  }
+  
+  protected static String _compileExpression(final NewInput exp) {
+    return "NewInput!";
+  }
+  
+  protected static String _compileExpression(final Expression exp) {
+    return "Expression!";
   }
   
   public static String toUpper(final String it) {
@@ -154,7 +211,26 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
     return declarations.stream().filter(_function).collect(Collectors.<Declaration>toList());
   }
   
-  public static Object compileExpression(final Primary primary) {
-    return _compileExpression(primary);
+  public static String compileExpression(final EObject exp) {
+    if (exp instanceof DataAccess) {
+      return _compileExpression((DataAccess)exp);
+    } else if (exp instanceof IfThenElse) {
+      return _compileExpression((IfThenElse)exp);
+    } else if (exp instanceof LetBinding) {
+      return _compileExpression((LetBinding)exp);
+    } else if (exp instanceof Minus) {
+      return _compileExpression((Minus)exp);
+    } else if (exp instanceof NewInput) {
+      return _compileExpression((NewInput)exp);
+    } else if (exp instanceof Plus) {
+      return _compileExpression((Plus)exp);
+    } else if (exp instanceof Expression) {
+      return _compileExpression((Expression)exp);
+    } else if (exp instanceof LogicExp) {
+      return _compileExpression((LogicExp)exp);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(exp).toString());
+    }
   }
 }

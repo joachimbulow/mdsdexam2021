@@ -64,19 +64,19 @@ Primary returns Expression:
 ;
 
 DataAccess returns Expression:
-	 accessedData=ID '.' accessedField=ID
+	{DataAccess} accessedData=ID '.' accessedField=ID
 ;
 
 IfThenElse returns Expression:
- 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'	
+ {IfThenElse} 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'	
 ;
 
 NewInput:
-	'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'
+	{NewInput} 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'
 ;
 
 LetBinding returns Expression:
-	'let' name=ID '=' binding=Exp 'in' body=Exp 'end'
+	{LetBinding} 'let' name=ID '=' binding=Exp 'in' body=Exp 'end'
 ;
 
 LogicExp: 

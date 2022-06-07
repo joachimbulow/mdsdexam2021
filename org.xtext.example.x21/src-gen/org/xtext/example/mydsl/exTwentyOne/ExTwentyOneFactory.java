@@ -195,6 +195,33 @@ public interface ExTwentyOneFactory extends EFactory
   Divide createDivide();
 
   /**
+   * Returns a new object of class '<em>Data Access</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Access</em>'.
+   * @generated
+   */
+  DataAccess createDataAccess();
+
+  /**
+   * Returns a new object of class '<em>If Then Else</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Then Else</em>'.
+   * @generated
+   */
+  IfThenElse createIfThenElse();
+
+  /**
+   * Returns a new object of class '<em>Let Binding</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Let Binding</em>'.
+   * @generated
+   */
+  LetBinding createLetBinding();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
