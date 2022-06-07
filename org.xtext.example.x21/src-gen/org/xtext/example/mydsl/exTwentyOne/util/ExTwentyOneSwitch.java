@@ -107,9 +107,7 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
       {
         Lambda lambda = (Lambda)theEObject;
         T result = caseLambda(lambda);
-        if (result == null) result = caseNode(lambda);
         if (result == null) result = caseElement(lambda);
-        if (result == null) result = caseDeclaration(lambda);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

@@ -1,0 +1,53 @@
+grammar org.xtext.example.mydsl.ExTwentyOne with org.eclipse.xtext.common.Terminals
+
+generate exTwentyOne "http://www.xtext.org/example/mydsl/ExTwentyOne"
+
+Program: 'program' name=ID (declarations+=Declaration)*
+;
+
+Declaration: 
+	Function | Input | Node | Stream | DataDecl | Parameter
+;
+
+Parameter: 
+	'parameter' name=ID ':' Type
+;
+
+Function: 
+	'function' name=ID lambda=Lambda	
+;
+
+Lambda:
+	'(' name=ID ':' Type ')' '{' Exp '}'
+;
+
+Input:
+	'input' name=ID ':' Type
+;
+
+Node:
+	'node' name=ID '[' (function = [Function] | lambda = Lambda) ']'
+;
+
+Stream:
+	'stream' (inputs+=[Input] | inputs+=[Node]) (',' inputs+=[Input])* ('to' elements+=Element (',' elements+=Element)* )+
+;
+
+Element: 
+	element=ID | '[' (node=[Node] | Lambda) ']' | 'output' output=ID
+;
+
+DataDecl:
+	'data' name=ID '{' data+=ID ':' Type (',' data+=ID ':' Type)* '}'
+;
+
+
+Type: 
+	'int' | 'string' | ID
+;
+
+Exp: INT '+' INT;
+
+LogicExp: 
+	Exp ('=' | '<' | '>' | '<=' | '>=') Exp
+;

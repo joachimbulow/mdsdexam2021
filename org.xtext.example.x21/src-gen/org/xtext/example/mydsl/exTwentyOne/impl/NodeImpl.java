@@ -4,6 +4,7 @@
 package org.xtext.example.mydsl.exTwentyOne.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
+import org.xtext.example.mydsl.exTwentyOne.Function;
 import org.xtext.example.mydsl.exTwentyOne.Lambda;
 import org.xtext.example.mydsl.exTwentyOne.Node;
 
@@ -23,6 +25,7 @@ import org.xtext.example.mydsl.exTwentyOne.Node;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.NodeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.NodeImpl#getFunction <em>Function</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.NodeImpl#getLambda <em>Lambda</em>}</li>
  * </ul>
  *
@@ -51,7 +54,17 @@ public class NodeImpl extends DeclarationImpl implements Node
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getLambda() <em>Lambda</em>}' reference.
+   * The cached value of the '{@link #getFunction() <em>Function</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunction()
+   * @generated
+   * @ordered
+   */
+  protected Function function;
+
+  /**
+   * The cached value of the '{@link #getLambda() <em>Lambda</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getLambda()
@@ -112,18 +125,53 @@ public class NodeImpl extends DeclarationImpl implements Node
    * @generated
    */
   @Override
-  public Lambda getLambda()
+  public Function getFunction()
   {
-    if (lambda != null && lambda.eIsProxy())
+    if (function != null && function.eIsProxy())
     {
-      InternalEObject oldLambda = (InternalEObject)lambda;
-      lambda = (Lambda)eResolveProxy(oldLambda);
-      if (lambda != oldLambda)
+      InternalEObject oldFunction = (InternalEObject)function;
+      function = (Function)eResolveProxy(oldFunction);
+      if (function != oldFunction)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExTwentyOnePackage.NODE__LAMBDA, oldLambda, lambda));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExTwentyOnePackage.NODE__FUNCTION, oldFunction, function));
       }
     }
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Function basicGetFunction()
+  {
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFunction(Function newFunction)
+  {
+    Function oldFunction = function;
+    function = newFunction;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.NODE__FUNCTION, oldFunction, function));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Lambda getLambda()
+  {
     return lambda;
   }
 
@@ -132,9 +180,16 @@ public class NodeImpl extends DeclarationImpl implements Node
    * <!-- end-user-doc -->
    * @generated
    */
-  public Lambda basicGetLambda()
+  public NotificationChain basicSetLambda(Lambda newLambda, NotificationChain msgs)
   {
-    return lambda;
+    Lambda oldLambda = lambda;
+    lambda = newLambda;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.NODE__LAMBDA, oldLambda, newLambda);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -145,10 +200,34 @@ public class NodeImpl extends DeclarationImpl implements Node
   @Override
   public void setLambda(Lambda newLambda)
   {
-    Lambda oldLambda = lambda;
-    lambda = newLambda;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.NODE__LAMBDA, oldLambda, lambda));
+    if (newLambda != lambda)
+    {
+      NotificationChain msgs = null;
+      if (lambda != null)
+        msgs = ((InternalEObject)lambda).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExTwentyOnePackage.NODE__LAMBDA, null, msgs);
+      if (newLambda != null)
+        msgs = ((InternalEObject)newLambda).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExTwentyOnePackage.NODE__LAMBDA, null, msgs);
+      msgs = basicSetLambda(newLambda, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.NODE__LAMBDA, newLambda, newLambda));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case ExTwentyOnePackage.NODE__LAMBDA:
+        return basicSetLambda(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -163,9 +242,11 @@ public class NodeImpl extends DeclarationImpl implements Node
     {
       case ExTwentyOnePackage.NODE__NAME:
         return getName();
+      case ExTwentyOnePackage.NODE__FUNCTION:
+        if (resolve) return getFunction();
+        return basicGetFunction();
       case ExTwentyOnePackage.NODE__LAMBDA:
-        if (resolve) return getLambda();
-        return basicGetLambda();
+        return getLambda();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -182,6 +263,9 @@ public class NodeImpl extends DeclarationImpl implements Node
     {
       case ExTwentyOnePackage.NODE__NAME:
         setName((String)newValue);
+        return;
+      case ExTwentyOnePackage.NODE__FUNCTION:
+        setFunction((Function)newValue);
         return;
       case ExTwentyOnePackage.NODE__LAMBDA:
         setLambda((Lambda)newValue);
@@ -203,6 +287,9 @@ public class NodeImpl extends DeclarationImpl implements Node
       case ExTwentyOnePackage.NODE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case ExTwentyOnePackage.NODE__FUNCTION:
+        setFunction((Function)null);
+        return;
       case ExTwentyOnePackage.NODE__LAMBDA:
         setLambda((Lambda)null);
         return;
@@ -222,6 +309,8 @@ public class NodeImpl extends DeclarationImpl implements Node
     {
       case ExTwentyOnePackage.NODE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case ExTwentyOnePackage.NODE__FUNCTION:
+        return function != null;
       case ExTwentyOnePackage.NODE__LAMBDA:
         return lambda != null;
     }

@@ -148,9 +148,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Declaration returns Lambda
 	 *     Lambda returns Lambda
-	 *     Node returns Lambda
 	 *     Element returns Lambda
 	 *
 	 * Constraint:
@@ -159,8 +157,8 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 */
 	protected void sequence_Lambda(ISerializationContext context, Lambda semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.NODE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.NODE__NAME));
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.LAMBDA__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.LAMBDA__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLambdaAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
@@ -175,20 +173,11 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Node returns Node
 	 *
 	 * Constraint:
-	 *     (name=ID lambda=[Lambda|ID])
+	 *     (name=ID (function=[Function|ID] | lambda=Lambda))
 	 * </pre>
 	 */
 	protected void sequence_Node(ISerializationContext context, Node semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.NODE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.NODE__NAME));
-			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.NODE__LAMBDA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.NODE__LAMBDA));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNodeAccess().getNameIDTerminalRuleCall_0_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getNodeAccess().getLambdaLambdaIDTerminalRuleCall_0_3_0_1(), semanticObject.eGet(ExTwentyOnePackage.Literals.NODE__LAMBDA, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -234,7 +223,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Stream returns Stream
 	 *
 	 * Constraint:
-	 *     (inputs+=[Input|ID] inputs+=[Input|ID]* (elements+=[Element|ID] elements+=[Element|ID]*)+)
+	 *     (inputs+=[Input|ID] | (inputs+=[Node|ID] (inputs+=[Input|ID] | inputs+=[Node|ID])* (elements+=Element elements+=Element*)+))
 	 * </pre>
 	 */
 	protected void sequence_Stream(ISerializationContext context, Stream semanticObject) {

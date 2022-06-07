@@ -6,14 +6,11 @@ package org.xtext.example.mydsl.exTwentyOne.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.mydsl.exTwentyOne.Element;
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
 import org.xtext.example.mydsl.exTwentyOne.Lambda;
-import org.xtext.example.mydsl.exTwentyOne.Node;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,64 +20,32 @@ import org.xtext.example.mydsl.exTwentyOne.Node;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl#getElement <em>Element</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl#getNode <em>Node</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl#getOutput <em>Output</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LambdaImpl extends NodeImpl implements Lambda
+public class LambdaImpl extends ElementImpl implements Lambda
 {
   /**
-   * The default value of the '{@link #getElement() <em>Element</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElement()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ELEMENT_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getElement() <em>Element</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElement()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String element = ELEMENT_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getNode() <em>Node</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNode()
-   * @generated
-   * @ordered
-   */
-  protected Node node;
-
-  /**
-   * The default value of the '{@link #getOutput() <em>Output</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOutput()
-   * @generated
-   * @ordered
-   */
-  protected static final String OUTPUT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOutput() <em>Output</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOutput()
-   * @generated
-   * @ordered
-   */
-  protected String output = OUTPUT_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -109,9 +74,9 @@ public class LambdaImpl extends NodeImpl implements Lambda
    * @generated
    */
   @Override
-  public String getElement()
+  public String getName()
   {
-    return element;
+    return name;
   }
 
   /**
@@ -120,82 +85,12 @@ public class LambdaImpl extends NodeImpl implements Lambda
    * @generated
    */
   @Override
-  public void setElement(String newElement)
+  public void setName(String newName)
   {
-    String oldElement = element;
-    element = newElement;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.LAMBDA__ELEMENT, oldElement, element));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Node getNode()
-  {
-    if (node != null && node.eIsProxy())
-    {
-      InternalEObject oldNode = (InternalEObject)node;
-      node = (Node)eResolveProxy(oldNode);
-      if (node != oldNode)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExTwentyOnePackage.LAMBDA__NODE, oldNode, node));
-      }
-    }
-    return node;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Node basicGetNode()
-  {
-    return node;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setNode(Node newNode)
-  {
-    Node oldNode = node;
-    node = newNode;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.LAMBDA__NODE, oldNode, node));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getOutput()
-  {
-    return output;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setOutput(String newOutput)
-  {
-    String oldOutput = output;
-    output = newOutput;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.LAMBDA__OUTPUT, oldOutput, output));
+      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.LAMBDA__NAME, oldName, name));
   }
 
   /**
@@ -208,13 +103,8 @@ public class LambdaImpl extends NodeImpl implements Lambda
   {
     switch (featureID)
     {
-      case ExTwentyOnePackage.LAMBDA__ELEMENT:
-        return getElement();
-      case ExTwentyOnePackage.LAMBDA__NODE:
-        if (resolve) return getNode();
-        return basicGetNode();
-      case ExTwentyOnePackage.LAMBDA__OUTPUT:
-        return getOutput();
+      case ExTwentyOnePackage.LAMBDA__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -229,14 +119,8 @@ public class LambdaImpl extends NodeImpl implements Lambda
   {
     switch (featureID)
     {
-      case ExTwentyOnePackage.LAMBDA__ELEMENT:
-        setElement((String)newValue);
-        return;
-      case ExTwentyOnePackage.LAMBDA__NODE:
-        setNode((Node)newValue);
-        return;
-      case ExTwentyOnePackage.LAMBDA__OUTPUT:
-        setOutput((String)newValue);
+      case ExTwentyOnePackage.LAMBDA__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -252,14 +136,8 @@ public class LambdaImpl extends NodeImpl implements Lambda
   {
     switch (featureID)
     {
-      case ExTwentyOnePackage.LAMBDA__ELEMENT:
-        setElement(ELEMENT_EDEFAULT);
-        return;
-      case ExTwentyOnePackage.LAMBDA__NODE:
-        setNode((Node)null);
-        return;
-      case ExTwentyOnePackage.LAMBDA__OUTPUT:
-        setOutput(OUTPUT_EDEFAULT);
+      case ExTwentyOnePackage.LAMBDA__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -275,56 +153,10 @@ public class LambdaImpl extends NodeImpl implements Lambda
   {
     switch (featureID)
     {
-      case ExTwentyOnePackage.LAMBDA__ELEMENT:
-        return ELEMENT_EDEFAULT == null ? element != null : !ELEMENT_EDEFAULT.equals(element);
-      case ExTwentyOnePackage.LAMBDA__NODE:
-        return node != null;
-      case ExTwentyOnePackage.LAMBDA__OUTPUT:
-        return OUTPUT_EDEFAULT == null ? output != null : !OUTPUT_EDEFAULT.equals(output);
+      case ExTwentyOnePackage.LAMBDA__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == Element.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case ExTwentyOnePackage.LAMBDA__ELEMENT: return ExTwentyOnePackage.ELEMENT__ELEMENT;
-        case ExTwentyOnePackage.LAMBDA__NODE: return ExTwentyOnePackage.ELEMENT__NODE;
-        case ExTwentyOnePackage.LAMBDA__OUTPUT: return ExTwentyOnePackage.ELEMENT__OUTPUT;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == Element.class)
-    {
-      switch (baseFeatureID)
-      {
-        case ExTwentyOnePackage.ELEMENT__ELEMENT: return ExTwentyOnePackage.LAMBDA__ELEMENT;
-        case ExTwentyOnePackage.ELEMENT__NODE: return ExTwentyOnePackage.LAMBDA__NODE;
-        case ExTwentyOnePackage.ELEMENT__OUTPUT: return ExTwentyOnePackage.LAMBDA__OUTPUT;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -338,10 +170,8 @@ public class LambdaImpl extends NodeImpl implements Lambda
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (element: ");
-    result.append(element);
-    result.append(", output: ");
-    result.append(output);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

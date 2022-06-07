@@ -26,7 +26,7 @@ public interface Stream extends Declaration
 {
   /**
    * Returns the value of the '<em><b>Inputs</b></em>' reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.exTwentyOne.Input}.
+   * The list contents are of type {@link org.xtext.example.mydsl.exTwentyOne.Declaration}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Inputs</em>' reference list.
@@ -34,16 +34,16 @@ public interface Stream extends Declaration
    * @model
    * @generated
    */
-  EList<Input> getInputs();
+  EList<Declaration> getInputs();
 
   /**
-   * Returns the value of the '<em><b>Elements</b></em>' reference list.
+   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.mydsl.exTwentyOne.Element}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Elements</em>' reference list.
+   * @return the value of the '<em>Elements</em>' containment reference list.
    * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getStream_Elements()
-   * @model
+   * @model containment="true"
    * @generated
    */
   EList<Element> getElements();

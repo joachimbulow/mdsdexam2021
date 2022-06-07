@@ -5,15 +5,20 @@ package org.xtext.example.mydsl.exTwentyOne.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.mydsl.exTwentyOne.Declaration;
 import org.xtext.example.mydsl.exTwentyOne.Element;
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
-import org.xtext.example.mydsl.exTwentyOne.Input;
 import org.xtext.example.mydsl.exTwentyOne.Stream;
 
 /**
@@ -40,10 +45,10 @@ public class StreamImpl extends DeclarationImpl implements Stream
    * @generated
    * @ordered
    */
-  protected EList<Input> inputs;
+  protected EList<Declaration> inputs;
 
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getElements()
@@ -79,11 +84,11 @@ public class StreamImpl extends DeclarationImpl implements Stream
    * @generated
    */
   @Override
-  public EList<Input> getInputs()
+  public EList<Declaration> getInputs()
   {
     if (inputs == null)
     {
-      inputs = new EObjectResolvingEList<Input>(Input.class, this, ExTwentyOnePackage.STREAM__INPUTS);
+      inputs = new EObjectResolvingEList<Declaration>(Declaration.class, this, ExTwentyOnePackage.STREAM__INPUTS);
     }
     return inputs;
   }
@@ -98,9 +103,25 @@ public class StreamImpl extends DeclarationImpl implements Stream
   {
     if (elements == null)
     {
-      elements = new EObjectResolvingEList<Element>(Element.class, this, ExTwentyOnePackage.STREAM__ELEMENTS);
+      elements = new EObjectContainmentEList<Element>(Element.class, this, ExTwentyOnePackage.STREAM__ELEMENTS);
     }
     return elements;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case ExTwentyOnePackage.STREAM__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -134,7 +155,7 @@ public class StreamImpl extends DeclarationImpl implements Stream
     {
       case ExTwentyOnePackage.STREAM__INPUTS:
         getInputs().clear();
-        getInputs().addAll((Collection<? extends Input>)newValue);
+        getInputs().addAll((Collection<? extends Declaration>)newValue);
         return;
       case ExTwentyOnePackage.STREAM__ELEMENTS:
         getElements().clear();

@@ -18,17 +18,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Function/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Function/lambda"/>
     </genClasses>
-    <genClasses ecoreClass="ExTwentyOne.ecore#//Lambda"/>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Lambda">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Lambda/name"/>
+    </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Input">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Input/name"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Node">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Node/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Node/lambda"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Node/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Node/lambda"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Stream">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Stream/inputs"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Stream/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Stream/elements"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Element">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Element/element"/>

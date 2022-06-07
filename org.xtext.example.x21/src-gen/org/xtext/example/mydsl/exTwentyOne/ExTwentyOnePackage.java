@@ -179,172 +179,6 @@ public interface ExTwentyOnePackage extends EPackage
   int FUNCTION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.NodeImpl <em>Node</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.exTwentyOne.impl.NodeImpl
-   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getNode()
-   * @generated
-   */
-  int NODE = 6;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NODE__NAME = DECLARATION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Lambda</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NODE__LAMBDA = DECLARATION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Node</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NODE_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl <em>Lambda</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl
-   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getLambda()
-   * @generated
-   */
-  int LAMBDA = 4;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAMBDA__NAME = NODE__NAME;
-
-  /**
-   * The feature id for the '<em><b>Lambda</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAMBDA__LAMBDA = NODE__LAMBDA;
-
-  /**
-   * The feature id for the '<em><b>Element</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAMBDA__ELEMENT = NODE_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Node</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAMBDA__NODE = NODE_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Output</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAMBDA__OUTPUT = NODE_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Lambda</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAMBDA_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.InputImpl <em>Input</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.exTwentyOne.impl.InputImpl
-   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getInput()
-   * @generated
-   */
-  int INPUT = 5;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT__NAME = DECLARATION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Input</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.StreamImpl <em>Stream</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.exTwentyOne.impl.StreamImpl
-   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getStream()
-   * @generated
-   */
-  int STREAM = 7;
-
-  /**
-   * The feature id for the '<em><b>Inputs</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STREAM__INPUTS = DECLARATION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STREAM__ELEMENTS = DECLARATION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Stream</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STREAM_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.ElementImpl <em>Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -389,6 +223,172 @@ public interface ExTwentyOnePackage extends EPackage
    * @ordered
    */
   int ELEMENT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl <em>Lambda</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getLambda()
+   * @generated
+   */
+  int LAMBDA = 4;
+
+  /**
+   * The feature id for the '<em><b>Element</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA__ELEMENT = ELEMENT__ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Node</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA__NODE = ELEMENT__NODE;
+
+  /**
+   * The feature id for the '<em><b>Output</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA__OUTPUT = ELEMENT__OUTPUT;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA__NAME = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Lambda</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.InputImpl <em>Input</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.InputImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getInput()
+   * @generated
+   */
+  int INPUT = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__NAME = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Input</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.NodeImpl <em>Node</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.NodeImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getNode()
+   * @generated
+   */
+  int NODE = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE__NAME = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Function</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE__FUNCTION = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Lambda</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE__LAMBDA = DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Node</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.StreamImpl <em>Stream</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.StreamImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getStream()
+   * @generated
+   */
+  int STREAM = 7;
+
+  /**
+   * The feature id for the '<em><b>Inputs</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STREAM__INPUTS = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STREAM__ELEMENTS = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Stream</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STREAM_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.DataDeclImpl <em>Data Decl</em>}' class.
@@ -534,6 +534,17 @@ public interface ExTwentyOnePackage extends EPackage
   EClass getLambda();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Lambda#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Lambda#getName()
+   * @see #getLambda()
+   * @generated
+   */
+  EAttribute getLambda_Name();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.Input <em>Input</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -576,10 +587,21 @@ public interface ExTwentyOnePackage extends EPackage
   EAttribute getNode_Name();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.example.mydsl.exTwentyOne.Node#getLambda <em>Lambda</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.example.mydsl.exTwentyOne.Node#getFunction <em>Function</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Lambda</em>'.
+   * @return the meta object for the reference '<em>Function</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Node#getFunction()
+   * @see #getNode()
+   * @generated
+   */
+  EReference getNode_Function();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Node#getLambda <em>Lambda</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lambda</em>'.
    * @see org.xtext.example.mydsl.exTwentyOne.Node#getLambda()
    * @see #getNode()
    * @generated
@@ -608,10 +630,10 @@ public interface ExTwentyOnePackage extends EPackage
   EReference getStream_Inputs();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.example.mydsl.exTwentyOne.Stream#getElements <em>Elements</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.exTwentyOne.Stream#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Elements</em>'.
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
    * @see org.xtext.example.mydsl.exTwentyOne.Stream#getElements()
    * @see #getStream()
    * @generated
@@ -807,6 +829,14 @@ public interface ExTwentyOnePackage extends EPackage
     EClass LAMBDA = eINSTANCE.getLambda();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAMBDA__NAME = eINSTANCE.getLambda_Name();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.InputImpl <em>Input</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -843,7 +873,15 @@ public interface ExTwentyOnePackage extends EPackage
     EAttribute NODE__NAME = eINSTANCE.getNode_Name();
 
     /**
-     * The meta object literal for the '<em><b>Lambda</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Function</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NODE__FUNCTION = eINSTANCE.getNode_Function();
+
+    /**
+     * The meta object literal for the '<em><b>Lambda</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -869,7 +907,7 @@ public interface ExTwentyOnePackage extends EPackage
     EReference STREAM__INPUTS = eINSTANCE.getStream_Inputs();
 
     /**
-     * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
