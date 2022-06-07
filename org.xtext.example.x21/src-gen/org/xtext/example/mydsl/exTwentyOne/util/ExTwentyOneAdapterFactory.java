@@ -131,6 +131,16 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
         return createInputOrNodeAdapter();
       }
       @Override
+      public Adapter caseExp(Exp object)
+      {
+        return createExpAdapter();
+      }
+      @Override
+      public Adapter caseLogicExp(LogicExp object)
+      {
+        return createLogicExpAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -313,6 +323,36 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInputOrNodeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.Exp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp
+   * @generated
+   */
+  public Adapter createExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.LogicExp <em>Logic Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.LogicExp
+   * @generated
+   */
+  public Adapter createLogicExpAdapter()
   {
     return null;
   }

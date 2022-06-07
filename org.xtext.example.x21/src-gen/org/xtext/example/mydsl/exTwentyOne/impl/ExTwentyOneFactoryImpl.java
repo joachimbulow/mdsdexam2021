@@ -76,6 +76,8 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
       case ExTwentyOnePackage.ELEMENT: return createElement();
       case ExTwentyOnePackage.DATA_DECL: return createDataDecl();
       case ExTwentyOnePackage.INPUT_OR_NODE: return createInputOrNode();
+      case ExTwentyOnePackage.EXP: return createExp();
+      case ExTwentyOnePackage.LOGIC_EXP: return createLogicExp();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -211,6 +213,30 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
   {
     InputOrNodeImpl inputOrNode = new InputOrNodeImpl();
     return inputOrNode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Exp createExp()
+  {
+    ExpImpl exp = new ExpImpl();
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LogicExp createLogicExp()
+  {
+    LogicExpImpl logicExp = new LogicExpImpl();
+    return logicExp;
   }
 
   /**

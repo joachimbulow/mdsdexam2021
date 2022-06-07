@@ -10,6 +10,10 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.example.mydsl.services.ExTwentyOneGrammarAccess;
@@ -18,28 +22,32 @@ import org.xtext.example.mydsl.services.ExTwentyOneGrammarAccess;
 public class ExTwentyOneSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected ExTwentyOneGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Exp_NoneKeyword_2_1_7_or___IDTerminalRuleCall_2_1_6_0___FullStopKeyword_2_1_6_1_0_IDTerminalRuleCall_2_1_6_1_1__a__;
+	protected AbstractElementAlias match_LogicExp_EqualsSignKeyword_1_0_or_GreaterThanSignEqualsSignKeyword_1_4_or_GreaterThanSignKeyword_1_2_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (ExTwentyOneGrammarAccess) access;
+		match_Exp_NoneKeyword_2_1_7_or___IDTerminalRuleCall_2_1_6_0___FullStopKeyword_2_1_6_1_0_IDTerminalRuleCall_2_1_6_1_1__a__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getExpAccess().getIDTerminalRuleCall_2_1_6_0()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getExpAccess().getFullStopKeyword_2_1_6_1_0()), new TokenAlias(false, false, grammarAccess.getExpAccess().getIDTerminalRuleCall_2_1_6_1_1()))), new TokenAlias(false, false, grammarAccess.getExpAccess().getNoneKeyword_2_1_7()));
+		match_LogicExp_EqualsSignKeyword_1_0_or_GreaterThanSignEqualsSignKeyword_1_4_or_GreaterThanSignKeyword_1_2_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getLogicExpAccess().getEqualsSignKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getLogicExpAccess().getGreaterThanSignEqualsSignKeyword_1_4()), new TokenAlias(false, false, grammarAccess.getLogicExpAccess().getGreaterThanSignKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getLogicExpAccess().getLessThanSignEqualsSignKeyword_1_3()), new TokenAlias(false, false, grammarAccess.getLogicExpAccess().getLessThanSignKeyword_1_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getExpRule())
-			return getExpToken(semanticObject, ruleCall, node);
+		if (ruleCall.getRule() == grammarAccess.getIDRule())
+			return getIDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getTypeRule())
 			return getTypeToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * Exp: INT '+' INT;
+	 * terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 	 */
-	protected String getExpToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getIDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "+";
+		return "";
 	}
 	
 	/**
@@ -59,8 +67,40 @@ public class ExTwentyOneSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_Exp_NoneKeyword_2_1_7_or___IDTerminalRuleCall_2_1_6_0___FullStopKeyword_2_1_6_1_0_IDTerminalRuleCall_2_1_6_1_1__a__.equals(syntax))
+				emit_Exp_NoneKeyword_2_1_7_or___IDTerminalRuleCall_2_1_6_0___FullStopKeyword_2_1_6_1_0_IDTerminalRuleCall_2_1_6_1_1__a__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_LogicExp_EqualsSignKeyword_1_0_or_GreaterThanSignEqualsSignKeyword_1_4_or_GreaterThanSignKeyword_1_2_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_1.equals(syntax))
+				emit_LogicExp_EqualsSignKeyword_1_0_or_GreaterThanSignEqualsSignKeyword_1_4_or_GreaterThanSignKeyword_1_2_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     (ID ('.' ID)*) | 'none'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     left=Type (ambiguity) (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Exp_NoneKeyword_2_1_7_or___IDTerminalRuleCall_2_1_6_0___FullStopKeyword_2_1_6_1_0_IDTerminalRuleCall_2_1_6_1_1__a__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     '=' | '&lt;' | '&gt;' | '&lt;=' | '&gt;='
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     leftLogic=Exp (ambiguity) rightLogic=Exp
+	 
+	 * </pre>
+	 */
+	protected void emit_LogicExp_EqualsSignKeyword_1_0_or_GreaterThanSignEqualsSignKeyword_1_4_or_GreaterThanSignKeyword_1_2_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

@@ -18,7 +18,7 @@ Function:
 ;
 
 Lambda:
-	{Lambda} '(' name=ID ':' Type ')' '{' Exp '}'
+	{Lambda} '(' name=ID ':' Type ')' '{' lambdaExp=Exp '}'
 ;
 
 Input:
@@ -46,11 +46,15 @@ Type:
 ;
 
 InputOrNode:
-	Input | Node
+	{InputOrNode} input=Input | node=Node
 ;
 
-Exp: INT '+' INT;
+Exp: {Exp} Type (left=Type ('+' rightPlus=Exp | '-' rightMinus=Exp | '*' rightMultiply=Exp | '/' rightDivide=Exp
+| '(' inParenthesis=Exp ')' | 'let' letId=ID '=' letDefExp=Exp 'in' letTargetExp=Exp 'end'
+| ID ( '.' ID )* | 'none' | 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
+| 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'))
+;
 
 LogicExp: 
-	Exp ('=' | '<' | '>' | '<=' | '>=') Exp
+	leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp
 ;

@@ -3,22 +3,56 @@
  */
 package org.xtext.example.mydsl.exTwentyOne.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
+import org.xtext.example.mydsl.exTwentyOne.Input;
 import org.xtext.example.mydsl.exTwentyOne.InputOrNode;
+import org.xtext.example.mydsl.exTwentyOne.Node;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Input Or Node</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.InputOrNodeImpl#getInput <em>Input</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.InputOrNodeImpl#getNode <em>Node</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class InputOrNodeImpl extends MinimalEObjectImpl.Container implements InputOrNode
 {
+  /**
+   * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInput()
+   * @generated
+   * @ordered
+   */
+  protected Input input;
+
+  /**
+   * The cached value of the '{@link #getNode() <em>Node</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNode()
+   * @generated
+   * @ordered
+   */
+  protected Node node;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +72,200 @@ public class InputOrNodeImpl extends MinimalEObjectImpl.Container implements Inp
   protected EClass eStaticClass()
   {
     return ExTwentyOnePackage.Literals.INPUT_OR_NODE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Input getInput()
+  {
+    return input;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInput(Input newInput, NotificationChain msgs)
+  {
+    Input oldInput = input;
+    input = newInput;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.INPUT_OR_NODE__INPUT, oldInput, newInput);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setInput(Input newInput)
+  {
+    if (newInput != input)
+    {
+      NotificationChain msgs = null;
+      if (input != null)
+        msgs = ((InternalEObject)input).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExTwentyOnePackage.INPUT_OR_NODE__INPUT, null, msgs);
+      if (newInput != null)
+        msgs = ((InternalEObject)newInput).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExTwentyOnePackage.INPUT_OR_NODE__INPUT, null, msgs);
+      msgs = basicSetInput(newInput, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.INPUT_OR_NODE__INPUT, newInput, newInput));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Node getNode()
+  {
+    return node;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetNode(Node newNode, NotificationChain msgs)
+  {
+    Node oldNode = node;
+    node = newNode;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.INPUT_OR_NODE__NODE, oldNode, newNode);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setNode(Node newNode)
+  {
+    if (newNode != node)
+    {
+      NotificationChain msgs = null;
+      if (node != null)
+        msgs = ((InternalEObject)node).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExTwentyOnePackage.INPUT_OR_NODE__NODE, null, msgs);
+      if (newNode != null)
+        msgs = ((InternalEObject)newNode).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExTwentyOnePackage.INPUT_OR_NODE__NODE, null, msgs);
+      msgs = basicSetNode(newNode, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.INPUT_OR_NODE__NODE, newNode, newNode));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case ExTwentyOnePackage.INPUT_OR_NODE__INPUT:
+        return basicSetInput(null, msgs);
+      case ExTwentyOnePackage.INPUT_OR_NODE__NODE:
+        return basicSetNode(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case ExTwentyOnePackage.INPUT_OR_NODE__INPUT:
+        return getInput();
+      case ExTwentyOnePackage.INPUT_OR_NODE__NODE:
+        return getNode();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case ExTwentyOnePackage.INPUT_OR_NODE__INPUT:
+        setInput((Input)newValue);
+        return;
+      case ExTwentyOnePackage.INPUT_OR_NODE__NODE:
+        setNode((Node)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case ExTwentyOnePackage.INPUT_OR_NODE__INPUT:
+        setInput((Input)null);
+        return;
+      case ExTwentyOnePackage.INPUT_OR_NODE__NODE:
+        setNode((Node)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case ExTwentyOnePackage.INPUT_OR_NODE__INPUT:
+        return input != null;
+      case ExTwentyOnePackage.INPUT_OR_NODE__NODE:
+        return node != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //InputOrNodeImpl

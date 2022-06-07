@@ -14,6 +14,7 @@ package org.xtext.example.mydsl.exTwentyOne;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Lambda#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Lambda#getLambdaExp <em>Lambda Exp</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getLambda()
@@ -43,5 +44,27 @@ public interface Lambda extends Element
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Lambda Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lambda Exp</em>' containment reference.
+   * @see #setLambdaExp(Exp)
+   * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getLambda_LambdaExp()
+   * @model containment="true"
+   * @generated
+   */
+  Exp getLambdaExp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.exTwentyOne.Lambda#getLambdaExp <em>Lambda Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Lambda Exp</em>' containment reference.
+   * @see #getLambdaExp()
+   * @generated
+   */
+  void setLambdaExp(Exp value);
 
 } // Lambda

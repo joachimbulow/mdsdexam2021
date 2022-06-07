@@ -37,6 +37,7 @@ public class ExTwentyOneParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getElementAccess().getAlternatives_1_1(), "rule__Element__Alternatives_1_1");
 			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 			builder.put(grammarAccess.getInputOrNodeAccess().getAlternatives(), "rule__InputOrNode__Alternatives");
+			builder.put(grammarAccess.getExpAccess().getAlternatives_2_1(), "rule__Exp__Alternatives_2_1");
 			builder.put(grammarAccess.getLogicExpAccess().getAlternatives_1(), "rule__LogicExp__Alternatives_1");
 			builder.put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
@@ -53,7 +54,20 @@ public class ExTwentyOneParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getElementAccess().getGroup_2(), "rule__Element__Group_2__0");
 			builder.put(grammarAccess.getDataDeclAccess().getGroup(), "rule__DataDecl__Group__0");
 			builder.put(grammarAccess.getDataDeclAccess().getGroup_7(), "rule__DataDecl__Group_7__0");
+			builder.put(grammarAccess.getInputOrNodeAccess().getGroup_0(), "rule__InputOrNode__Group_0__0");
 			builder.put(grammarAccess.getExpAccess().getGroup(), "rule__Exp__Group__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2(), "rule__Exp__Group_2__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_0(), "rule__Exp__Group_2_1_0__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_1(), "rule__Exp__Group_2_1_1__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_2(), "rule__Exp__Group_2_1_2__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_3(), "rule__Exp__Group_2_1_3__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_4(), "rule__Exp__Group_2_1_4__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_5(), "rule__Exp__Group_2_1_5__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_6(), "rule__Exp__Group_2_1_6__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_6_1(), "rule__Exp__Group_2_1_6_1__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_8(), "rule__Exp__Group_2_1_8__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_9(), "rule__Exp__Group_2_1_9__0");
+			builder.put(grammarAccess.getExpAccess().getGroup_2_1_9_6(), "rule__Exp__Group_2_1_9_6__0");
 			builder.put(grammarAccess.getLogicExpAccess().getGroup(), "rule__LogicExp__Group__0");
 			builder.put(grammarAccess.getProgramAccess().getNameAssignment_1(), "rule__Program__NameAssignment_1");
 			builder.put(grammarAccess.getProgramAccess().getDeclarationsAssignment_2(), "rule__Program__DeclarationsAssignment_2");
@@ -61,6 +75,7 @@ public class ExTwentyOneParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFunctionAccess().getNameAssignment_2(), "rule__Function__NameAssignment_2");
 			builder.put(grammarAccess.getFunctionAccess().getLambdaAssignment_3(), "rule__Function__LambdaAssignment_3");
 			builder.put(grammarAccess.getLambdaAccess().getNameAssignment_2(), "rule__Lambda__NameAssignment_2");
+			builder.put(grammarAccess.getLambdaAccess().getLambdaExpAssignment_7(), "rule__Lambda__LambdaExpAssignment_7");
 			builder.put(grammarAccess.getInputAccess().getNameAssignment_2(), "rule__Input__NameAssignment_2");
 			builder.put(grammarAccess.getNodeAccess().getNameAssignment_2(), "rule__Node__NameAssignment_2");
 			builder.put(grammarAccess.getNodeAccess().getFunctionAssignment_4_0(), "rule__Node__FunctionAssignment_4_0");
@@ -75,6 +90,27 @@ public class ExTwentyOneParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDataDeclAccess().getNameAssignment_2(), "rule__DataDecl__NameAssignment_2");
 			builder.put(grammarAccess.getDataDeclAccess().getDataAssignment_4(), "rule__DataDecl__DataAssignment_4");
 			builder.put(grammarAccess.getDataDeclAccess().getDataAssignment_7_1(), "rule__DataDecl__DataAssignment_7_1");
+			builder.put(grammarAccess.getInputOrNodeAccess().getInputAssignment_0_1(), "rule__InputOrNode__InputAssignment_0_1");
+			builder.put(grammarAccess.getInputOrNodeAccess().getNodeAssignment_1(), "rule__InputOrNode__NodeAssignment_1");
+			builder.put(grammarAccess.getExpAccess().getLeftAssignment_2_0(), "rule__Exp__LeftAssignment_2_0");
+			builder.put(grammarAccess.getExpAccess().getRightPlusAssignment_2_1_0_1(), "rule__Exp__RightPlusAssignment_2_1_0_1");
+			builder.put(grammarAccess.getExpAccess().getRightMinusAssignment_2_1_1_1(), "rule__Exp__RightMinusAssignment_2_1_1_1");
+			builder.put(grammarAccess.getExpAccess().getRightMultiplyAssignment_2_1_2_1(), "rule__Exp__RightMultiplyAssignment_2_1_2_1");
+			builder.put(grammarAccess.getExpAccess().getRightDivideAssignment_2_1_3_1(), "rule__Exp__RightDivideAssignment_2_1_3_1");
+			builder.put(grammarAccess.getExpAccess().getInParenthesisAssignment_2_1_4_1(), "rule__Exp__InParenthesisAssignment_2_1_4_1");
+			builder.put(grammarAccess.getExpAccess().getLetIdAssignment_2_1_5_1(), "rule__Exp__LetIdAssignment_2_1_5_1");
+			builder.put(grammarAccess.getExpAccess().getLetDefExpAssignment_2_1_5_3(), "rule__Exp__LetDefExpAssignment_2_1_5_3");
+			builder.put(grammarAccess.getExpAccess().getLetTargetExpAssignment_2_1_5_5(), "rule__Exp__LetTargetExpAssignment_2_1_5_5");
+			builder.put(grammarAccess.getExpAccess().getIfLogicExpAssignment_2_1_8_1(), "rule__Exp__IfLogicExpAssignment_2_1_8_1");
+			builder.put(grammarAccess.getExpAccess().getThenExpAssignment_2_1_8_3(), "rule__Exp__ThenExpAssignment_2_1_8_3");
+			builder.put(grammarAccess.getExpAccess().getElseExpAssignment_2_1_8_5(), "rule__Exp__ElseExpAssignment_2_1_8_5");
+			builder.put(grammarAccess.getExpAccess().getNewArrayIdAssignment_2_1_9_1(), "rule__Exp__NewArrayIdAssignment_2_1_9_1");
+			builder.put(grammarAccess.getExpAccess().getNewArrayIdsAssignment_2_1_9_3(), "rule__Exp__NewArrayIdsAssignment_2_1_9_3");
+			builder.put(grammarAccess.getExpAccess().getNewArrayExpsAssignment_2_1_9_5(), "rule__Exp__NewArrayExpsAssignment_2_1_9_5");
+			builder.put(grammarAccess.getExpAccess().getNewArrayIdsAssignment_2_1_9_6_1(), "rule__Exp__NewArrayIdsAssignment_2_1_9_6_1");
+			builder.put(grammarAccess.getExpAccess().getNewArrayExpsAssignment_2_1_9_6_3(), "rule__Exp__NewArrayExpsAssignment_2_1_9_6_3");
+			builder.put(grammarAccess.getLogicExpAccess().getLeftLogicAssignment_0(), "rule__LogicExp__LeftLogicAssignment_0");
+			builder.put(grammarAccess.getLogicExpAccess().getRightLogicAssignment_2(), "rule__LogicExp__RightLogicAssignment_2");
 		}
 	}
 	

@@ -116,7 +116,6 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         Input input = (Input)theEObject;
         T result = caseInput(input);
         if (result == null) result = caseDeclaration(input);
-        if (result == null) result = caseInputOrNode(input);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -125,7 +124,6 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         Node node = (Node)theEObject;
         T result = caseNode(node);
         if (result == null) result = caseDeclaration(node);
-        if (result == null) result = caseInputOrNode(node);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -156,6 +154,20 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
       {
         InputOrNode inputOrNode = (InputOrNode)theEObject;
         T result = caseInputOrNode(inputOrNode);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.EXP:
+      {
+        Exp exp = (Exp)theEObject;
+        T result = caseExp(exp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.LOGIC_EXP:
+      {
+        LogicExp logicExp = (LogicExp)theEObject;
+        T result = caseLogicExp(logicExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -335,6 +347,38 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseInputOrNode(InputOrNode object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExp(Exp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logic Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logic Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicExp(LogicExp object)
   {
     return null;
   }

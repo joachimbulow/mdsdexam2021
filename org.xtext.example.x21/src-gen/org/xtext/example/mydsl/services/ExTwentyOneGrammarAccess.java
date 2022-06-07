@@ -170,15 +170,16 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cTypeParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final RuleCall cExpParserRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final Assignment cLambdaExpAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cLambdaExpExpParserRuleCall_7_0 = (RuleCall)cLambdaExpAssignment_7.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Lambda:
-		//    {Lambda} '(' name=ID ':' Type ')' '{' Exp '}'
+		//    {Lambda} '(' name=ID ':' Type ')' '{' lambdaExp=Exp '}'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Lambda} '(' name=ID ':' Type ')' '{' Exp '}'
+		//{Lambda} '(' name=ID ':' Type ')' '{' lambdaExp=Exp '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Lambda}
@@ -205,8 +206,11 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
 		
+		//lambdaExp=Exp
+		public Assignment getLambdaExpAssignment_7() { return cLambdaExpAssignment_7; }
+		
 		//Exp
-		public RuleCall getExpParserRuleCall_7() { return cExpParserRuleCall_7; }
+		public RuleCall getLambdaExpExpParserRuleCall_7_0() { return cLambdaExpExpParserRuleCall_7_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
@@ -570,67 +574,381 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	public class InputOrNodeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.InputOrNode");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cInputParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cNodeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cInputOrNodeAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cInputAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cInputInputParserRuleCall_0_1_0 = (RuleCall)cInputAssignment_0_1.eContents().get(0);
+		private final Assignment cNodeAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cNodeNodeParserRuleCall_1_0 = (RuleCall)cNodeAssignment_1.eContents().get(0);
 		
 		//InputOrNode:
-		//    Input | Node
+		//    {InputOrNode} input=Input | node=Node
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Input | Node
+		//{InputOrNode} input=Input | node=Node
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//{InputOrNode} input=Input
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{InputOrNode}
+		public Action getInputOrNodeAction_0_0() { return cInputOrNodeAction_0_0; }
+		
+		//input=Input
+		public Assignment getInputAssignment_0_1() { return cInputAssignment_0_1; }
+		
 		//Input
-		public RuleCall getInputParserRuleCall_0() { return cInputParserRuleCall_0; }
+		public RuleCall getInputInputParserRuleCall_0_1_0() { return cInputInputParserRuleCall_0_1_0; }
+		
+		//node=Node
+		public Assignment getNodeAssignment_1() { return cNodeAssignment_1; }
 		
 		//Node
-		public RuleCall getNodeParserRuleCall_1() { return cNodeParserRuleCall_1; }
+		public RuleCall getNodeNodeParserRuleCall_1_0() { return cNodeNodeParserRuleCall_1_0; }
 	}
 	public class ExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.Exp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cPlusSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Action cExpAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cTypeParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cLeftAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cLeftTypeParserRuleCall_2_0_0 = (RuleCall)cLeftAssignment_2_0.eContents().get(0);
+		private final Alternatives cAlternatives_2_1 = (Alternatives)cGroup_2.eContents().get(1);
+		private final Group cGroup_2_1_0 = (Group)cAlternatives_2_1.eContents().get(0);
+		private final Keyword cPlusSignKeyword_2_1_0_0 = (Keyword)cGroup_2_1_0.eContents().get(0);
+		private final Assignment cRightPlusAssignment_2_1_0_1 = (Assignment)cGroup_2_1_0.eContents().get(1);
+		private final RuleCall cRightPlusExpParserRuleCall_2_1_0_1_0 = (RuleCall)cRightPlusAssignment_2_1_0_1.eContents().get(0);
+		private final Group cGroup_2_1_1 = (Group)cAlternatives_2_1.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_2_1_1_0 = (Keyword)cGroup_2_1_1.eContents().get(0);
+		private final Assignment cRightMinusAssignment_2_1_1_1 = (Assignment)cGroup_2_1_1.eContents().get(1);
+		private final RuleCall cRightMinusExpParserRuleCall_2_1_1_1_0 = (RuleCall)cRightMinusAssignment_2_1_1_1.eContents().get(0);
+		private final Group cGroup_2_1_2 = (Group)cAlternatives_2_1.eContents().get(2);
+		private final Keyword cAsteriskKeyword_2_1_2_0 = (Keyword)cGroup_2_1_2.eContents().get(0);
+		private final Assignment cRightMultiplyAssignment_2_1_2_1 = (Assignment)cGroup_2_1_2.eContents().get(1);
+		private final RuleCall cRightMultiplyExpParserRuleCall_2_1_2_1_0 = (RuleCall)cRightMultiplyAssignment_2_1_2_1.eContents().get(0);
+		private final Group cGroup_2_1_3 = (Group)cAlternatives_2_1.eContents().get(3);
+		private final Keyword cSolidusKeyword_2_1_3_0 = (Keyword)cGroup_2_1_3.eContents().get(0);
+		private final Assignment cRightDivideAssignment_2_1_3_1 = (Assignment)cGroup_2_1_3.eContents().get(1);
+		private final RuleCall cRightDivideExpParserRuleCall_2_1_3_1_0 = (RuleCall)cRightDivideAssignment_2_1_3_1.eContents().get(0);
+		private final Group cGroup_2_1_4 = (Group)cAlternatives_2_1.eContents().get(4);
+		private final Keyword cLeftParenthesisKeyword_2_1_4_0 = (Keyword)cGroup_2_1_4.eContents().get(0);
+		private final Assignment cInParenthesisAssignment_2_1_4_1 = (Assignment)cGroup_2_1_4.eContents().get(1);
+		private final RuleCall cInParenthesisExpParserRuleCall_2_1_4_1_0 = (RuleCall)cInParenthesisAssignment_2_1_4_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_1_4_2 = (Keyword)cGroup_2_1_4.eContents().get(2);
+		private final Group cGroup_2_1_5 = (Group)cAlternatives_2_1.eContents().get(5);
+		private final Keyword cLetKeyword_2_1_5_0 = (Keyword)cGroup_2_1_5.eContents().get(0);
+		private final Assignment cLetIdAssignment_2_1_5_1 = (Assignment)cGroup_2_1_5.eContents().get(1);
+		private final RuleCall cLetIdIDTerminalRuleCall_2_1_5_1_0 = (RuleCall)cLetIdAssignment_2_1_5_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_1_5_2 = (Keyword)cGroup_2_1_5.eContents().get(2);
+		private final Assignment cLetDefExpAssignment_2_1_5_3 = (Assignment)cGroup_2_1_5.eContents().get(3);
+		private final RuleCall cLetDefExpExpParserRuleCall_2_1_5_3_0 = (RuleCall)cLetDefExpAssignment_2_1_5_3.eContents().get(0);
+		private final Keyword cInKeyword_2_1_5_4 = (Keyword)cGroup_2_1_5.eContents().get(4);
+		private final Assignment cLetTargetExpAssignment_2_1_5_5 = (Assignment)cGroup_2_1_5.eContents().get(5);
+		private final RuleCall cLetTargetExpExpParserRuleCall_2_1_5_5_0 = (RuleCall)cLetTargetExpAssignment_2_1_5_5.eContents().get(0);
+		private final Keyword cEndKeyword_2_1_5_6 = (Keyword)cGroup_2_1_5.eContents().get(6);
+		private final Group cGroup_2_1_6 = (Group)cAlternatives_2_1.eContents().get(6);
+		private final RuleCall cIDTerminalRuleCall_2_1_6_0 = (RuleCall)cGroup_2_1_6.eContents().get(0);
+		private final Group cGroup_2_1_6_1 = (Group)cGroup_2_1_6.eContents().get(1);
+		private final Keyword cFullStopKeyword_2_1_6_1_0 = (Keyword)cGroup_2_1_6_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_2_1_6_1_1 = (RuleCall)cGroup_2_1_6_1.eContents().get(1);
+		private final Keyword cNoneKeyword_2_1_7 = (Keyword)cAlternatives_2_1.eContents().get(7);
+		private final Group cGroup_2_1_8 = (Group)cAlternatives_2_1.eContents().get(8);
+		private final Keyword cIfKeyword_2_1_8_0 = (Keyword)cGroup_2_1_8.eContents().get(0);
+		private final Assignment cIfLogicExpAssignment_2_1_8_1 = (Assignment)cGroup_2_1_8.eContents().get(1);
+		private final RuleCall cIfLogicExpLogicExpParserRuleCall_2_1_8_1_0 = (RuleCall)cIfLogicExpAssignment_2_1_8_1.eContents().get(0);
+		private final Keyword cThenKeyword_2_1_8_2 = (Keyword)cGroup_2_1_8.eContents().get(2);
+		private final Assignment cThenExpAssignment_2_1_8_3 = (Assignment)cGroup_2_1_8.eContents().get(3);
+		private final RuleCall cThenExpExpParserRuleCall_2_1_8_3_0 = (RuleCall)cThenExpAssignment_2_1_8_3.eContents().get(0);
+		private final Keyword cElseKeyword_2_1_8_4 = (Keyword)cGroup_2_1_8.eContents().get(4);
+		private final Assignment cElseExpAssignment_2_1_8_5 = (Assignment)cGroup_2_1_8.eContents().get(5);
+		private final RuleCall cElseExpExpParserRuleCall_2_1_8_5_0 = (RuleCall)cElseExpAssignment_2_1_8_5.eContents().get(0);
+		private final Keyword cEndKeyword_2_1_8_6 = (Keyword)cGroup_2_1_8.eContents().get(6);
+		private final Group cGroup_2_1_9 = (Group)cAlternatives_2_1.eContents().get(9);
+		private final Keyword cNewKeyword_2_1_9_0 = (Keyword)cGroup_2_1_9.eContents().get(0);
+		private final Assignment cNewArrayIdAssignment_2_1_9_1 = (Assignment)cGroup_2_1_9.eContents().get(1);
+		private final RuleCall cNewArrayIdIDTerminalRuleCall_2_1_9_1_0 = (RuleCall)cNewArrayIdAssignment_2_1_9_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_2_1_9_2 = (Keyword)cGroup_2_1_9.eContents().get(2);
+		private final Assignment cNewArrayIdsAssignment_2_1_9_3 = (Assignment)cGroup_2_1_9.eContents().get(3);
+		private final RuleCall cNewArrayIdsIDTerminalRuleCall_2_1_9_3_0 = (RuleCall)cNewArrayIdsAssignment_2_1_9_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_1_9_4 = (Keyword)cGroup_2_1_9.eContents().get(4);
+		private final Assignment cNewArrayExpsAssignment_2_1_9_5 = (Assignment)cGroup_2_1_9.eContents().get(5);
+		private final RuleCall cNewArrayExpsExpParserRuleCall_2_1_9_5_0 = (RuleCall)cNewArrayExpsAssignment_2_1_9_5.eContents().get(0);
+		private final Group cGroup_2_1_9_6 = (Group)cGroup_2_1_9.eContents().get(6);
+		private final Keyword cCommaKeyword_2_1_9_6_0 = (Keyword)cGroup_2_1_9_6.eContents().get(0);
+		private final Assignment cNewArrayIdsAssignment_2_1_9_6_1 = (Assignment)cGroup_2_1_9_6.eContents().get(1);
+		private final RuleCall cNewArrayIdsIDTerminalRuleCall_2_1_9_6_1_0 = (RuleCall)cNewArrayIdsAssignment_2_1_9_6_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_1_9_6_2 = (Keyword)cGroup_2_1_9_6.eContents().get(2);
+		private final Assignment cNewArrayExpsAssignment_2_1_9_6_3 = (Assignment)cGroup_2_1_9_6.eContents().get(3);
+		private final RuleCall cNewArrayExpsExpParserRuleCall_2_1_9_6_3_0 = (RuleCall)cNewArrayExpsAssignment_2_1_9_6_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_2_1_9_7 = (Keyword)cGroup_2_1_9.eContents().get(7);
 		
-		//Exp: INT '+' INT;
+		//Exp: {Exp} Type (left=Type ('+' rightPlus=Exp | '-' rightMinus=Exp | '*' rightMultiply=Exp | '/' rightDivide=Exp
+		//| '(' inParenthesis=Exp ')' | 'let' letId=ID '=' letDefExp=Exp 'in' letTargetExp=Exp 'end'
+		//| ID ( '.' ID )* | 'none' | 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
+		//| 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'))
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//INT '+' INT
+		// {Exp} Type (left=Type ('+' rightPlus=Exp | '-' rightMinus=Exp | '*' rightMultiply=Exp | '/' rightDivide=Exp
+		//| '(' inParenthesis=Exp ')' | 'let' letId=ID '=' letDefExp=Exp 'in' letTargetExp=Exp 'end'
+		//| ID ( '.' ID )* | 'none' | 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
+		//| 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'))
 		public Group getGroup() { return cGroup; }
 		
-		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+		//{Exp}
+		public Action getExpAction_0() { return cExpAction_0; }
+		
+		//Type
+		public RuleCall getTypeParserRuleCall_1() { return cTypeParserRuleCall_1; }
+		
+		// (left=Type ('+' rightPlus=Exp | '-' rightMinus=Exp | '*' rightMultiply=Exp | '/' rightDivide=Exp
+		//| '(' inParenthesis=Exp ')' | 'let' letId=ID '=' letDefExp=Exp 'in' letTargetExp=Exp 'end'
+		//| ID ( '.' ID )* | 'none' | 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
+		//| 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'))
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//left=Type
+		public Assignment getLeftAssignment_2_0() { return cLeftAssignment_2_0; }
+		
+		//Type
+		public RuleCall getLeftTypeParserRuleCall_2_0_0() { return cLeftTypeParserRuleCall_2_0_0; }
+		
+		// ('+' rightPlus=Exp | '-' rightMinus=Exp | '*' rightMultiply=Exp | '/' rightDivide=Exp
+		//| '(' inParenthesis=Exp ')' | 'let' letId=ID '=' letDefExp=Exp 'in' letTargetExp=Exp 'end'
+		//| ID ( '.' ID )* | 'none' | 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
+		//| 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']')
+		public Alternatives getAlternatives_2_1() { return cAlternatives_2_1; }
+		
+		//'+' rightPlus=Exp
+		public Group getGroup_2_1_0() { return cGroup_2_1_0; }
 		
 		//'+'
-		public Keyword getPlusSignKeyword_1() { return cPlusSignKeyword_1; }
+		public Keyword getPlusSignKeyword_2_1_0_0() { return cPlusSignKeyword_2_1_0_0; }
 		
-		//INT
-		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
+		//rightPlus=Exp
+		public Assignment getRightPlusAssignment_2_1_0_1() { return cRightPlusAssignment_2_1_0_1; }
+		
+		//Exp
+		public RuleCall getRightPlusExpParserRuleCall_2_1_0_1_0() { return cRightPlusExpParserRuleCall_2_1_0_1_0; }
+		
+		//'-' rightMinus=Exp
+		public Group getGroup_2_1_1() { return cGroup_2_1_1; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_2_1_1_0() { return cHyphenMinusKeyword_2_1_1_0; }
+		
+		//rightMinus=Exp
+		public Assignment getRightMinusAssignment_2_1_1_1() { return cRightMinusAssignment_2_1_1_1; }
+		
+		//Exp
+		public RuleCall getRightMinusExpParserRuleCall_2_1_1_1_0() { return cRightMinusExpParserRuleCall_2_1_1_1_0; }
+		
+		//'*' rightMultiply=Exp
+		public Group getGroup_2_1_2() { return cGroup_2_1_2; }
+		
+		//'*'
+		public Keyword getAsteriskKeyword_2_1_2_0() { return cAsteriskKeyword_2_1_2_0; }
+		
+		//rightMultiply=Exp
+		public Assignment getRightMultiplyAssignment_2_1_2_1() { return cRightMultiplyAssignment_2_1_2_1; }
+		
+		//Exp
+		public RuleCall getRightMultiplyExpParserRuleCall_2_1_2_1_0() { return cRightMultiplyExpParserRuleCall_2_1_2_1_0; }
+		
+		//'/' rightDivide=Exp
+		public Group getGroup_2_1_3() { return cGroup_2_1_3; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_2_1_3_0() { return cSolidusKeyword_2_1_3_0; }
+		
+		//rightDivide=Exp
+		public Assignment getRightDivideAssignment_2_1_3_1() { return cRightDivideAssignment_2_1_3_1; }
+		
+		//Exp
+		public RuleCall getRightDivideExpParserRuleCall_2_1_3_1_0() { return cRightDivideExpParserRuleCall_2_1_3_1_0; }
+		
+		//'(' inParenthesis=Exp ')'
+		public Group getGroup_2_1_4() { return cGroup_2_1_4; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_1_4_0() { return cLeftParenthesisKeyword_2_1_4_0; }
+		
+		//inParenthesis=Exp
+		public Assignment getInParenthesisAssignment_2_1_4_1() { return cInParenthesisAssignment_2_1_4_1; }
+		
+		//Exp
+		public RuleCall getInParenthesisExpParserRuleCall_2_1_4_1_0() { return cInParenthesisExpParserRuleCall_2_1_4_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_1_4_2() { return cRightParenthesisKeyword_2_1_4_2; }
+		
+		//'let' letId=ID '=' letDefExp=Exp 'in' letTargetExp=Exp 'end'
+		public Group getGroup_2_1_5() { return cGroup_2_1_5; }
+		
+		//'let'
+		public Keyword getLetKeyword_2_1_5_0() { return cLetKeyword_2_1_5_0; }
+		
+		//letId=ID
+		public Assignment getLetIdAssignment_2_1_5_1() { return cLetIdAssignment_2_1_5_1; }
+		
+		//ID
+		public RuleCall getLetIdIDTerminalRuleCall_2_1_5_1_0() { return cLetIdIDTerminalRuleCall_2_1_5_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_2_1_5_2() { return cEqualsSignKeyword_2_1_5_2; }
+		
+		//letDefExp=Exp
+		public Assignment getLetDefExpAssignment_2_1_5_3() { return cLetDefExpAssignment_2_1_5_3; }
+		
+		//Exp
+		public RuleCall getLetDefExpExpParserRuleCall_2_1_5_3_0() { return cLetDefExpExpParserRuleCall_2_1_5_3_0; }
+		
+		//'in'
+		public Keyword getInKeyword_2_1_5_4() { return cInKeyword_2_1_5_4; }
+		
+		//letTargetExp=Exp
+		public Assignment getLetTargetExpAssignment_2_1_5_5() { return cLetTargetExpAssignment_2_1_5_5; }
+		
+		//Exp
+		public RuleCall getLetTargetExpExpParserRuleCall_2_1_5_5_0() { return cLetTargetExpExpParserRuleCall_2_1_5_5_0; }
+		
+		//'end'
+		public Keyword getEndKeyword_2_1_5_6() { return cEndKeyword_2_1_5_6; }
+		
+		//ID ( '.' ID )*
+		public Group getGroup_2_1_6() { return cGroup_2_1_6; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_2_1_6_0() { return cIDTerminalRuleCall_2_1_6_0; }
+		
+		//( '.' ID )*
+		public Group getGroup_2_1_6_1() { return cGroup_2_1_6_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_2_1_6_1_0() { return cFullStopKeyword_2_1_6_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_2_1_6_1_1() { return cIDTerminalRuleCall_2_1_6_1_1; }
+		
+		//'none'
+		public Keyword getNoneKeyword_2_1_7() { return cNoneKeyword_2_1_7; }
+		
+		//'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
+		public Group getGroup_2_1_8() { return cGroup_2_1_8; }
+		
+		//'if'
+		public Keyword getIfKeyword_2_1_8_0() { return cIfKeyword_2_1_8_0; }
+		
+		//ifLogicExp=LogicExp
+		public Assignment getIfLogicExpAssignment_2_1_8_1() { return cIfLogicExpAssignment_2_1_8_1; }
+		
+		//LogicExp
+		public RuleCall getIfLogicExpLogicExpParserRuleCall_2_1_8_1_0() { return cIfLogicExpLogicExpParserRuleCall_2_1_8_1_0; }
+		
+		//'then'
+		public Keyword getThenKeyword_2_1_8_2() { return cThenKeyword_2_1_8_2; }
+		
+		//thenExp=Exp
+		public Assignment getThenExpAssignment_2_1_8_3() { return cThenExpAssignment_2_1_8_3; }
+		
+		//Exp
+		public RuleCall getThenExpExpParserRuleCall_2_1_8_3_0() { return cThenExpExpParserRuleCall_2_1_8_3_0; }
+		
+		//'else'
+		public Keyword getElseKeyword_2_1_8_4() { return cElseKeyword_2_1_8_4; }
+		
+		//elseExp=Exp
+		public Assignment getElseExpAssignment_2_1_8_5() { return cElseExpAssignment_2_1_8_5; }
+		
+		//Exp
+		public RuleCall getElseExpExpParserRuleCall_2_1_8_5_0() { return cElseExpExpParserRuleCall_2_1_8_5_0; }
+		
+		//'end'
+		public Keyword getEndKeyword_2_1_8_6() { return cEndKeyword_2_1_8_6; }
+		
+		//'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'
+		public Group getGroup_2_1_9() { return cGroup_2_1_9; }
+		
+		//'new'
+		public Keyword getNewKeyword_2_1_9_0() { return cNewKeyword_2_1_9_0; }
+		
+		//newArrayId=ID
+		public Assignment getNewArrayIdAssignment_2_1_9_1() { return cNewArrayIdAssignment_2_1_9_1; }
+		
+		//ID
+		public RuleCall getNewArrayIdIDTerminalRuleCall_2_1_9_1_0() { return cNewArrayIdIDTerminalRuleCall_2_1_9_1_0; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_2_1_9_2() { return cLeftSquareBracketKeyword_2_1_9_2; }
+		
+		//newArrayIds+=ID
+		public Assignment getNewArrayIdsAssignment_2_1_9_3() { return cNewArrayIdsAssignment_2_1_9_3; }
+		
+		//ID
+		public RuleCall getNewArrayIdsIDTerminalRuleCall_2_1_9_3_0() { return cNewArrayIdsIDTerminalRuleCall_2_1_9_3_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_2_1_9_4() { return cEqualsSignKeyword_2_1_9_4; }
+		
+		//newArrayExps+=Exp
+		public Assignment getNewArrayExpsAssignment_2_1_9_5() { return cNewArrayExpsAssignment_2_1_9_5; }
+		
+		//Exp
+		public RuleCall getNewArrayExpsExpParserRuleCall_2_1_9_5_0() { return cNewArrayExpsExpParserRuleCall_2_1_9_5_0; }
+		
+		//(',' newArrayIds+=ID '=' newArrayExps+=Exp)*
+		public Group getGroup_2_1_9_6() { return cGroup_2_1_9_6; }
+		
+		//','
+		public Keyword getCommaKeyword_2_1_9_6_0() { return cCommaKeyword_2_1_9_6_0; }
+		
+		//newArrayIds+=ID
+		public Assignment getNewArrayIdsAssignment_2_1_9_6_1() { return cNewArrayIdsAssignment_2_1_9_6_1; }
+		
+		//ID
+		public RuleCall getNewArrayIdsIDTerminalRuleCall_2_1_9_6_1_0() { return cNewArrayIdsIDTerminalRuleCall_2_1_9_6_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_2_1_9_6_2() { return cEqualsSignKeyword_2_1_9_6_2; }
+		
+		//newArrayExps+=Exp
+		public Assignment getNewArrayExpsAssignment_2_1_9_6_3() { return cNewArrayExpsAssignment_2_1_9_6_3; }
+		
+		//Exp
+		public RuleCall getNewArrayExpsExpParserRuleCall_2_1_9_6_3_0() { return cNewArrayExpsExpParserRuleCall_2_1_9_6_3_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_2_1_9_7() { return cRightSquareBracketKeyword_2_1_9_7; }
 	}
 	public class LogicExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.LogicExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cExpParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cLeftLogicAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLeftLogicExpParserRuleCall_0_0 = (RuleCall)cLeftLogicAssignment_0.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
 		private final Keyword cLessThanSignKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Keyword cGreaterThanSignKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
 		private final Keyword cLessThanSignEqualsSignKeyword_1_3 = (Keyword)cAlternatives_1.eContents().get(3);
 		private final Keyword cGreaterThanSignEqualsSignKeyword_1_4 = (Keyword)cAlternatives_1.eContents().get(4);
-		private final RuleCall cExpParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cRightLogicAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRightLogicExpParserRuleCall_2_0 = (RuleCall)cRightLogicAssignment_2.eContents().get(0);
 		
 		//LogicExp:
-		//    Exp ('=' | '<' | '>' | '<=' | '>=') Exp
+		//    leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Exp ('=' | '<' | '>' | '<=' | '>=') Exp
+		//leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp
 		public Group getGroup() { return cGroup; }
 		
+		//leftLogic=Exp
+		public Assignment getLeftLogicAssignment_0() { return cLeftLogicAssignment_0; }
+		
 		//Exp
-		public RuleCall getExpParserRuleCall_0() { return cExpParserRuleCall_0; }
+		public RuleCall getLeftLogicExpParserRuleCall_0_0() { return cLeftLogicExpParserRuleCall_0_0; }
 		
 		//('=' | '<' | '>' | '<=' | '>=')
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
@@ -650,8 +968,11 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//'>='
 		public Keyword getGreaterThanSignEqualsSignKeyword_1_4() { return cGreaterThanSignEqualsSignKeyword_1_4; }
 		
+		//rightLogic=Exp
+		public Assignment getRightLogicAssignment_2() { return cRightLogicAssignment_2; }
+		
 		//Exp
-		public RuleCall getExpParserRuleCall_2() { return cExpParserRuleCall_2; }
+		public RuleCall getRightLogicExpParserRuleCall_2_0() { return cRightLogicExpParserRuleCall_2_0; }
 	}
 	
 	
@@ -766,7 +1087,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Lambda:
-	//    {Lambda} '(' name=ID ':' Type ')' '{' Exp '}'
+	//    {Lambda} '(' name=ID ':' Type ')' '{' lambdaExp=Exp '}'
 	//;
 	public LambdaElements getLambdaAccess() {
 		return pLambda;
@@ -843,7 +1164,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//InputOrNode:
-	//    Input | Node
+	//    {InputOrNode} input=Input | node=Node
 	//;
 	public InputOrNodeElements getInputOrNodeAccess() {
 		return pInputOrNode;
@@ -853,7 +1174,11 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		return getInputOrNodeAccess().getRule();
 	}
 	
-	//Exp: INT '+' INT;
+	//Exp: {Exp} Type (left=Type ('+' rightPlus=Exp | '-' rightMinus=Exp | '*' rightMultiply=Exp | '/' rightDivide=Exp
+	//| '(' inParenthesis=Exp ')' | 'let' letId=ID '=' letDefExp=Exp 'in' letTargetExp=Exp 'end'
+	//| ID ( '.' ID )* | 'none' | 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
+	//| 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'))
+	//;
 	public ExpElements getExpAccess() {
 		return pExp;
 	}
@@ -863,7 +1188,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//LogicExp:
-	//    Exp ('=' | '<' | '>' | '<=' | '>=') Exp
+	//    leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp
 	//;
 	public LogicExpElements getLogicExpAccess() {
 		return pLogicExp;

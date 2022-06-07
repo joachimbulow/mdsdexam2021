@@ -123,6 +123,24 @@ public interface ExTwentyOneFactory extends EFactory
   InputOrNode createInputOrNode();
 
   /**
+   * Returns a new object of class '<em>Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exp</em>'.
+   * @generated
+   */
+  Exp createExp();
+
+  /**
+   * Returns a new object of class '<em>Logic Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logic Exp</em>'.
+   * @generated
+   */
+  LogicExp createLogicExp();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

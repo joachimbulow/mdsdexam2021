@@ -10,6 +10,13 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Input Or Node</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.InputOrNode#getInput <em>Input</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.InputOrNode#getNode <em>Node</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getInputOrNode()
  * @model
@@ -17,4 +24,48 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface InputOrNode extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Input</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Input</em>' containment reference.
+   * @see #setInput(Input)
+   * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getInputOrNode_Input()
+   * @model containment="true"
+   * @generated
+   */
+  Input getInput();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.exTwentyOne.InputOrNode#getInput <em>Input</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Input</em>' containment reference.
+   * @see #getInput()
+   * @generated
+   */
+  void setInput(Input value);
+
+  /**
+   * Returns the value of the '<em><b>Node</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Node</em>' containment reference.
+   * @see #setNode(Node)
+   * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getInputOrNode_Node()
+   * @model containment="true"
+   * @generated
+   */
+  Node getNode();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.exTwentyOne.InputOrNode#getNode <em>Node</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Node</em>' containment reference.
+   * @see #getNode()
+   * @generated
+   */
+  void setNode(Node value);
+
 } // InputOrNode

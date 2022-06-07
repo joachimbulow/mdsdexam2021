@@ -271,13 +271,22 @@ public interface ExTwentyOnePackage extends EPackage
   int LAMBDA__NAME = ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Lambda Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA__LAMBDA_EXP = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Lambda</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAMBDA_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+  int LAMBDA_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.InputImpl <em>Input</em>}' class.
@@ -438,13 +447,222 @@ public interface ExTwentyOnePackage extends EPackage
   int INPUT_OR_NODE = 10;
 
   /**
+   * The feature id for the '<em><b>Input</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_OR_NODE__INPUT = 0;
+
+  /**
+   * The feature id for the '<em><b>Node</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_OR_NODE__NODE = 1;
+
+  /**
    * The number of structural features of the '<em>Input Or Node</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT_OR_NODE_FEATURE_COUNT = 0;
+  int INPUT_OR_NODE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpImpl <em>Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExpImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getExp()
+   * @generated
+   */
+  int EXP = 11;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__LEFT = 0;
+
+  /**
+   * The feature id for the '<em><b>Right Plus</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__RIGHT_PLUS = 1;
+
+  /**
+   * The feature id for the '<em><b>Right Minus</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__RIGHT_MINUS = 2;
+
+  /**
+   * The feature id for the '<em><b>Right Multiply</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__RIGHT_MULTIPLY = 3;
+
+  /**
+   * The feature id for the '<em><b>Right Divide</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__RIGHT_DIVIDE = 4;
+
+  /**
+   * The feature id for the '<em><b>In Parenthesis</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__IN_PARENTHESIS = 5;
+
+  /**
+   * The feature id for the '<em><b>Let Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__LET_ID = 6;
+
+  /**
+   * The feature id for the '<em><b>Let Def Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__LET_DEF_EXP = 7;
+
+  /**
+   * The feature id for the '<em><b>Let Target Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__LET_TARGET_EXP = 8;
+
+  /**
+   * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__IF_LOGIC_EXP = 9;
+
+  /**
+   * The feature id for the '<em><b>Then Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__THEN_EXP = 10;
+
+  /**
+   * The feature id for the '<em><b>Else Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__ELSE_EXP = 11;
+
+  /**
+   * The feature id for the '<em><b>New Array Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__NEW_ARRAY_ID = 12;
+
+  /**
+   * The feature id for the '<em><b>New Array Ids</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__NEW_ARRAY_IDS = 13;
+
+  /**
+   * The feature id for the '<em><b>New Array Exps</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__NEW_ARRAY_EXPS = 14;
+
+  /**
+   * The number of structural features of the '<em>Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP_FEATURE_COUNT = 15;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.LogicExpImpl <em>Logic Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.LogicExpImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getLogicExp()
+   * @generated
+   */
+  int LOGIC_EXP = 12;
+
+  /**
+   * The feature id for the '<em><b>Left Logic</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXP__LEFT_LOGIC = 0;
+
+  /**
+   * The feature id for the '<em><b>Right Logic</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXP__RIGHT_LOGIC = 1;
+
+  /**
+   * The number of structural features of the '<em>Logic Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXP_FEATURE_COUNT = 2;
 
 
   /**
@@ -562,6 +780,17 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   EAttribute getLambda_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Lambda#getLambdaExp <em>Lambda Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lambda Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Lambda#getLambdaExp()
+   * @see #getLambda()
+   * @generated
+   */
+  EReference getLambda_LambdaExp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.Input <em>Input</em>}'.
@@ -745,6 +974,235 @@ public interface ExTwentyOnePackage extends EPackage
   EClass getInputOrNode();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.InputOrNode#getInput <em>Input</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Input</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.InputOrNode#getInput()
+   * @see #getInputOrNode()
+   * @generated
+   */
+  EReference getInputOrNode_Input();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.InputOrNode#getNode <em>Node</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Node</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.InputOrNode#getNode()
+   * @see #getInputOrNode()
+   * @generated
+   */
+  EReference getInputOrNode_Node();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.Exp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp
+   * @generated
+   */
+  EClass getExp();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Left</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getLeft()
+   * @see #getExp()
+   * @generated
+   */
+  EAttribute getExp_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getRightPlus <em>Right Plus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Plus</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getRightPlus()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_RightPlus();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getRightMinus <em>Right Minus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Minus</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getRightMinus()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_RightMinus();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getRightMultiply <em>Right Multiply</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Multiply</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getRightMultiply()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_RightMultiply();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getRightDivide <em>Right Divide</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Divide</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getRightDivide()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_RightDivide();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getInParenthesis <em>In Parenthesis</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>In Parenthesis</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getInParenthesis()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_InParenthesis();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getLetId <em>Let Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Let Id</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getLetId()
+   * @see #getExp()
+   * @generated
+   */
+  EAttribute getExp_LetId();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getLetDefExp <em>Let Def Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Let Def Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getLetDefExp()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_LetDefExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getLetTargetExp <em>Let Target Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Let Target Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getLetTargetExp()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_LetTargetExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getIfLogicExp <em>If Logic Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>If Logic Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getIfLogicExp()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_IfLogicExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getThenExp <em>Then Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Then Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getThenExp()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_ThenExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getElseExp <em>Else Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getElseExp()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_ElseExp();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getNewArrayId <em>New Array Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>New Array Id</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getNewArrayId()
+   * @see #getExp()
+   * @generated
+   */
+  EAttribute getExp_NewArrayId();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getNewArrayIds <em>New Array Ids</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>New Array Ids</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getNewArrayIds()
+   * @see #getExp()
+   * @generated
+   */
+  EAttribute getExp_NewArrayIds();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.exTwentyOne.Exp#getNewArrayExps <em>New Array Exps</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>New Array Exps</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Exp#getNewArrayExps()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_NewArrayExps();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.LogicExp <em>Logic Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logic Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.LogicExp
+   * @generated
+   */
+  EClass getLogicExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.LogicExp#getLeftLogic <em>Left Logic</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left Logic</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.LogicExp#getLeftLogic()
+   * @see #getLogicExp()
+   * @generated
+   */
+  EReference getLogicExp_LeftLogic();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.LogicExp#getRightLogic <em>Right Logic</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right Logic</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.LogicExp#getRightLogic()
+   * @see #getLogicExp()
+   * @generated
+   */
+  EReference getLogicExp_RightLogic();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -864,6 +1322,14 @@ public interface ExTwentyOnePackage extends EPackage
      * @generated
      */
     EAttribute LAMBDA__NAME = eINSTANCE.getLambda_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Lambda Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAMBDA__LAMBDA_EXP = eINSTANCE.getLambda_LambdaExp();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.InputImpl <em>Input</em>}' class.
@@ -1012,6 +1478,178 @@ public interface ExTwentyOnePackage extends EPackage
      * @generated
      */
     EClass INPUT_OR_NODE = eINSTANCE.getInputOrNode();
+
+    /**
+     * The meta object literal for the '<em><b>Input</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INPUT_OR_NODE__INPUT = eINSTANCE.getInputOrNode_Input();
+
+    /**
+     * The meta object literal for the '<em><b>Node</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INPUT_OR_NODE__NODE = eINSTANCE.getInputOrNode_Node();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpImpl <em>Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ExpImpl
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getExp()
+     * @generated
+     */
+    EClass EXP = eINSTANCE.getExp();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXP__LEFT = eINSTANCE.getExp_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right Plus</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__RIGHT_PLUS = eINSTANCE.getExp_RightPlus();
+
+    /**
+     * The meta object literal for the '<em><b>Right Minus</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__RIGHT_MINUS = eINSTANCE.getExp_RightMinus();
+
+    /**
+     * The meta object literal for the '<em><b>Right Multiply</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__RIGHT_MULTIPLY = eINSTANCE.getExp_RightMultiply();
+
+    /**
+     * The meta object literal for the '<em><b>Right Divide</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__RIGHT_DIVIDE = eINSTANCE.getExp_RightDivide();
+
+    /**
+     * The meta object literal for the '<em><b>In Parenthesis</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__IN_PARENTHESIS = eINSTANCE.getExp_InParenthesis();
+
+    /**
+     * The meta object literal for the '<em><b>Let Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXP__LET_ID = eINSTANCE.getExp_LetId();
+
+    /**
+     * The meta object literal for the '<em><b>Let Def Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__LET_DEF_EXP = eINSTANCE.getExp_LetDefExp();
+
+    /**
+     * The meta object literal for the '<em><b>Let Target Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__LET_TARGET_EXP = eINSTANCE.getExp_LetTargetExp();
+
+    /**
+     * The meta object literal for the '<em><b>If Logic Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__IF_LOGIC_EXP = eINSTANCE.getExp_IfLogicExp();
+
+    /**
+     * The meta object literal for the '<em><b>Then Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__THEN_EXP = eINSTANCE.getExp_ThenExp();
+
+    /**
+     * The meta object literal for the '<em><b>Else Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__ELSE_EXP = eINSTANCE.getExp_ElseExp();
+
+    /**
+     * The meta object literal for the '<em><b>New Array Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXP__NEW_ARRAY_ID = eINSTANCE.getExp_NewArrayId();
+
+    /**
+     * The meta object literal for the '<em><b>New Array Ids</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXP__NEW_ARRAY_IDS = eINSTANCE.getExp_NewArrayIds();
+
+    /**
+     * The meta object literal for the '<em><b>New Array Exps</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__NEW_ARRAY_EXPS = eINSTANCE.getExp_NewArrayExps();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.LogicExpImpl <em>Logic Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.LogicExpImpl
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getLogicExp()
+     * @generated
+     */
+    EClass LOGIC_EXP = eINSTANCE.getLogicExp();
+
+    /**
+     * The meta object literal for the '<em><b>Left Logic</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGIC_EXP__LEFT_LOGIC = eINSTANCE.getLogicExp_LeftLogic();
+
+    /**
+     * The meta object literal for the '<em><b>Right Logic</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGIC_EXP__RIGHT_LOGIC = eINSTANCE.getLogicExp_RightLogic();
 
   }
 
