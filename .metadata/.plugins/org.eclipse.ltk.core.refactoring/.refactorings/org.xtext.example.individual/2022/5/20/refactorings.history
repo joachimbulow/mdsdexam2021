@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;org.xtext.example.individual&apos;&#x0A;- Original project: &apos;org.xtext.example.individual&apos;&#x0A;- Original elements:&#x0A;     org.xtext.example.individual/src/org.xtext.externaldsl&#x0A;     org.xtext.example.individual/src/org.xtext.externaldsl.generator&#x0A;     org.xtext.example.individual/src/org.xtext.externaldsl.scoping&#x0A;     org.xtext.example.individual/src/org.xtext.externaldsl.validation&#x0A;- Delete subpackages" description="Delete elements" element1="/src&lt;org.xtext.externaldsl.validation" element2="/src&lt;org.xtext.externaldsl.scoping" element3="/src&lt;org.xtext.externaldsl.generator" element4="/src&lt;org.xtext.externaldsl" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1653239964879" subPackages="true" version="1.0"/>
+</session>

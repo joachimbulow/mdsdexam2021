@@ -1,0 +1,116 @@
+grammar org.xtext.externaldsl.LabSafety with org.eclipse.xtext.common.Terminals
+
+generate labSafety "http://www.xtext.org/externaldsl/LabSafety"
+
+System:
+	'system' name=ID
+	(locations+=Location)*
+	(gateways+=Gateway)*
+	types=Types
+	(actions+=Action)*
+	(sensors+=Sensor)*
+	(onReading+=OnReading)*
+;
+
+Location:
+	'location' name=ID':' 
+	'building' building=STRING','
+	'floor' floor=INT','
+	'roomId' roomId=STRING','
+	'nickname' nickname=STRING	
+;
+
+Gateway:
+	'gateway' name=ID':'
+	'id' id=STRING','
+	'relation' location=[Location]
+;
+
+Sensor:
+	'sensor' name=ID':'
+	'id' id=STRING
+	'unit' unit=STRING
+	'type' type=[Type]
+	'actionThresholds'
+		(actionThresholds+=ActionThreshold)*
+	'relation' gateway=[Gateway]
+	'relation' location=[Location]
+;
+
+ActionThreshold:
+	name=ID ':' 'if' logicalComparison=LogicalComparison 'do' 'action' action=[Action]
+;
+
+LogicalComparison:
+	Comparison (( {AND.left=current} 'AND' | {OR.left=current} 'OR') right=Comparison)*
+;
+
+Comparison:
+	'value'
+	operator=('==' | '>' | '<' | '>=' | '<=')
+	value=BoundValue
+;
+
+Types:
+	{Types} 'types:' types+=Type (','+types+=Type)*
+;
+
+Type:
+	name=ID
+;
+
+OnReading:
+	'onReading' name=ID ':'	'if' actionThreshold=STRING 'activated' frequencyThreshold=INT 'times' 'last' seconds=INT 'seconds'
+	(
+		(locationMatch=LocationMatching | typeMatch=TypeMatching)
+		|
+		(locationMatch=LocationMatching typeMatch=TypeMatching)
+	)
+	onReadingActions=OnReadingActions
+;
+
+OnReadingActions:
+	'do' actions+=[Action] (','+actions+=[Action])*
+;
+
+
+//TimeUnit:
+//	amount=INT ("day" | "hour" | "minute" | "second" | "days" | "hours" | "minutes" | "seconds")
+//;
+
+LocationMatching: 
+	'in' 'location' locations=STRING
+;
+
+TypeMatching:
+	'for' 'type' type=[Type]
+;
+
+Action:
+	AlarmAction | EmailNotificationAction
+;
+
+AlarmAction:
+	"alarmAction" name=ID
+	"location" location=[Location]
+;
+
+
+EmailNotificationAction:
+	'emailAction' name=ID body=STRING 'to' recipient=STRING 'with' 'title' title=STRING
+;
+
+BoundValue:
+	DOUBLE | INT
+;
+
+OutlierDetection:
+	"outlierDetection" BOOLEAN
+;
+
+terminal BOOLEAN:
+	'true'|'false';
+
+terminal DOUBLE:
+    INT '.' INT
+;
