@@ -76,6 +76,7 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
       case ExTwentyOnePackage.ELEMENT: return createElement();
       case ExTwentyOnePackage.DATA_DECL: return createDataDecl();
       case ExTwentyOnePackage.INPUT_OR_NODE: return createInputOrNode();
+      case ExTwentyOnePackage.NODE_OR_FUNCTION: return createNodeOrFunction();
       case ExTwentyOnePackage.EXPRESSION: return createExpression();
       case ExTwentyOnePackage.NEW_INPUT: return createNewInput();
       case ExTwentyOnePackage.LOGIC_EXP: return createLogicExp();
@@ -218,6 +219,18 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
   {
     InputOrNodeImpl inputOrNode = new InputOrNodeImpl();
     return inputOrNode;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NodeOrFunction createNodeOrFunction()
+  {
+    NodeOrFunctionImpl nodeOrFunction = new NodeOrFunctionImpl();
+    return nodeOrFunction;
   }
 
   /**

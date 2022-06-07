@@ -722,7 +722,7 @@ ruleElement returns [EObject current=null]
 						}
 						otherlv_3=RULE_ID
 						{
-							newLeafNode(otherlv_3, grammarAccess.getElementAccess().getNodeNodeCrossReference_1_1_0_0());
+							newLeafNode(otherlv_3, grammarAccess.getElementAccess().getNodeNodeOrFunctionCrossReference_1_1_0_0());
 						}
 					)
 				)
@@ -923,6 +923,14 @@ ruleType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 		}
 		{
 			newLeafNode(this_ID_2, grammarAccess.getTypeAccess().getIDTerminalRuleCall_2());
+		}
+		    |
+		this_INT_3=RULE_INT
+		{
+			$current.merge(this_INT_3);
+		}
+		{
+			newLeafNode(this_INT_3, grammarAccess.getTypeAccess().getINTTerminalRuleCall_3());
 		}
 	)
 ;

@@ -610,6 +610,12 @@ rule__Type__Alternatives
 		RULE_ID
 		{ after(grammarAccess.getTypeAccess().getIDTerminalRuleCall_2()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getTypeAccess().getINTTerminalRuleCall_3()); }
+		RULE_INT
+		{ after(grammarAccess.getTypeAccess().getINTTerminalRuleCall_3()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -3886,13 +3892,13 @@ rule__Element__NodeAssignment_1_1_0
 	}
 :
 	(
-		{ before(grammarAccess.getElementAccess().getNodeNodeCrossReference_1_1_0_0()); }
+		{ before(grammarAccess.getElementAccess().getNodeNodeOrFunctionCrossReference_1_1_0_0()); }
 		(
-			{ before(grammarAccess.getElementAccess().getNodeNodeIDTerminalRuleCall_1_1_0_0_1()); }
+			{ before(grammarAccess.getElementAccess().getNodeNodeOrFunctionIDTerminalRuleCall_1_1_0_0_1()); }
 			RULE_ID
-			{ after(grammarAccess.getElementAccess().getNodeNodeIDTerminalRuleCall_1_1_0_0_1()); }
+			{ after(grammarAccess.getElementAccess().getNodeNodeOrFunctionIDTerminalRuleCall_1_1_0_0_1()); }
 		)
-		{ after(grammarAccess.getElementAccess().getNodeNodeCrossReference_1_1_0_0()); }
+		{ after(grammarAccess.getElementAccess().getNodeNodeOrFunctionCrossReference_1_1_0_0()); }
 	)
 ;
 finally {

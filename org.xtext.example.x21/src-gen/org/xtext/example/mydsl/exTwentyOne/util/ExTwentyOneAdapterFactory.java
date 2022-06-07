@@ -131,6 +131,11 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
         return createInputOrNodeAdapter();
       }
       @Override
+      public Adapter caseNodeOrFunction(NodeOrFunction object)
+      {
+        return createNodeOrFunctionAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -348,6 +353,21 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInputOrNodeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.NodeOrFunction <em>Node Or Function</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.NodeOrFunction
+   * @generated
+   */
+  public Adapter createNodeOrFunctionAdapter()
   {
     return null;
   }

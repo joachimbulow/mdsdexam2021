@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.exTwentyOne.Element;
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
-import org.xtext.example.mydsl.exTwentyOne.Node;
+import org.xtext.example.mydsl.exTwentyOne.NodeOrFunction;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
    * @generated
    * @ordered
    */
-  protected Node node;
+  protected NodeOrFunction node;
 
   /**
    * The default value of the '{@link #getOutput() <em>Output</em>}' attribute.
@@ -134,12 +134,12 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
    * @generated
    */
   @Override
-  public Node getNode()
+  public NodeOrFunction getNode()
   {
     if (node != null && node.eIsProxy())
     {
       InternalEObject oldNode = (InternalEObject)node;
-      node = (Node)eResolveProxy(oldNode);
+      node = (NodeOrFunction)eResolveProxy(oldNode);
       if (node != oldNode)
       {
         if (eNotificationRequired())
@@ -154,7 +154,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
    * <!-- end-user-doc -->
    * @generated
    */
-  public Node basicGetNode()
+  public NodeOrFunction basicGetNode()
   {
     return node;
   }
@@ -165,9 +165,9 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
    * @generated
    */
   @Override
-  public void setNode(Node newNode)
+  public void setNode(NodeOrFunction newNode)
   {
-    Node oldNode = node;
+    NodeOrFunction oldNode = node;
     node = newNode;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.ELEMENT__NODE, oldNode, node));
@@ -233,7 +233,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
         setElement((String)newValue);
         return;
       case ExTwentyOnePackage.ELEMENT__NODE:
-        setNode((Node)newValue);
+        setNode((NodeOrFunction)newValue);
         return;
       case ExTwentyOnePackage.ELEMENT__OUTPUT:
         setOutput((String)newValue);
@@ -256,7 +256,7 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
         setElement(ELEMENT_EDEFAULT);
         return;
       case ExTwentyOnePackage.ELEMENT__NODE:
-        setNode((Node)null);
+        setNode((NodeOrFunction)null);
         return;
       case ExTwentyOnePackage.ELEMENT__OUTPUT:
         setOutput(OUTPUT_EDEFAULT);

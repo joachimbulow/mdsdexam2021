@@ -44,7 +44,7 @@ public class ExTwentyOneSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Type: 
-	 * 	'int' | 'string' | ID
+	 * 	'int' | 'string' | ID | INT
 	 * ;
 	 */
 	protected String getTypeToken(EObject semanticObject, RuleCall ruleCall, INode node) {

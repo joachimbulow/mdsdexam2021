@@ -37,6 +37,7 @@ public class ExTwentyOneParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getElementAccess().getAlternatives_1_1(), "rule__Element__Alternatives_1_1");
 			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 			builder.put(grammarAccess.getInputOrNodeAccess().getAlternatives(), "rule__InputOrNode__Alternatives");
+			builder.put(grammarAccess.getNodeOrFunctionAccess().getAlternatives(), "rule__NodeOrFunction__Alternatives");
 			builder.put(grammarAccess.getExpAccess().getAlternatives_1_0(), "rule__Exp__Alternatives_1_0");
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 			builder.put(grammarAccess.getLogicExpAccess().getAlternatives_1(), "rule__LogicExp__Alternatives_1");

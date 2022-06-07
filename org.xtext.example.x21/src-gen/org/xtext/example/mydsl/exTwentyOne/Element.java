@@ -52,12 +52,12 @@ public interface Element extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Node</em>' reference.
-   * @see #setNode(Node)
+   * @see #setNode(NodeOrFunction)
    * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getElement_Node()
    * @model
    * @generated
    */
-  Node getNode();
+  NodeOrFunction getNode();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.exTwentyOne.Element#getNode <em>Node</em>}' reference.
@@ -67,7 +67,7 @@ public interface Element extends EObject
    * @see #getNode()
    * @generated
    */
-  void setNode(Node value);
+  void setNode(NodeOrFunction value);
 
   /**
    * Returns the value of the '<em><b>Output</b></em>' attribute.

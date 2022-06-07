@@ -34,7 +34,7 @@ Stream:
 ;
 
 Element: 
-	{Element} element=ID | '[' (node=[Node] | Lambda) ']' | 'output' output=ID
+	{Element} element=ID | '[' (node=[NodeOrFunction] | Lambda) ']' | 'output' output=ID
 ;
 
 DataDecl:
@@ -42,11 +42,15 @@ DataDecl:
 ;
 
 Type: 
-	'int' | 'string' | ID
+	'int' | 'string' | ID | INT
 ;
 
 InputOrNode:
 	Input | Node
+;
+
+NodeOrFunction:
+	Node | Function
 ;
 
 Exp returns Expression: 

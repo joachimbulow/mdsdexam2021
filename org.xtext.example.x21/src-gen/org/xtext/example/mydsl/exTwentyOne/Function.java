@@ -21,7 +21,7 @@ package org.xtext.example.mydsl.exTwentyOne;
  * @model
  * @generated
  */
-public interface Function extends Declaration
+public interface Function extends Declaration, NodeOrFunction
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

@@ -123,6 +123,15 @@ public interface ExTwentyOneFactory extends EFactory
   InputOrNode createInputOrNode();
 
   /**
+   * Returns a new object of class '<em>Node Or Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Node Or Function</em>'.
+   * @generated
+   */
+  NodeOrFunction createNodeOrFunction();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -136,7 +136,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Element returns Element
 	 *
 	 * Constraint:
-	 *     (element=ID | node=[Node|ID] | output=ID)
+	 *     (element=ID | node=[NodeOrFunction|ID] | output=ID)
 	 * </pre>
 	 */
 	protected void sequence_Element(ISerializationContext context, Element semanticObject) {
@@ -261,6 +261,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Contexts:
 	 *     Declaration returns Function
 	 *     Function returns Function
+	 *     NodeOrFunction returns Function
 	 *
 	 * Constraint:
 	 *     (name=ID lambda=Lambda)
@@ -446,6 +447,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Declaration returns Node
 	 *     Node returns Node
 	 *     InputOrNode returns Node
+	 *     NodeOrFunction returns Node
 	 *
 	 * Constraint:
 	 *     (name=ID (function=[Function|ID] | lambda=Lambda))

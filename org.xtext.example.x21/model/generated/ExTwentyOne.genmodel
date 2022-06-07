@@ -44,6 +44,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//DataDecl/data"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//InputOrNode"/>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//NodeOrFunction"/>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Expression/ifLogicExp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Expression/thenExp"/>

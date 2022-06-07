@@ -26,6 +26,7 @@ import org.xtext.example.mydsl.exTwentyOne.Minus;
 import org.xtext.example.mydsl.exTwentyOne.Mult;
 import org.xtext.example.mydsl.exTwentyOne.NewInput;
 import org.xtext.example.mydsl.exTwentyOne.Node;
+import org.xtext.example.mydsl.exTwentyOne.NodeOrFunction;
 import org.xtext.example.mydsl.exTwentyOne.Parameter;
 import org.xtext.example.mydsl.exTwentyOne.Plus;
 import org.xtext.example.mydsl.exTwentyOne.Program;
@@ -115,6 +116,13 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   private EClass inputOrNodeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nodeOrFunctionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -553,6 +561,17 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
+  public EClass getNodeOrFunction()
+  {
+    return nodeOrFunctionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getExpression()
   {
     return expressionEClass;
@@ -904,6 +923,8 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
 
     inputOrNodeEClass = createEClass(INPUT_OR_NODE);
 
+    nodeOrFunctionEClass = createEClass(NODE_OR_FUNCTION);
+
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__IF_LOGIC_EXP);
     createEReference(expressionEClass, EXPRESSION__THEN_EXP);
@@ -969,11 +990,13 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     // Add supertypes to classes
     parameterEClass.getESuperTypes().add(this.getDeclaration());
     functionEClass.getESuperTypes().add(this.getDeclaration());
+    functionEClass.getESuperTypes().add(this.getNodeOrFunction());
     lambdaEClass.getESuperTypes().add(this.getElement());
     inputEClass.getESuperTypes().add(this.getDeclaration());
     inputEClass.getESuperTypes().add(this.getInputOrNode());
     nodeEClass.getESuperTypes().add(this.getDeclaration());
     nodeEClass.getESuperTypes().add(this.getInputOrNode());
+    nodeEClass.getESuperTypes().add(this.getNodeOrFunction());
     streamEClass.getESuperTypes().add(this.getDeclaration());
     dataDeclEClass.getESuperTypes().add(this.getDeclaration());
     newInputEClass.getESuperTypes().add(this.getExpression());
@@ -1014,7 +1037,7 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getElement_Element(), ecorePackage.getEString(), "element", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getElement_Node(), this.getNode(), null, "node", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElement_Node(), this.getNodeOrFunction(), null, "node", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getElement_Output(), ecorePackage.getEString(), "output", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataDeclEClass, DataDecl.class, "DataDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1022,6 +1045,8 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     initEAttribute(getDataDecl_Data(), ecorePackage.getEString(), "data", null, 0, -1, DataDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputOrNodeEClass, InputOrNode.class, "InputOrNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(nodeOrFunctionEClass, NodeOrFunction.class, "NodeOrFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_IfLogicExp(), this.getLogicExp(), null, "ifLogicExp", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

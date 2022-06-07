@@ -456,6 +456,25 @@ public interface ExTwentyOnePackage extends EPackage
   int INPUT_OR_NODE_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.NodeOrFunctionImpl <em>Node Or Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.NodeOrFunctionImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getNodeOrFunction()
+   * @generated
+   */
+  int NODE_OR_FUNCTION = 11;
+
+  /**
+   * The number of structural features of the '<em>Node Or Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE_OR_FUNCTION_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -463,7 +482,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 11;
+  int EXPRESSION = 12;
 
   /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
@@ -536,7 +555,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getNewInput()
    * @generated
    */
-  int NEW_INPUT = 12;
+  int NEW_INPUT = 13;
 
   /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
@@ -636,7 +655,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getLogicExp()
    * @generated
    */
-  int LOGIC_EXP = 13;
+  int LOGIC_EXP = 14;
 
   /**
    * The feature id for the '<em><b>Left Logic</b></em>' containment reference.
@@ -673,7 +692,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 14;
+  int PLUS = 15;
 
   /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
@@ -764,7 +783,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 15;
+  int MINUS = 16;
 
   /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
@@ -855,7 +874,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getMult()
    * @generated
    */
-  int MULT = 16;
+  int MULT = 17;
 
   /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
@@ -946,7 +965,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getDivide()
    * @generated
    */
-  int DIVIDE = 17;
+  int DIVIDE = 18;
 
   /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
@@ -1337,6 +1356,16 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   EClass getInputOrNode();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.NodeOrFunction <em>Node Or Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Node Or Function</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.NodeOrFunction
+   * @generated
+   */
+  EClass getNodeOrFunction();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.Expression <em>Expression</em>}'.
@@ -1893,6 +1922,16 @@ public interface ExTwentyOnePackage extends EPackage
      * @generated
      */
     EClass INPUT_OR_NODE = eINSTANCE.getInputOrNode();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.NodeOrFunctionImpl <em>Node Or Function</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.NodeOrFunctionImpl
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getNodeOrFunction()
+     * @generated
+     */
+    EClass NODE_OR_FUNCTION = eINSTANCE.getNodeOrFunction();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl <em>Expression</em>}' class.
