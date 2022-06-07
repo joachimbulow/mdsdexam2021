@@ -24,6 +24,8 @@ import org.xtext.example.mydsl.exTwentyOne.LogicExp;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl#getAccessedData <em>Accessed Data</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl#getAccessedField <em>Accessed Field</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl#getIfLogicExp <em>If Logic Exp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl#getThenExp <em>Then Exp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl#getElseExp <em>Else Exp</em>}</li>
@@ -36,6 +38,46 @@ import org.xtext.example.mydsl.exTwentyOne.LogicExp;
  */
 public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
 {
+  /**
+   * The default value of the '{@link #getAccessedData() <em>Accessed Data</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAccessedData()
+   * @generated
+   * @ordered
+   */
+  protected static final String ACCESSED_DATA_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAccessedData() <em>Accessed Data</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAccessedData()
+   * @generated
+   * @ordered
+   */
+  protected String accessedData = ACCESSED_DATA_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getAccessedField() <em>Accessed Field</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAccessedField()
+   * @generated
+   * @ordered
+   */
+  protected static final String ACCESSED_FIELD_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAccessedField() <em>Accessed Field</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAccessedField()
+   * @generated
+   * @ordered
+   */
+  protected String accessedField = ACCESSED_FIELD_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getIfLogicExp() <em>If Logic Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -125,6 +167,56 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   protected EClass eStaticClass()
   {
     return ExTwentyOnePackage.Literals.EXPRESSION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getAccessedData()
+  {
+    return accessedData;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setAccessedData(String newAccessedData)
+  {
+    String oldAccessedData = accessedData;
+    accessedData = newAccessedData;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.EXPRESSION__ACCESSED_DATA, oldAccessedData, accessedData));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getAccessedField()
+  {
+    return accessedField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setAccessedField(String newAccessedField)
+  {
+    String oldAccessedField = accessedField;
+    accessedField = newAccessedField;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.EXPRESSION__ACCESSED_FIELD, oldAccessedField, accessedField));
   }
 
   /**
@@ -436,6 +528,10 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
+      case ExTwentyOnePackage.EXPRESSION__ACCESSED_DATA:
+        return getAccessedData();
+      case ExTwentyOnePackage.EXPRESSION__ACCESSED_FIELD:
+        return getAccessedField();
       case ExTwentyOnePackage.EXPRESSION__IF_LOGIC_EXP:
         return getIfLogicExp();
       case ExTwentyOnePackage.EXPRESSION__THEN_EXP:
@@ -462,6 +558,12 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
+      case ExTwentyOnePackage.EXPRESSION__ACCESSED_DATA:
+        setAccessedData((String)newValue);
+        return;
+      case ExTwentyOnePackage.EXPRESSION__ACCESSED_FIELD:
+        setAccessedField((String)newValue);
+        return;
       case ExTwentyOnePackage.EXPRESSION__IF_LOGIC_EXP:
         setIfLogicExp((LogicExp)newValue);
         return;
@@ -494,6 +596,12 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
+      case ExTwentyOnePackage.EXPRESSION__ACCESSED_DATA:
+        setAccessedData(ACCESSED_DATA_EDEFAULT);
+        return;
+      case ExTwentyOnePackage.EXPRESSION__ACCESSED_FIELD:
+        setAccessedField(ACCESSED_FIELD_EDEFAULT);
+        return;
       case ExTwentyOnePackage.EXPRESSION__IF_LOGIC_EXP:
         setIfLogicExp((LogicExp)null);
         return;
@@ -526,6 +634,10 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
+      case ExTwentyOnePackage.EXPRESSION__ACCESSED_DATA:
+        return ACCESSED_DATA_EDEFAULT == null ? accessedData != null : !ACCESSED_DATA_EDEFAULT.equals(accessedData);
+      case ExTwentyOnePackage.EXPRESSION__ACCESSED_FIELD:
+        return ACCESSED_FIELD_EDEFAULT == null ? accessedField != null : !ACCESSED_FIELD_EDEFAULT.equals(accessedField);
       case ExTwentyOnePackage.EXPRESSION__IF_LOGIC_EXP:
         return ifLogicExp != null;
       case ExTwentyOnePackage.EXPRESSION__THEN_EXP:
@@ -553,7 +665,11 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
+    result.append(" (accessedData: ");
+    result.append(accessedData);
+    result.append(", accessedField: ");
+    result.append(accessedField);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

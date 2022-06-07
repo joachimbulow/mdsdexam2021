@@ -583,29 +583,29 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
+  public EAttribute getExpression_AccessedData()
+  {
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExpression_AccessedField()
+  {
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getExpression_IfLogicExp()
-  {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpression_ThenExp()
-  {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExpression_ElseExp()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(2);
   }
@@ -616,9 +616,9 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
-  public EAttribute getExpression_Name()
+  public EReference getExpression_ThenExp()
   {
-    return (EAttribute)expressionEClass.getEStructuralFeatures().get(3);
+    return (EReference)expressionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -627,7 +627,7 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
-  public EReference getExpression_Binding()
+  public EReference getExpression_ElseExp()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(4);
   }
@@ -638,9 +638,31 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
+  public EAttribute getExpression_Name()
+  {
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpression_Binding()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getExpression_Body()
   {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(5);
+    return (EReference)expressionEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -926,6 +948,8 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     nodeOrFunctionEClass = createEClass(NODE_OR_FUNCTION);
 
     expressionEClass = createEClass(EXPRESSION);
+    createEAttribute(expressionEClass, EXPRESSION__ACCESSED_DATA);
+    createEAttribute(expressionEClass, EXPRESSION__ACCESSED_FIELD);
     createEReference(expressionEClass, EXPRESSION__IF_LOGIC_EXP);
     createEReference(expressionEClass, EXPRESSION__THEN_EXP);
     createEReference(expressionEClass, EXPRESSION__ELSE_EXP);
@@ -1049,6 +1073,8 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     initEClass(nodeOrFunctionEClass, NodeOrFunction.class, "NodeOrFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExpression_AccessedData(), ecorePackage.getEString(), "accessedData", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpression_AccessedField(), ecorePackage.getEString(), "accessedField", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_IfLogicExp(), this.getLogicExp(), null, "ifLogicExp", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_ThenExp(), this.getExpression(), null, "thenExp", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_ElseExp(), this.getExpression(), null, "elseExp", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

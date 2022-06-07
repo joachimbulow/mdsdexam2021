@@ -56,8 +56,8 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 				sequence_Element(context, (Element) semanticObject); 
 				return; 
 			case ExTwentyOnePackage.EXPRESSION:
-				if (rule == grammarAccess.getIfThenElseRule()) {
-					sequence_IfThenElse(context, (Expression) semanticObject); 
+				if (rule == grammarAccess.getDataAccessRule()) {
+					sequence_DataAccess(context, (Expression) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getExpRule()
@@ -66,7 +66,11 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 						|| action == grammarAccess.getExpAccess().getMultLeftAction_1_0_2_0()
 						|| action == grammarAccess.getExpAccess().getDivideLeftAction_1_0_3_0()
 						|| rule == grammarAccess.getPrimaryRule()) {
-					sequence_IfThenElse_LetBinding(context, (Expression) semanticObject); 
+					sequence_DataAccess_IfThenElse_LetBinding_Primary(context, (Expression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getIfThenElseRule()) {
+					sequence_IfThenElse(context, (Expression) semanticObject); 
 					return; 
 				}
 				else if (rule == grammarAccess.getLetBindingRule()) {
@@ -114,6 +118,48 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     DataAccess returns Expression
+	 *
+	 * Constraint:
+	 *     (accessedData=ID accessedField=ID)
+	 * </pre>
+	 */
+	protected void sequence_DataAccess(ISerializationContext context, Expression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.EXPRESSION__ACCESSED_DATA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.EXPRESSION__ACCESSED_DATA));
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.EXPRESSION__ACCESSED_FIELD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.EXPRESSION__ACCESSED_FIELD));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDataAccessAccess().getAccessedDataIDTerminalRuleCall_0_0(), semanticObject.getAccessedData());
+		feeder.accept(grammarAccess.getDataAccessAccess().getAccessedFieldIDTerminalRuleCall_2_0(), semanticObject.getAccessedField());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Exp returns Expression
+	 *     Exp.Plus_1_0_0_0 returns Expression
+	 *     Exp.Minus_1_0_1_0 returns Expression
+	 *     Exp.Mult_1_0_2_0 returns Expression
+	 *     Exp.Divide_1_0_3_0 returns Expression
+	 *     Primary returns Expression
+	 *
+	 * Constraint:
+	 *     ((accessedData=ID accessedField=ID) | (ifLogicExp=LogicExp thenExp=Exp elseExp=Exp) | (name=ID binding=Exp body=Exp))?
+	 * </pre>
+	 */
+	protected void sequence_DataAccess_IfThenElse_LetBinding_Primary(ISerializationContext context, Expression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * <pre>
@@ -304,25 +350,6 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 		feeder.accept(grammarAccess.getIfThenElseAccess().getThenExpExpParserRuleCall_3_0(), semanticObject.getThenExp());
 		feeder.accept(grammarAccess.getIfThenElseAccess().getElseExpExpParserRuleCall_5_0(), semanticObject.getElseExp());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Exp returns Expression
-	 *     Exp.Plus_1_0_0_0 returns Expression
-	 *     Exp.Minus_1_0_1_0 returns Expression
-	 *     Exp.Mult_1_0_2_0 returns Expression
-	 *     Exp.Divide_1_0_3_0 returns Expression
-	 *     Primary returns Expression
-	 *
-	 * Constraint:
-	 *     ((ifLogicExp=LogicExp thenExp=Exp elseExp=Exp) | (name=ID binding=Exp body=Exp))
-	 * </pre>
-	 */
-	protected void sequence_IfThenElse_LetBinding(ISerializationContext context, Expression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

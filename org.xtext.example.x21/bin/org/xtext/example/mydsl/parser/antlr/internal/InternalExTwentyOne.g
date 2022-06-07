@@ -1057,43 +1057,44 @@ rulePrimary returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getPrimaryAccess().getTypeParserRuleCall_0());
+			newCompositeNode(grammarAccess.getPrimaryAccess().getLetBindingParserRuleCall_0());
 		}
-		ruleType
+		this_LetBinding_0=ruleLetBinding
 		{
+			$current = $this_LetBinding_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPrimaryAccess().getLetBindingParserRuleCall_1());
+			newCompositeNode(grammarAccess.getPrimaryAccess().getIfThenElseParserRuleCall_1());
 		}
-		this_LetBinding_1=ruleLetBinding
+		this_IfThenElse_1=ruleIfThenElse
 		{
-			$current = $this_LetBinding_1.current;
+			$current = $this_IfThenElse_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
-		{
-			newCompositeNode(grammarAccess.getPrimaryAccess().getIfThenElseParserRuleCall_2());
-		}
-		this_IfThenElse_2=ruleIfThenElse
-		{
-			$current = $this_IfThenElse_2.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		otherlv_3='none'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getPrimaryAccess().getNoneKeyword_3());
-		}
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getPrimaryAccess().getExpressionAction_2_0(),
+						$current);
+				}
+			)
+			otherlv_3='none'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getPrimaryAccess().getNoneKeyword_2_1());
+			}
+		)
 		    |
 		(
 			otherlv_4='('
 			{
-				newLeafNode(otherlv_4, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_4_0());
+				newLeafNode(otherlv_4, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_3_0());
 			}
 			{
-				newCompositeNode(grammarAccess.getPrimaryAccess().getExpParserRuleCall_4_1());
+				newCompositeNode(grammarAccess.getPrimaryAccess().getExpParserRuleCall_3_1());
 			}
 			this_Exp_5=ruleExp
 			{
@@ -1102,18 +1103,103 @@ rulePrimary returns [EObject current=null]
 			}
 			otherlv_6=')'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_4_2());
+				newLeafNode(otherlv_6, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_3_2());
 			}
 		)
 		    |
 		{
-			newCompositeNode(grammarAccess.getPrimaryAccess().getNewInputParserRuleCall_5());
+			newCompositeNode(grammarAccess.getPrimaryAccess().getNewInputParserRuleCall_4());
 		}
 		this_NewInput_7=ruleNewInput
 		{
 			$current = $this_NewInput_7.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPrimaryAccess().getDataAccessParserRuleCall_5());
+		}
+		this_DataAccess_8=ruleDataAccess
+		{
+			$current = $this_DataAccess_8.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getPrimaryAccess().getExpressionAction_6_0(),
+						$current);
+				}
+			)
+			{
+				newCompositeNode(grammarAccess.getPrimaryAccess().getTypeParserRuleCall_6_1());
+			}
+			ruleType
+			{
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleDataAccess
+entryRuleDataAccess returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDataAccessRule()); }
+	iv_ruleDataAccess=ruleDataAccess
+	{ $current=$iv_ruleDataAccess.current; }
+	EOF;
+
+// Rule DataAccess
+ruleDataAccess returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_accessedData_0_0=RULE_ID
+				{
+					newLeafNode(lv_accessedData_0_0, grammarAccess.getDataAccessAccess().getAccessedDataIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDataAccessRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"accessedData",
+						lv_accessedData_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_1='.'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDataAccessAccess().getFullStopKeyword_1());
+		}
+		(
+			(
+				lv_accessedField_2_0=RULE_ID
+				{
+					newLeafNode(lv_accessedField_2_0, grammarAccess.getDataAccessAccess().getAccessedFieldIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDataAccessRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"accessedField",
+						lv_accessedField_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
 	)
 ;
 

@@ -3,10 +3,19 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import com.google.common.collect.Iterators;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.xtext.example.mydsl.exTwentyOne.Declaration;
+import org.xtext.example.mydsl.exTwentyOne.Function;
+import org.xtext.example.mydsl.exTwentyOne.Program;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +26,135 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class ExTwentyOneGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    final Program program = Iterators.<Program>filter(resource.getAllContents(), Program.class).next();
+    String _name = program.getName();
+    String _plus = ("x21/" + _name);
+    String _plus_1 = (_plus + ".java");
+    fsa.generateFile(_plus_1, 
+      ExTwentyOneGenerator.compile(program));
+  }
+  
+  public static CharSequence compile(final Program program) {
+    CharSequence _xblockexpression = null;
+    {
+      int hello = 12;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("package ");
+      String _name = program.getName();
+      _builder.append(_name);
+      _builder.append(";");
+      _builder.newLineIfNotEmpty();
+      _builder.append("...");
+      _builder.newLine();
+      _builder.append("public class ");
+      String _upper = ExTwentyOneGenerator.toUpper(program.getName());
+      _builder.append(_upper);
+      _builder.append("Main extends GenericMainX21 {");
+      _builder.newLineIfNotEmpty();
+      _builder.append("// Code for function add1");
+      _builder.newLine();
+      {
+        List<Declaration> _filterDeclarations = ExTwentyOneGenerator.filterDeclarations(program.getDeclarations(), Function.class);
+        for(final Function function : ((ArrayList<Function>) _filterDeclarations)) {
+          CharSequence _compileFunction = ExTwentyOneGenerator.compileFunction(function);
+          _builder.append(_compileFunction);
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.newLine();
+      _builder.append("// Code for node add1node");
+      _builder.newLine();
+      _builder.append("private ComputeNode <Object,Object> node_add1node = new AbstractComputeNode<Object,Object>() {");
+      _builder.newLine();
+      _builder.append("protected Object function(Object input) {");
+      _builder.newLine();
+      _builder.append("return fun_add1(input);");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("};");
+      _builder.newLine();
+      _builder.append("...");
+      _builder.newLine();
+      _builder.append("// Output nodes");
+      _builder.newLine();
+      _builder.append("private OutputNode<Object> node_inc_number_1 = new OutputNode<Object>();");
+      _builder.newLine();
+      _builder.append("public List<Object> getInc_number_1() { return node_inc_number_1.getData(); }");
+      _builder.newLine();
+      _builder.append("...");
+      _builder.newLine();
+      _builder.append("// Initialization of specific nodes");
+      _builder.newLine();
+      _builder.append("protected void initializeNodes() {");
+      _builder.newLine();
+      _builder.append("super.addNode(node_number);");
+      _builder.newLine();
+      _builder.append("super.addNode(node_add1node);");
+      _builder.newLine();
+      _builder.append("...");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("// Initialize network as a whole");
+      _builder.newLine();
+      _builder.append("protected void initializeNetwork() {");
+      _builder.newLine();
+      _builder.append("node_number.addOutputNode(node_add1node);");
+      _builder.newLine();
+      _builder.append("node_add1node.addOutputNode(node_inc_number_1);");
+      _builder.newLine();
+      _builder.append("...");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  public static CharSequence compileFunction(final Function function) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("private Object fun_");
+    String _name = function.getName();
+    _builder.append(_name);
+    _builder.append("(Object arg) {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("return funimpl_");
+    String _name_1 = function.getName();
+    _builder.append(_name_1, "\t");
+    _builder.append("((Integer)arg);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("private Object funimpl_");
+    String _name_2 = function.getName();
+    _builder.append(_name_2);
+    _builder.append("(Integer _");
+    String _name_3 = function.getLambda().getName();
+    _builder.append(_name_3);
+    _builder.append("){ return ((_x)+(1)); }");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected static Object _compileExpression(final /* Primary */Object primary) {
+    return null;
+  }
+  
+  public static String toUpper(final String it) {
+    return it.toUpperCase();
+  }
+  
+  public static List<Declaration> filterDeclarations(final List<Declaration> declarations, final Class<?> type) {
+    final Predicate<Declaration> _function = (Declaration declaration) -> {
+      return type.isInstance(declaration);
+    };
+    return declarations.stream().filter(_function).collect(Collectors.<Declaration>toList());
+  }
+  
+  public static Object compileExpression(final Primary primary) {
+    return _compileExpression(primary);
   }
 }

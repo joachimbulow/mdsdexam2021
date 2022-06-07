@@ -698,51 +698,103 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	public class PrimaryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.Primary");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cLetBindingParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cIfThenElseParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final Keyword cNoneKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final RuleCall cExpParserRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final RuleCall cNewInputParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cLetBindingParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cIfThenElseParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cExpressionAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cNoneKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final RuleCall cExpParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final RuleCall cNewInputParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cDataAccessParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
+		private final Action cExpressionAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final RuleCall cTypeParserRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
 		
 		//// WHat is this rule? ID ( '.' ID )*
 		//Primary returns Expression:
-		// Type | LetBinding | IfThenElse | 'none' | '(' Exp ')' | NewInput
+		// LetBinding | IfThenElse | {Expression} 'none' | '(' Exp ')' | NewInput | DataAccess | {Expression} Type
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Type | LetBinding | IfThenElse | 'none' | '(' Exp ')' | NewInput
+		//LetBinding | IfThenElse | {Expression} 'none' | '(' Exp ')' | NewInput | DataAccess | {Expression} Type
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Type
-		public RuleCall getTypeParserRuleCall_0() { return cTypeParserRuleCall_0; }
-		
 		//LetBinding
-		public RuleCall getLetBindingParserRuleCall_1() { return cLetBindingParserRuleCall_1; }
+		public RuleCall getLetBindingParserRuleCall_0() { return cLetBindingParserRuleCall_0; }
 		
 		//IfThenElse
-		public RuleCall getIfThenElseParserRuleCall_2() { return cIfThenElseParserRuleCall_2; }
+		public RuleCall getIfThenElseParserRuleCall_1() { return cIfThenElseParserRuleCall_1; }
+		
+		//{Expression} 'none'
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{Expression}
+		public Action getExpressionAction_2_0() { return cExpressionAction_2_0; }
 		
 		//'none'
-		public Keyword getNoneKeyword_3() { return cNoneKeyword_3; }
+		public Keyword getNoneKeyword_2_1() { return cNoneKeyword_2_1; }
 		
 		//'(' Exp ')'
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
+		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
 		
 		//Exp
-		public RuleCall getExpParserRuleCall_4_1() { return cExpParserRuleCall_4_1; }
+		public RuleCall getExpParserRuleCall_3_1() { return cExpParserRuleCall_3_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_4_2() { return cRightParenthesisKeyword_4_2; }
+		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
 		
 		//NewInput
-		public RuleCall getNewInputParserRuleCall_5() { return cNewInputParserRuleCall_5; }
+		public RuleCall getNewInputParserRuleCall_4() { return cNewInputParserRuleCall_4; }
+		
+		//DataAccess
+		public RuleCall getDataAccessParserRuleCall_5() { return cDataAccessParserRuleCall_5; }
+		
+		//{Expression} Type
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//{Expression}
+		public Action getExpressionAction_6_0() { return cExpressionAction_6_0; }
+		
+		//Type
+		public RuleCall getTypeParserRuleCall_6_1() { return cTypeParserRuleCall_6_1; }
+	}
+	public class DataAccessElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.DataAccess");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cAccessedDataAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cAccessedDataIDTerminalRuleCall_0_0 = (RuleCall)cAccessedDataAssignment_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cAccessedFieldAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAccessedFieldIDTerminalRuleCall_2_0 = (RuleCall)cAccessedFieldAssignment_2.eContents().get(0);
+		
+		//DataAccess returns Expression:
+		//     accessedData=ID '.' accessedField=ID
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//accessedData=ID '.' accessedField=ID
+		public Group getGroup() { return cGroup; }
+		
+		//accessedData=ID
+		public Assignment getAccessedDataAssignment_0() { return cAccessedDataAssignment_0; }
+		
+		//ID
+		public RuleCall getAccessedDataIDTerminalRuleCall_0_0() { return cAccessedDataIDTerminalRuleCall_0_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+		
+		//accessedField=ID
+		public Assignment getAccessedFieldAssignment_2() { return cAccessedFieldAssignment_2; }
+		
+		//ID
+		public RuleCall getAccessedFieldIDTerminalRuleCall_2_0() { return cAccessedFieldIDTerminalRuleCall_2_0; }
 	}
 	public class IfThenElseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.IfThenElse");
@@ -997,6 +1049,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	private final NodeOrFunctionElements pNodeOrFunction;
 	private final ExpElements pExp;
 	private final PrimaryElements pPrimary;
+	private final DataAccessElements pDataAccess;
 	private final IfThenElseElements pIfThenElse;
 	private final NewInputElements pNewInput;
 	private final LetBindingElements pLetBinding;
@@ -1026,6 +1079,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		this.pNodeOrFunction = new NodeOrFunctionElements();
 		this.pExp = new ExpElements();
 		this.pPrimary = new PrimaryElements();
+		this.pDataAccess = new DataAccessElements();
 		this.pIfThenElse = new IfThenElseElements();
 		this.pNewInput = new NewInputElements();
 		this.pLetBinding = new LetBindingElements();
@@ -1214,7 +1268,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	
 	//// WHat is this rule? ID ( '.' ID )*
 	//Primary returns Expression:
-	// Type | LetBinding | IfThenElse | 'none' | '(' Exp ')' | NewInput
+	// LetBinding | IfThenElse | {Expression} 'none' | '(' Exp ')' | NewInput | DataAccess | {Expression} Type
 	//;
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
@@ -1222,6 +1276,17 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	
 	public ParserRule getPrimaryRule() {
 		return getPrimaryAccess().getRule();
+	}
+	
+	//DataAccess returns Expression:
+	//     accessedData=ID '.' accessedField=ID
+	//;
+	public DataAccessElements getDataAccessAccess() {
+		return pDataAccess;
+	}
+	
+	public ParserRule getDataAccessRule() {
+		return getDataAccessAccess().getRule();
 	}
 	
 	//IfThenElse returns Expression:

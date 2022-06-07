@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedData <em>Accessed Data</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedField <em>Accessed Field</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Expression#getIfLogicExp <em>If Logic Exp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Expression#getThenExp <em>Then Exp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Expression#getElseExp <em>Else Exp</em>}</li>
@@ -28,6 +30,50 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Expression extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Accessed Data</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Accessed Data</em>' attribute.
+   * @see #setAccessedData(String)
+   * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getExpression_AccessedData()
+   * @model
+   * @generated
+   */
+  String getAccessedData();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedData <em>Accessed Data</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Accessed Data</em>' attribute.
+   * @see #getAccessedData()
+   * @generated
+   */
+  void setAccessedData(String value);
+
+  /**
+   * Returns the value of the '<em><b>Accessed Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Accessed Field</em>' attribute.
+   * @see #setAccessedField(String)
+   * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getExpression_AccessedField()
+   * @model
+   * @generated
+   */
+  String getAccessedField();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedField <em>Accessed Field</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Accessed Field</em>' attribute.
+   * @see #getAccessedField()
+   * @generated
+   */
+  void setAccessedField(String value);
+
   /**
    * Returns the value of the '<em><b>If Logic Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->

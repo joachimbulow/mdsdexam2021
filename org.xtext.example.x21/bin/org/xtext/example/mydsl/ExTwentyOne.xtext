@@ -60,9 +60,12 @@ Exp returns Expression:
 // WHat is this rule? ID ( '.' ID )*
 
 Primary returns Expression:
- Type | LetBinding | IfThenElse | 'none' | '(' Exp ')' | NewInput
+ LetBinding | IfThenElse | {Expression} 'none' | '(' Exp ')' | NewInput | DataAccess | {Expression} Type 
 ;
 
+DataAccess returns Expression:
+	 accessedData=ID '.' accessedField=ID
+;
 
 IfThenElse returns Expression:
  'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'	

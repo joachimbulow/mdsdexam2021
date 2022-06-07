@@ -62,7 +62,10 @@ public class ExTwentyOneParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExpAccess().getGroup_1_0_1(), "rule__Exp__Group_1_0_1__0");
 			builder.put(grammarAccess.getExpAccess().getGroup_1_0_2(), "rule__Exp__Group_1_0_2__0");
 			builder.put(grammarAccess.getExpAccess().getGroup_1_0_3(), "rule__Exp__Group_1_0_3__0");
-			builder.put(grammarAccess.getPrimaryAccess().getGroup_4(), "rule__Primary__Group_4__0");
+			builder.put(grammarAccess.getPrimaryAccess().getGroup_2(), "rule__Primary__Group_2__0");
+			builder.put(grammarAccess.getPrimaryAccess().getGroup_3(), "rule__Primary__Group_3__0");
+			builder.put(grammarAccess.getPrimaryAccess().getGroup_6(), "rule__Primary__Group_6__0");
+			builder.put(grammarAccess.getDataAccessAccess().getGroup(), "rule__DataAccess__Group__0");
 			builder.put(grammarAccess.getIfThenElseAccess().getGroup(), "rule__IfThenElse__Group__0");
 			builder.put(grammarAccess.getNewInputAccess().getGroup(), "rule__NewInput__Group__0");
 			builder.put(grammarAccess.getNewInputAccess().getGroup_6(), "rule__NewInput__Group_6__0");
@@ -90,6 +93,8 @@ public class ExTwentyOneParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDataDeclAccess().getDataAssignment_4(), "rule__DataDecl__DataAssignment_4");
 			builder.put(grammarAccess.getDataDeclAccess().getDataAssignment_7_1(), "rule__DataDecl__DataAssignment_7_1");
 			builder.put(grammarAccess.getExpAccess().getRightAssignment_1_1(), "rule__Exp__RightAssignment_1_1");
+			builder.put(grammarAccess.getDataAccessAccess().getAccessedDataAssignment_0(), "rule__DataAccess__AccessedDataAssignment_0");
+			builder.put(grammarAccess.getDataAccessAccess().getAccessedFieldAssignment_2(), "rule__DataAccess__AccessedFieldAssignment_2");
 			builder.put(grammarAccess.getIfThenElseAccess().getIfLogicExpAssignment_1(), "rule__IfThenElse__IfLogicExpAssignment_1");
 			builder.put(grammarAccess.getIfThenElseAccess().getThenExpAssignment_3(), "rule__IfThenElse__ThenExpAssignment_3");
 			builder.put(grammarAccess.getIfThenElseAccess().getElseExpAssignment_5(), "rule__IfThenElse__ElseExpAssignment_5");

@@ -7,6 +7,13 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.mydsl.exTwentyOne.Program
+import org.xtext.example.mydsl.exTwentyOne.Declaration
+import org.xtext.example.mydsl.exTwentyOne.Function
+import java.util.List
+import java.util.ArrayList
+import java.util.stream.Collectors
+import org.xtext.example.mydsl.exTwentyOne.Expression
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +23,69 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class ExTwentyOneGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		val program = resource.allContents.filter(Program).next
+		fsa.generateFile(
+            "x21/" + program.name + ".java",
+            program.compile);
+		
 	}
+	
+	def static compile(Program program) {
+		var hello = 12
+		'''
+			package «program.name»;
+			...
+			public class «program.name.toUpper»Main extends GenericMainX21 {
+			// Code for function add1
+			«FOR function : filterDeclarations(program.declarations, typeof(Function)) as ArrayList<Function>»
+				«compileFunction(function)»
+			«ENDFOR»
+			
+			// Code for node add1node
+			private ComputeNode <Object,Object> node_add1node = new AbstractComputeNode<Object,Object>() {
+			protected Object function(Object input) {
+			return fun_add1(input);
+			}
+			};
+			...
+			// Output nodes
+			private OutputNode<Object> node_inc_number_1 = new OutputNode<Object>();
+			public List<Object> getInc_number_1() { return node_inc_number_1.getData(); }
+			...
+			// Initialization of specific nodes
+			protected void initializeNodes() {
+			super.addNode(node_number);
+			super.addNode(node_add1node);
+			...
+			}
+			// Initialize network as a whole
+			protected void initializeNetwork() {
+			node_number.addOutputNode(node_add1node);
+			node_add1node.addOutputNode(node_inc_number_1);
+			...
+			}
+		'''
+	}
+	
+	def static compileFunction(Function function) {
+		'''
+		private Object fun_«function.name»(Object arg) {
+			return funimpl_«function.name»((Integer)arg);
+		}
+		private Object funimpl_«function.name»(Integer _«function.lambda.name»){ return ((_x)+(1)); }
+		'''
+		
+	}
+	
+	def static dispatch compileExpression(Primary primary) {
+		
+	}
+	
+	 def static toUpper(String it) {
+        toUpperCase
+    }
+    
+    def static filterDeclarations(List<Declaration> declarations, Class<?> type){
+    	return declarations.stream.filter(declaration | type.isInstance(declaration)).collect(Collectors.toList());
+    }
 }

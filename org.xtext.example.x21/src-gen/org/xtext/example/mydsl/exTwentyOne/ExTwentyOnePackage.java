@@ -485,13 +485,31 @@ public interface ExTwentyOnePackage extends EPackage
   int EXPRESSION = 12;
 
   /**
+   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__ACCESSED_DATA = 0;
+
+  /**
+   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__ACCESSED_FIELD = 1;
+
+  /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__IF_LOGIC_EXP = 0;
+  int EXPRESSION__IF_LOGIC_EXP = 2;
 
   /**
    * The feature id for the '<em><b>Then Exp</b></em>' containment reference.
@@ -500,7 +518,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__THEN_EXP = 1;
+  int EXPRESSION__THEN_EXP = 3;
 
   /**
    * The feature id for the '<em><b>Else Exp</b></em>' containment reference.
@@ -509,7 +527,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__ELSE_EXP = 2;
+  int EXPRESSION__ELSE_EXP = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -518,7 +536,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__NAME = 3;
+  int EXPRESSION__NAME = 5;
 
   /**
    * The feature id for the '<em><b>Binding</b></em>' containment reference.
@@ -527,7 +545,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__BINDING = 4;
+  int EXPRESSION__BINDING = 6;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -536,7 +554,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__BODY = 5;
+  int EXPRESSION__BODY = 7;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -545,7 +563,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 6;
+  int EXPRESSION_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.NewInputImpl <em>New Input</em>}' class.
@@ -556,6 +574,24 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   int NEW_INPUT = 13;
+
+  /**
+   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW_INPUT__ACCESSED_DATA = EXPRESSION__ACCESSED_DATA;
+
+  /**
+   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW_INPUT__ACCESSED_FIELD = EXPRESSION__ACCESSED_FIELD;
 
   /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
@@ -695,6 +731,24 @@ public interface ExTwentyOnePackage extends EPackage
   int PLUS = 15;
 
   /**
+   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS__ACCESSED_DATA = EXPRESSION__ACCESSED_DATA;
+
+  /**
+   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS__ACCESSED_FIELD = EXPRESSION__ACCESSED_FIELD;
+
+  /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -784,6 +838,24 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   int MINUS = 16;
+
+  /**
+   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS__ACCESSED_DATA = EXPRESSION__ACCESSED_DATA;
+
+  /**
+   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS__ACCESSED_FIELD = EXPRESSION__ACCESSED_FIELD;
 
   /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
@@ -877,6 +949,24 @@ public interface ExTwentyOnePackage extends EPackage
   int MULT = 17;
 
   /**
+   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULT__ACCESSED_DATA = EXPRESSION__ACCESSED_DATA;
+
+  /**
+   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULT__ACCESSED_FIELD = EXPRESSION__ACCESSED_FIELD;
+
+  /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -966,6 +1056,24 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   int DIVIDE = 18;
+
+  /**
+   * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIVIDE__ACCESSED_DATA = EXPRESSION__ACCESSED_DATA;
+
+  /**
+   * The feature id for the '<em><b>Accessed Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIVIDE__ACCESSED_FIELD = EXPRESSION__ACCESSED_FIELD;
 
   /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
@@ -1376,6 +1484,28 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   EClass getExpression();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedData <em>Accessed Data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Accessed Data</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedData()
+   * @see #getExpression()
+   * @generated
+   */
+  EAttribute getExpression_AccessedData();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedField <em>Accessed Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Accessed Field</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Expression#getAccessedField()
+   * @see #getExpression()
+   * @generated
+   */
+  EAttribute getExpression_AccessedField();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Expression#getIfLogicExp <em>If Logic Exp</em>}'.
@@ -1942,6 +2072,22 @@ public interface ExTwentyOnePackage extends EPackage
      * @generated
      */
     EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Accessed Data</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION__ACCESSED_DATA = eINSTANCE.getExpression_AccessedData();
+
+    /**
+     * The meta object literal for the '<em><b>Accessed Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION__ACCESSED_FIELD = eINSTANCE.getExpression_AccessedField();
 
     /**
      * The meta object literal for the '<em><b>If Logic Exp</b></em>' containment reference feature.
