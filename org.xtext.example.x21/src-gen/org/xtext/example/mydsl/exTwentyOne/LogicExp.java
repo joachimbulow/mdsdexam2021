@@ -29,12 +29,12 @@ public interface LogicExp extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left Logic</em>' containment reference.
-   * @see #setLeftLogic(Exp)
+   * @see #setLeftLogic(Expression)
    * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getLogicExp_LeftLogic()
    * @model containment="true"
    * @generated
    */
-  Exp getLeftLogic();
+  Expression getLeftLogic();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.exTwentyOne.LogicExp#getLeftLogic <em>Left Logic</em>}' containment reference.
@@ -44,19 +44,19 @@ public interface LogicExp extends EObject
    * @see #getLeftLogic()
    * @generated
    */
-  void setLeftLogic(Exp value);
+  void setLeftLogic(Expression value);
 
   /**
    * Returns the value of the '<em><b>Right Logic</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right Logic</em>' containment reference.
-   * @see #setRightLogic(Exp)
+   * @see #setRightLogic(Expression)
    * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getLogicExp_RightLogic()
    * @model containment="true"
    * @generated
    */
-  Exp getRightLogic();
+  Expression getRightLogic();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.exTwentyOne.LogicExp#getRightLogic <em>Right Logic</em>}' containment reference.
@@ -66,6 +66,6 @@ public interface LogicExp extends EObject
    * @see #getRightLogic()
    * @generated
    */
-  void setRightLogic(Exp value);
+  void setRightLogic(Expression value);
 
 } // LogicExp

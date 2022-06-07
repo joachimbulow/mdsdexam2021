@@ -1,0 +1,77 @@
+grammar org.xtext.example.mydsl.ExTwentyOne with org.eclipse.xtext.common.Terminals
+
+generate exTwentyOne "http://www.xtext.org/example/mydsl/ExTwentyOne"
+
+Program: 'program' name=ID (declarations+=Declaration)*
+;
+
+Declaration: 
+	Function | Input | Node | Stream | DataDecl | Parameter
+;
+
+Parameter: 
+	'parameter' name=ID ':' Type
+;
+
+Function: 
+	{Function} 'function' name=ID lambda=Lambda	
+;
+
+Lambda:
+	{Lambda} '(' name=ID ':' Type ')' '{' lambdaExp=Exp '}'
+;
+
+Input:
+	{Input} 'input' name=ID ':' Type
+;
+
+Node:
+	{Node} 'node' name=ID '[' (function = [Function] | lambda = Lambda) ']'
+;
+
+Stream:
+	{Stream} 'stream' inputsOrNodes+=[InputOrNode] (',' inputsOrNodes+=[InputOrNode])* ('to' elements+=Element (',' elements+=Element)* )+
+;
+
+Element: 
+	{Element} element=ID | '[' (node=[Node] | Lambda) ']' | 'output' output=ID
+;
+
+DataDecl:
+	{DataDecl} 'data' name=ID '{' data+=ID ':' Type (',' data+=ID ':' Type)* '}'
+;
+
+Type: 
+	'int' | 'string' | ID
+;
+
+InputOrNode:
+	Input | Node
+;
+
+Exp returns Expression: 
+ Primary (({Plus.left=current} '+'| {Minus.left=current} '-'  | {Mult.left=current} '*'  | {Divide.left=current} '/' ) right=Primary)*
+;
+
+// WHat is this rule? ID ( '.' ID )*
+
+Primary returns Expression:
+ {Expression} Type | LetBinding | {Expression} ID | IfThenElse | {Expression} 'none' | '(' Exp ')' | NewInput
+;
+
+
+IfThenElse returns Expression:
+ 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'	
+;
+
+NewInput:
+	'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'
+;
+
+LetBinding returns Expression:
+	'let' name=ID '=' binding=Exp 'in' body=Exp 'end'
+;
+
+LogicExp: 
+	leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp
+;

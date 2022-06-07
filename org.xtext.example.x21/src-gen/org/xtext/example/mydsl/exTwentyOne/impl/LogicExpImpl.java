@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
-import org.xtext.example.mydsl.exTwentyOne.Exp;
+import org.xtext.example.mydsl.exTwentyOne.Expression;
 import org.xtext.example.mydsl.exTwentyOne.LogicExp;
 
 /**
@@ -40,7 +40,7 @@ public class LogicExpImpl extends MinimalEObjectImpl.Container implements LogicE
    * @generated
    * @ordered
    */
-  protected Exp leftLogic;
+  protected Expression leftLogic;
 
   /**
    * The cached value of the '{@link #getRightLogic() <em>Right Logic</em>}' containment reference.
@@ -50,7 +50,7 @@ public class LogicExpImpl extends MinimalEObjectImpl.Container implements LogicE
    * @generated
    * @ordered
    */
-  protected Exp rightLogic;
+  protected Expression rightLogic;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class LogicExpImpl extends MinimalEObjectImpl.Container implements LogicE
    * @generated
    */
   @Override
-  public Exp getLeftLogic()
+  public Expression getLeftLogic()
   {
     return leftLogic;
   }
@@ -89,9 +89,9 @@ public class LogicExpImpl extends MinimalEObjectImpl.Container implements LogicE
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLeftLogic(Exp newLeftLogic, NotificationChain msgs)
+  public NotificationChain basicSetLeftLogic(Expression newLeftLogic, NotificationChain msgs)
   {
-    Exp oldLeftLogic = leftLogic;
+    Expression oldLeftLogic = leftLogic;
     leftLogic = newLeftLogic;
     if (eNotificationRequired())
     {
@@ -107,7 +107,7 @@ public class LogicExpImpl extends MinimalEObjectImpl.Container implements LogicE
    * @generated
    */
   @Override
-  public void setLeftLogic(Exp newLeftLogic)
+  public void setLeftLogic(Expression newLeftLogic)
   {
     if (newLeftLogic != leftLogic)
     {
@@ -129,7 +129,7 @@ public class LogicExpImpl extends MinimalEObjectImpl.Container implements LogicE
    * @generated
    */
   @Override
-  public Exp getRightLogic()
+  public Expression getRightLogic()
   {
     return rightLogic;
   }
@@ -139,9 +139,9 @@ public class LogicExpImpl extends MinimalEObjectImpl.Container implements LogicE
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRightLogic(Exp newRightLogic, NotificationChain msgs)
+  public NotificationChain basicSetRightLogic(Expression newRightLogic, NotificationChain msgs)
   {
-    Exp oldRightLogic = rightLogic;
+    Expression oldRightLogic = rightLogic;
     rightLogic = newRightLogic;
     if (eNotificationRequired())
     {
@@ -157,7 +157,7 @@ public class LogicExpImpl extends MinimalEObjectImpl.Container implements LogicE
    * @generated
    */
   @Override
-  public void setRightLogic(Exp newRightLogic)
+  public void setRightLogic(Expression newRightLogic)
   {
     if (newRightLogic != rightLogic)
     {
@@ -220,10 +220,10 @@ public class LogicExpImpl extends MinimalEObjectImpl.Container implements LogicE
     switch (featureID)
     {
       case ExTwentyOnePackage.LOGIC_EXP__LEFT_LOGIC:
-        setLeftLogic((Exp)newValue);
+        setLeftLogic((Expression)newValue);
         return;
       case ExTwentyOnePackage.LOGIC_EXP__RIGHT_LOGIC:
-        setRightLogic((Exp)newValue);
+        setRightLogic((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -240,10 +240,10 @@ public class LogicExpImpl extends MinimalEObjectImpl.Container implements LogicE
     switch (featureID)
     {
       case ExTwentyOnePackage.LOGIC_EXP__LEFT_LOGIC:
-        setLeftLogic((Exp)null);
+        setLeftLogic((Expression)null);
         return;
       case ExTwentyOnePackage.LOGIC_EXP__RIGHT_LOGIC:
-        setRightLogic((Exp)null);
+        setRightLogic((Expression)null);
         return;
     }
     super.eUnset(featureID);

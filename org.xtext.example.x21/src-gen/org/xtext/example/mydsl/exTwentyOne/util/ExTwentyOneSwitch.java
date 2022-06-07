@@ -116,6 +116,7 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         Input input = (Input)theEObject;
         T result = caseInput(input);
         if (result == null) result = caseDeclaration(input);
+        if (result == null) result = caseInputOrNode(input);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -124,6 +125,7 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         Node node = (Node)theEObject;
         T result = caseNode(node);
         if (result == null) result = caseDeclaration(node);
+        if (result == null) result = caseInputOrNode(node);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -157,10 +159,18 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ExTwentyOnePackage.EXP:
+      case ExTwentyOnePackage.EXPRESSION:
       {
-        Exp exp = (Exp)theEObject;
-        T result = caseExp(exp);
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.NEW_INPUT:
+      {
+        NewInput newInput = (NewInput)theEObject;
+        T result = caseNewInput(newInput);
+        if (result == null) result = caseExpression(newInput);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -168,6 +178,38 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
       {
         LogicExp logicExp = (LogicExp)theEObject;
         T result = caseLogicExp(logicExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.PLUS:
+      {
+        Plus plus = (Plus)theEObject;
+        T result = casePlus(plus);
+        if (result == null) result = caseExpression(plus);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.MINUS:
+      {
+        Minus minus = (Minus)theEObject;
+        T result = caseMinus(minus);
+        if (result == null) result = caseExpression(minus);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.MULT:
+      {
+        Mult mult = (Mult)theEObject;
+        T result = caseMult(mult);
+        if (result == null) result = caseExpression(mult);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.DIVIDE:
+      {
+        Divide divide = (Divide)theEObject;
+        T result = caseDivide(divide);
+        if (result == null) result = caseExpression(divide);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -352,17 +394,33 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExp(Exp object)
+  public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>New Input</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>New Input</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNewInput(NewInput object)
   {
     return null;
   }
@@ -379,6 +437,70 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLogicExp(LogicExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Plus</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Plus</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePlus(Plus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMinus(Minus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mult</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mult</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMult(Mult object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Divide</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Divide</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDivide(Divide object)
   {
     return null;
   }

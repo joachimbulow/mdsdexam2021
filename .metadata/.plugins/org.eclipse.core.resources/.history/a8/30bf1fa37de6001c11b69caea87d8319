@@ -1,0 +1,60 @@
+grammar org.xtext.example.mydsl.ExTwentyOne with org.eclipse.xtext.common.Terminals
+
+generate exTwentyOne "http://www.xtext.org/example/mydsl/ExTwentyOne"
+
+Program: 'program' name=ID (declarations+=Declaration)*
+;
+
+Declaration: 
+	Function | Input | Node | Stream | DataDecl | Parameter
+;
+
+Parameter: 
+	'parameter' name=ID ':' Type
+;
+
+Function: 
+	{Function} 'function' name=ID lambda=Lambda	
+;
+
+Lambda:
+	{Lambda} '(' name=ID ':' Type ')' '{' lambdaExp=Exp '}'
+;
+
+Input:
+	{Input} 'input' name=ID ':' Type
+;
+
+Node:
+	{Node} 'node' name=ID '[' (function = [Function] | lambda = Lambda) ']'
+;
+
+Stream:
+	{Stream} 'stream' inputsOrNodes+=[InputOrNode] (',' inputsOrNodes+=[InputOrNode])* ('to' elements+=Element (',' elements+=Element)* )+
+;
+
+Element: 
+	{Element} element=ID | '[' (node=[Node] | Lambda) ']' | 'output' output=ID
+;
+
+DataDecl:
+	{DataDecl} 'data' name=ID '{' data+=ID ':' Type (',' data+=ID ':' Type)* '}'
+;
+
+Type: 
+	'int' | 'string' | ID
+;
+
+InputOrNode:
+	Input | Node
+;
+
+Exp: {Exp} Type (left=Type ('+' rightPlus=Exp | '-' rightMinus=Exp | '*' rightMultiply=Exp | '/' rightDivide=Exp
+| '(' inParenthesis=Exp ')' | 'let' letId=ID '=' letDefExp=Exp 'in' letTargetExp=Exp 'end'
+| ID ( '.' ID )* | 'none' | 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
+| 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'))
+;
+
+LogicExp: 
+	leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp
+;

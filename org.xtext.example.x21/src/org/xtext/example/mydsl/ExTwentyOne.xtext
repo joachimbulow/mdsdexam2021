@@ -46,13 +46,30 @@ Type:
 ;
 
 InputOrNode:
-	{InputOrNode} input=Input | node=Node
+	Input | Node
 ;
 
-Exp: {Exp} Type (left=Type ('+' rightPlus=Exp | '-' rightMinus=Exp | '*' rightMultiply=Exp | '/' rightDivide=Exp
-| '(' inParenthesis=Exp ')' | 'let' letId=ID '=' letDefExp=Exp 'in' letTargetExp=Exp 'end'
-| ID ( '.' ID )* | 'none' | 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
-| 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'))
+Exp returns Expression: 
+ Primary (({Plus.left=current} '+'| {Minus.left=current} '-'  | {Mult.left=current} '*'  | {Divide.left=current} '/' ) right=Primary)*
+;
+
+// WHat is this rule? ID ( '.' ID )*
+
+Primary returns Expression:
+ Type | LetBinding | IfThenElse | 'none' | '(' Exp ')' | NewInput
+;
+
+
+IfThenElse returns Expression:
+ 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'	
+;
+
+NewInput:
+	'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'
+;
+
+LetBinding returns Expression:
+	'let' name=ID '=' binding=Exp 'in' body=Exp 'end'
 ;
 
 LogicExp: 

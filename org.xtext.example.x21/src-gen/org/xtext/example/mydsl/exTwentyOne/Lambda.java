@@ -50,12 +50,12 @@ public interface Lambda extends Element
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Lambda Exp</em>' containment reference.
-   * @see #setLambdaExp(Exp)
+   * @see #setLambdaExp(Expression)
    * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getLambda_LambdaExp()
    * @model containment="true"
    * @generated
    */
-  Exp getLambdaExp();
+  Expression getLambdaExp();
 
   /**
    * Sets the value of the '{@link org.xtext.example.mydsl.exTwentyOne.Lambda#getLambdaExp <em>Lambda Exp</em>}' containment reference.
@@ -65,6 +65,6 @@ public interface Lambda extends Element
    * @see #getLambdaExp()
    * @generated
    */
-  void setLambdaExp(Exp value);
+  void setLambdaExp(Expression value);
 
 } // Lambda

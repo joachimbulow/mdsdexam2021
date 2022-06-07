@@ -123,13 +123,22 @@ public interface ExTwentyOneFactory extends EFactory
   InputOrNode createInputOrNode();
 
   /**
-   * Returns a new object of class '<em>Exp</em>'.
+   * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Exp</em>'.
+   * @return a new object of class '<em>Expression</em>'.
    * @generated
    */
-  Exp createExp();
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>New Input</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>New Input</em>'.
+   * @generated
+   */
+  NewInput createNewInput();
 
   /**
    * Returns a new object of class '<em>Logic Exp</em>'.
@@ -139,6 +148,42 @@ public interface ExTwentyOneFactory extends EFactory
    * @generated
    */
   LogicExp createLogicExp();
+
+  /**
+   * Returns a new object of class '<em>Plus</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Plus</em>'.
+   * @generated
+   */
+  Plus createPlus();
+
+  /**
+   * Returns a new object of class '<em>Minus</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Minus</em>'.
+   * @generated
+   */
+  Minus createMinus();
+
+  /**
+   * Returns a new object of class '<em>Mult</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mult</em>'.
+   * @generated
+   */
+  Mult createMult();
+
+  /**
+   * Returns a new object of class '<em>Divide</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Divide</em>'.
+   * @generated
+   */
+  Divide createDivide();
 
   /**
    * Returns the package supported by this factory.

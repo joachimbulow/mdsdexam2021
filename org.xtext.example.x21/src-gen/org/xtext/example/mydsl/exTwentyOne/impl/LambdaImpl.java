@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
-import org.xtext.example.mydsl.exTwentyOne.Exp;
+import org.xtext.example.mydsl.exTwentyOne.Expression;
 import org.xtext.example.mydsl.exTwentyOne.Lambda;
 
 /**
@@ -59,7 +59,7 @@ public class LambdaImpl extends ElementImpl implements Lambda
    * @generated
    * @ordered
    */
-  protected Exp lambdaExp;
+  protected Expression lambdaExp;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,7 +113,7 @@ public class LambdaImpl extends ElementImpl implements Lambda
    * @generated
    */
   @Override
-  public Exp getLambdaExp()
+  public Expression getLambdaExp()
   {
     return lambdaExp;
   }
@@ -123,9 +123,9 @@ public class LambdaImpl extends ElementImpl implements Lambda
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLambdaExp(Exp newLambdaExp, NotificationChain msgs)
+  public NotificationChain basicSetLambdaExp(Expression newLambdaExp, NotificationChain msgs)
   {
-    Exp oldLambdaExp = lambdaExp;
+    Expression oldLambdaExp = lambdaExp;
     lambdaExp = newLambdaExp;
     if (eNotificationRequired())
     {
@@ -141,7 +141,7 @@ public class LambdaImpl extends ElementImpl implements Lambda
    * @generated
    */
   @Override
-  public void setLambdaExp(Exp newLambdaExp)
+  public void setLambdaExp(Expression newLambdaExp)
   {
     if (newLambdaExp != lambdaExp)
     {
@@ -205,7 +205,7 @@ public class LambdaImpl extends ElementImpl implements Lambda
         setName((String)newValue);
         return;
       case ExTwentyOnePackage.LAMBDA__LAMBDA_EXP:
-        setLambdaExp((Exp)newValue);
+        setLambdaExp((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,7 +225,7 @@ public class LambdaImpl extends ElementImpl implements Lambda
         setName(NAME_EDEFAULT);
         return;
       case ExTwentyOnePackage.LAMBDA__LAMBDA_EXP:
-        setLambdaExp((Exp)null);
+        setLambdaExp((Expression)null);
         return;
     }
     super.eUnset(featureID);

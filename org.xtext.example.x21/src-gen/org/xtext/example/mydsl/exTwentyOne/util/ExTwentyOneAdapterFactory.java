@@ -131,14 +131,39 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
         return createInputOrNodeAdapter();
       }
       @Override
-      public Adapter caseExp(Exp object)
+      public Adapter caseExpression(Expression object)
       {
-        return createExpAdapter();
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseNewInput(NewInput object)
+      {
+        return createNewInputAdapter();
       }
       @Override
       public Adapter caseLogicExp(LogicExp object)
       {
         return createLogicExpAdapter();
+      }
+      @Override
+      public Adapter casePlus(Plus object)
+      {
+        return createPlusAdapter();
+      }
+      @Override
+      public Adapter caseMinus(Minus object)
+      {
+        return createMinusAdapter();
+      }
+      @Override
+      public Adapter caseMult(Mult object)
+      {
+        return createMultAdapter();
+      }
+      @Override
+      public Adapter caseDivide(Divide object)
+      {
+        return createDivideAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -328,16 +353,31 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.Exp <em>Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.exTwentyOne.Exp
+   * @see org.xtext.example.mydsl.exTwentyOne.Expression
    * @generated
    */
-  public Adapter createExpAdapter()
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.NewInput <em>New Input</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.NewInput
+   * @generated
+   */
+  public Adapter createNewInputAdapter()
   {
     return null;
   }
@@ -353,6 +393,66 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLogicExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.Plus <em>Plus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.Plus
+   * @generated
+   */
+  public Adapter createPlusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.Minus <em>Minus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.Minus
+   * @generated
+   */
+  public Adapter createMinusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.Mult <em>Mult</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.Mult
+   * @generated
+   */
+  public Adapter createMultAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.Divide <em>Divide</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.Divide
+   * @generated
+   */
+  public Adapter createDivideAdapter()
   {
     return null;
   }

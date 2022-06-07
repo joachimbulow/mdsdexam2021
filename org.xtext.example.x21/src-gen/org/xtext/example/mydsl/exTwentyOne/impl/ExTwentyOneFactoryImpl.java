@@ -76,8 +76,13 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
       case ExTwentyOnePackage.ELEMENT: return createElement();
       case ExTwentyOnePackage.DATA_DECL: return createDataDecl();
       case ExTwentyOnePackage.INPUT_OR_NODE: return createInputOrNode();
-      case ExTwentyOnePackage.EXP: return createExp();
+      case ExTwentyOnePackage.EXPRESSION: return createExpression();
+      case ExTwentyOnePackage.NEW_INPUT: return createNewInput();
       case ExTwentyOnePackage.LOGIC_EXP: return createLogicExp();
+      case ExTwentyOnePackage.PLUS: return createPlus();
+      case ExTwentyOnePackage.MINUS: return createMinus();
+      case ExTwentyOnePackage.MULT: return createMult();
+      case ExTwentyOnePackage.DIVIDE: return createDivide();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -221,10 +226,22 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
    * @generated
    */
   @Override
-  public Exp createExp()
+  public Expression createExpression()
   {
-    ExpImpl exp = new ExpImpl();
-    return exp;
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NewInput createNewInput()
+  {
+    NewInputImpl newInput = new NewInputImpl();
+    return newInput;
   }
 
   /**
@@ -237,6 +254,54 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
   {
     LogicExpImpl logicExp = new LogicExpImpl();
     return logicExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Plus createPlus()
+  {
+    PlusImpl plus = new PlusImpl();
+    return plus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Minus createMinus()
+  {
+    MinusImpl minus = new MinusImpl();
+    return minus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Mult createMult()
+  {
+    MultImpl mult = new MultImpl();
+    return mult;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Divide createDivide()
+  {
+    DivideImpl divide = new DivideImpl();
+    return divide;
   }
 
   /**

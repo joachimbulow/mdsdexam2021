@@ -18,13 +18,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Lambda" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lambdaExp" eType="#//Exp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lambdaExp" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//Declaration">
+  <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//Declaration #//InputOrNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//Declaration">
+  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//Declaration #//InputOrNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//Function"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lambda" eType="#//Lambda"
@@ -46,44 +46,55 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputOrNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//Input"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//Node" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Exp">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="left" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rightPlus" eType="#//Exp"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rightMinus" eType="#//Exp"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rightMultiply" eType="#//Exp"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rightDivide" eType="#//Exp"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inParenthesis" eType="#//Exp"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="letId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="letDefExp" eType="#//Exp"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="letTargetExp" eType="#//Exp"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InputOrNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ifLogicExp" eType="#//LogicExp"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="thenExp" eType="#//Exp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thenExp" eType="#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elseExp" eType="#//Exp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elseExp" eType="#//Expression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewInput" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="newArrayId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="newArrayIds" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="newArrayExps" upperBound="-1"
-        eType="#//Exp" containment="true"/>
+        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LogicExp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="leftLogic" eType="#//Exp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftLogic" eType="#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rightLogic" eType="#//Exp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightLogic" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Plus" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Minus" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mult" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Divide" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
