@@ -364,13 +364,13 @@ public interface ExTwentyOnePackage extends EPackage
   int STREAM = 7;
 
   /**
-   * The feature id for the '<em><b>Inputs</b></em>' reference list.
+   * The feature id for the '<em><b>Inputs Or Nodes</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STREAM__INPUTS = DECLARATION_FEATURE_COUNT + 0;
+  int STREAM__INPUTS_OR_NODES = DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -426,6 +426,25 @@ public interface ExTwentyOnePackage extends EPackage
    * @ordered
    */
   int DATA_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.InputOrNodeImpl <em>Input Or Node</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.InputOrNodeImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getInputOrNode()
+   * @generated
+   */
+  int INPUT_OR_NODE = 10;
+
+  /**
+   * The number of structural features of the '<em>Input Or Node</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_OR_NODE_FEATURE_COUNT = 0;
 
 
   /**
@@ -619,15 +638,15 @@ public interface ExTwentyOnePackage extends EPackage
   EClass getStream();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.example.mydsl.exTwentyOne.Stream#getInputs <em>Inputs</em>}'.
+   * Returns the meta object for the reference list '{@link org.xtext.example.mydsl.exTwentyOne.Stream#getInputsOrNodes <em>Inputs Or Nodes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Inputs</em>'.
-   * @see org.xtext.example.mydsl.exTwentyOne.Stream#getInputs()
+   * @return the meta object for the reference list '<em>Inputs Or Nodes</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Stream#getInputsOrNodes()
    * @see #getStream()
    * @generated
    */
-  EReference getStream_Inputs();
+  EReference getStream_InputsOrNodes();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.exTwentyOne.Stream#getElements <em>Elements</em>}'.
@@ -714,6 +733,16 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   EAttribute getDataDecl_Data();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.InputOrNode <em>Input Or Node</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Input Or Node</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.InputOrNode
+   * @generated
+   */
+  EClass getInputOrNode();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -899,12 +928,12 @@ public interface ExTwentyOnePackage extends EPackage
     EClass STREAM = eINSTANCE.getStream();
 
     /**
-     * The meta object literal for the '<em><b>Inputs</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Inputs Or Nodes</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STREAM__INPUTS = eINSTANCE.getStream_Inputs();
+    EReference STREAM__INPUTS_OR_NODES = eINSTANCE.getStream_InputsOrNodes();
 
     /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -973,6 +1002,16 @@ public interface ExTwentyOnePackage extends EPackage
      * @generated
      */
     EAttribute DATA_DECL__DATA = eINSTANCE.getDataDecl_Data();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.InputOrNodeImpl <em>Input Or Node</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.InputOrNodeImpl
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getInputOrNode()
+     * @generated
+     */
+    EClass INPUT_OR_NODE = eINSTANCE.getInputOrNode();
 
   }
 

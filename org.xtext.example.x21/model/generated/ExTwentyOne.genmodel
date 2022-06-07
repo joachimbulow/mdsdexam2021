@@ -30,7 +30,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Node/lambda"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Stream">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Stream/inputs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Stream/inputsOrNodes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Stream/elements"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Element">
@@ -42,5 +42,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//DataDecl/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//DataDecl/data"/>
     </genClasses>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//InputOrNode"/>
   </genPackages>
 </genmodel:GenModel>

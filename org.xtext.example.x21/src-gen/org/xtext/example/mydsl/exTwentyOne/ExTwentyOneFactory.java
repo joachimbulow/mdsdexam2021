@@ -114,6 +114,15 @@ public interface ExTwentyOneFactory extends EFactory
   DataDecl createDataDecl();
 
   /**
+   * Returns a new object of class '<em>Input Or Node</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input Or Node</em>'.
+   * @generated
+   */
+  InputOrNode createInputOrNode();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

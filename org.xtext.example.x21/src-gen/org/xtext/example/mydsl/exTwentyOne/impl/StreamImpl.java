@@ -16,9 +16,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.example.mydsl.exTwentyOne.Declaration;
 import org.xtext.example.mydsl.exTwentyOne.Element;
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
+import org.xtext.example.mydsl.exTwentyOne.InputOrNode;
 import org.xtext.example.mydsl.exTwentyOne.Stream;
 
 /**
@@ -29,7 +29,7 @@ import org.xtext.example.mydsl.exTwentyOne.Stream;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.StreamImpl#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.StreamImpl#getInputsOrNodes <em>Inputs Or Nodes</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.StreamImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -38,14 +38,14 @@ import org.xtext.example.mydsl.exTwentyOne.Stream;
 public class StreamImpl extends DeclarationImpl implements Stream
 {
   /**
-   * The cached value of the '{@link #getInputs() <em>Inputs</em>}' reference list.
+   * The cached value of the '{@link #getInputsOrNodes() <em>Inputs Or Nodes</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInputs()
+   * @see #getInputsOrNodes()
    * @generated
    * @ordered
    */
-  protected EList<Declaration> inputs;
+  protected EList<InputOrNode> inputsOrNodes;
 
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -84,13 +84,13 @@ public class StreamImpl extends DeclarationImpl implements Stream
    * @generated
    */
   @Override
-  public EList<Declaration> getInputs()
+  public EList<InputOrNode> getInputsOrNodes()
   {
-    if (inputs == null)
+    if (inputsOrNodes == null)
     {
-      inputs = new EObjectResolvingEList<Declaration>(Declaration.class, this, ExTwentyOnePackage.STREAM__INPUTS);
+      inputsOrNodes = new EObjectResolvingEList<InputOrNode>(InputOrNode.class, this, ExTwentyOnePackage.STREAM__INPUTS_OR_NODES);
     }
-    return inputs;
+    return inputsOrNodes;
   }
 
   /**
@@ -134,8 +134,8 @@ public class StreamImpl extends DeclarationImpl implements Stream
   {
     switch (featureID)
     {
-      case ExTwentyOnePackage.STREAM__INPUTS:
-        return getInputs();
+      case ExTwentyOnePackage.STREAM__INPUTS_OR_NODES:
+        return getInputsOrNodes();
       case ExTwentyOnePackage.STREAM__ELEMENTS:
         return getElements();
     }
@@ -153,9 +153,9 @@ public class StreamImpl extends DeclarationImpl implements Stream
   {
     switch (featureID)
     {
-      case ExTwentyOnePackage.STREAM__INPUTS:
-        getInputs().clear();
-        getInputs().addAll((Collection<? extends Declaration>)newValue);
+      case ExTwentyOnePackage.STREAM__INPUTS_OR_NODES:
+        getInputsOrNodes().clear();
+        getInputsOrNodes().addAll((Collection<? extends InputOrNode>)newValue);
         return;
       case ExTwentyOnePackage.STREAM__ELEMENTS:
         getElements().clear();
@@ -175,8 +175,8 @@ public class StreamImpl extends DeclarationImpl implements Stream
   {
     switch (featureID)
     {
-      case ExTwentyOnePackage.STREAM__INPUTS:
-        getInputs().clear();
+      case ExTwentyOnePackage.STREAM__INPUTS_OR_NODES:
+        getInputsOrNodes().clear();
         return;
       case ExTwentyOnePackage.STREAM__ELEMENTS:
         getElements().clear();
@@ -195,8 +195,8 @@ public class StreamImpl extends DeclarationImpl implements Stream
   {
     switch (featureID)
     {
-      case ExTwentyOnePackage.STREAM__INPUTS:
-        return inputs != null && !inputs.isEmpty();
+      case ExTwentyOnePackage.STREAM__INPUTS_OR_NODES:
+        return inputsOrNodes != null && !inputsOrNodes.isEmpty();
       case ExTwentyOnePackage.STREAM__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }

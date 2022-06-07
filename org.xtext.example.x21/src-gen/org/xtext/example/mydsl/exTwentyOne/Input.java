@@ -20,7 +20,7 @@ package org.xtext.example.mydsl.exTwentyOne;
  * @model
  * @generated
  */
-public interface Input extends Declaration
+public interface Input extends Declaration, InputOrNode
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

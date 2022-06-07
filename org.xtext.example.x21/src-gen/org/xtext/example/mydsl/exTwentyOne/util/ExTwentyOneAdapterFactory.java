@@ -126,6 +126,11 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
         return createDataDeclAdapter();
       }
       @Override
+      public Adapter caseInputOrNode(InputOrNode object)
+      {
+        return createInputOrNodeAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -293,6 +298,21 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDataDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.InputOrNode <em>Input Or Node</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.InputOrNode
+   * @generated
+   */
+  public Adapter createInputOrNodeAdapter()
   {
     return null;
   }

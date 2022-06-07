@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Stream#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Stream#getInputsOrNodes <em>Inputs Or Nodes</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Stream#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -25,16 +25,16 @@ import org.eclipse.emf.common.util.EList;
 public interface Stream extends Declaration
 {
   /**
-   * Returns the value of the '<em><b>Inputs</b></em>' reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.exTwentyOne.Declaration}.
+   * Returns the value of the '<em><b>Inputs Or Nodes</b></em>' reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.exTwentyOne.InputOrNode}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Inputs</em>' reference list.
-   * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getStream_Inputs()
+   * @return the value of the '<em>Inputs Or Nodes</em>' reference list.
+   * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getStream_InputsOrNodes()
    * @model
    * @generated
    */
-  EList<Declaration> getInputs();
+  EList<InputOrNode> getInputsOrNodes();
 
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.

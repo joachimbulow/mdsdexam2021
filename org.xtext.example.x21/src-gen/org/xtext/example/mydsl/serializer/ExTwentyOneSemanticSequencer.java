@@ -118,8 +118,8 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.FUNCTION__LAMBDA));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFunctionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFunctionAccess().getLambdaLambdaParserRuleCall_2_0(), semanticObject.getLambda());
+		feeder.accept(grammarAccess.getFunctionAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFunctionAccess().getLambdaLambdaParserRuleCall_3_0(), semanticObject.getLambda());
 		feeder.finish();
 	}
 	
@@ -129,6 +129,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Contexts:
 	 *     Declaration returns Input
 	 *     Input returns Input
+	 *     InputOrNode returns Input
 	 *
 	 * Constraint:
 	 *     name=ID
@@ -140,7 +141,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.INPUT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInputAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getInputAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -161,7 +162,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.LAMBDA__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLambdaAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getLambdaAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -171,6 +172,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Contexts:
 	 *     Declaration returns Node
 	 *     Node returns Node
+	 *     InputOrNode returns Node
 	 *
 	 * Constraint:
 	 *     (name=ID (function=[Function|ID] | lambda=Lambda))
@@ -223,7 +225,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Stream returns Stream
 	 *
 	 * Constraint:
-	 *     (inputs+=[Input|ID] | (inputs+=[Node|ID] (inputs+=[Input|ID] | inputs+=[Node|ID])* (elements+=Element elements+=Element*)+))
+	 *     (inputsOrNodes+=[InputOrNode|ID] inputsOrNodes+=[InputOrNode|ID]* (elements+=Element elements+=Element*)+)
 	 * </pre>
 	 */
 	protected void sequence_Stream(ISerializationContext context, Stream semanticObject) {

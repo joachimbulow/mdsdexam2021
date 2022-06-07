@@ -17,6 +17,7 @@ import org.xtext.example.mydsl.exTwentyOne.ExTwentyOneFactory;
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
 import org.xtext.example.mydsl.exTwentyOne.Function;
 import org.xtext.example.mydsl.exTwentyOne.Input;
+import org.xtext.example.mydsl.exTwentyOne.InputOrNode;
 import org.xtext.example.mydsl.exTwentyOne.Lambda;
 import org.xtext.example.mydsl.exTwentyOne.Node;
 import org.xtext.example.mydsl.exTwentyOne.Parameter;
@@ -100,6 +101,13 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   private EClass dataDeclEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass inputOrNodeEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -368,7 +376,7 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
-  public EReference getStream_Inputs()
+  public EReference getStream_InputsOrNodes()
   {
     return (EReference)streamEClass.getEStructuralFeatures().get(0);
   }
@@ -467,6 +475,17 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
+  public EClass getInputOrNode()
+  {
+    return inputOrNodeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ExTwentyOneFactory getExTwentyOneFactory()
   {
     return (ExTwentyOneFactory)getEFactoryInstance();
@@ -517,7 +536,7 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     createEReference(nodeEClass, NODE__LAMBDA);
 
     streamEClass = createEClass(STREAM);
-    createEReference(streamEClass, STREAM__INPUTS);
+    createEReference(streamEClass, STREAM__INPUTS_OR_NODES);
     createEReference(streamEClass, STREAM__ELEMENTS);
 
     elementEClass = createEClass(ELEMENT);
@@ -528,6 +547,8 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     dataDeclEClass = createEClass(DATA_DECL);
     createEAttribute(dataDeclEClass, DATA_DECL__NAME);
     createEAttribute(dataDeclEClass, DATA_DECL__DATA);
+
+    inputOrNodeEClass = createEClass(INPUT_OR_NODE);
   }
 
   /**
@@ -563,7 +584,9 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     functionEClass.getESuperTypes().add(this.getDeclaration());
     lambdaEClass.getESuperTypes().add(this.getElement());
     inputEClass.getESuperTypes().add(this.getDeclaration());
+    inputEClass.getESuperTypes().add(this.getInputOrNode());
     nodeEClass.getESuperTypes().add(this.getDeclaration());
+    nodeEClass.getESuperTypes().add(this.getInputOrNode());
     streamEClass.getESuperTypes().add(this.getDeclaration());
     dataDeclEClass.getESuperTypes().add(this.getDeclaration());
 
@@ -593,7 +616,7 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     initEReference(getNode_Lambda(), this.getLambda(), null, "lambda", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(streamEClass, Stream.class, "Stream", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStream_Inputs(), this.getDeclaration(), null, "inputs", null, 0, -1, Stream.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStream_InputsOrNodes(), this.getInputOrNode(), null, "inputsOrNodes", null, 0, -1, Stream.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStream_Elements(), this.getElement(), null, "elements", null, 0, -1, Stream.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -604,6 +627,8 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     initEClass(dataDeclEClass, DataDecl.class, "DataDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDataDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDataDecl_Data(), ecorePackage.getEString(), "data", null, 0, -1, DataDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(inputOrNodeEClass, InputOrNode.class, "InputOrNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

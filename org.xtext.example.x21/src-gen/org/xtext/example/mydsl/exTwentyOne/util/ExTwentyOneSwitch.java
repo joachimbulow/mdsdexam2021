@@ -116,6 +116,7 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         Input input = (Input)theEObject;
         T result = caseInput(input);
         if (result == null) result = caseDeclaration(input);
+        if (result == null) result = caseInputOrNode(input);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -124,6 +125,7 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         Node node = (Node)theEObject;
         T result = caseNode(node);
         if (result == null) result = caseDeclaration(node);
+        if (result == null) result = caseInputOrNode(node);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -147,6 +149,13 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         DataDecl dataDecl = (DataDecl)theEObject;
         T result = caseDataDecl(dataDecl);
         if (result == null) result = caseDeclaration(dataDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.INPUT_OR_NODE:
+      {
+        InputOrNode inputOrNode = (InputOrNode)theEObject;
+        T result = caseInputOrNode(inputOrNode);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -310,6 +319,22 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDataDecl(DataDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Input Or Node</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input Or Node</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInputOrNode(InputOrNode object)
   {
     return null;
   }
