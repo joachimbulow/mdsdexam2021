@@ -65,8 +65,16 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
   {
     switch (eClass.getClassifierID())
     {
-      case ExTwentyOnePackage.MODEL: return createModel();
-      case ExTwentyOnePackage.GREETING: return createGreeting();
+      case ExTwentyOnePackage.PROGRAM: return createProgram();
+      case ExTwentyOnePackage.DECLARATION: return createDeclaration();
+      case ExTwentyOnePackage.PARAMETER: return createParameter();
+      case ExTwentyOnePackage.FUNCTION: return createFunction();
+      case ExTwentyOnePackage.LAMBDA: return createLambda();
+      case ExTwentyOnePackage.INPUT: return createInput();
+      case ExTwentyOnePackage.NODE: return createNode();
+      case ExTwentyOnePackage.STREAM: return createStream();
+      case ExTwentyOnePackage.ELEMENT: return createElement();
+      case ExTwentyOnePackage.DATA_DECL: return createDataDecl();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -78,10 +86,10 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
    * @generated
    */
   @Override
-  public Model createModel()
+  public Program createProgram()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    ProgramImpl program = new ProgramImpl();
+    return program;
   }
 
   /**
@@ -90,10 +98,106 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
    * @generated
    */
   @Override
-  public Greeting createGreeting()
+  public Declaration createDeclaration()
   {
-    GreetingImpl greeting = new GreetingImpl();
-    return greeting;
+    DeclarationImpl declaration = new DeclarationImpl();
+    return declaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Parameter createParameter()
+  {
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Function createFunction()
+  {
+    FunctionImpl function = new FunctionImpl();
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Lambda createLambda()
+  {
+    LambdaImpl lambda = new LambdaImpl();
+    return lambda;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Input createInput()
+  {
+    InputImpl input = new InputImpl();
+    return input;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Node createNode()
+  {
+    NodeImpl node = new NodeImpl();
+    return node;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Stream createStream()
+  {
+    StreamImpl stream = new StreamImpl();
+    return stream;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Element createElement()
+  {
+    ElementImpl element = new ElementImpl();
+    return element;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DataDecl createDataDecl()
+  {
+    DataDeclImpl dataDecl = new DataDeclImpl();
+    return dataDecl;
   }
 
   /**

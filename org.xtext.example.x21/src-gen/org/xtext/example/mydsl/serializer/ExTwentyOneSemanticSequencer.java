@@ -14,9 +14,15 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl.exTwentyOne.DataDecl;
+import org.xtext.example.mydsl.exTwentyOne.Element;
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
-import org.xtext.example.mydsl.exTwentyOne.Greeting;
-import org.xtext.example.mydsl.exTwentyOne.Model;
+import org.xtext.example.mydsl.exTwentyOne.Function;
+import org.xtext.example.mydsl.exTwentyOne.Input;
+import org.xtext.example.mydsl.exTwentyOne.Lambda;
+import org.xtext.example.mydsl.exTwentyOne.Node;
+import org.xtext.example.mydsl.exTwentyOne.Program;
+import org.xtext.example.mydsl.exTwentyOne.Stream;
 import org.xtext.example.mydsl.services.ExTwentyOneGrammarAccess;
 
 @SuppressWarnings("all")
@@ -33,11 +39,32 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == ExTwentyOnePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case ExTwentyOnePackage.GREETING:
-				sequence_Greeting(context, (Greeting) semanticObject); 
+			case ExTwentyOnePackage.DATA_DECL:
+				sequence_DataDecl(context, (DataDecl) semanticObject); 
 				return; 
-			case ExTwentyOnePackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case ExTwentyOnePackage.ELEMENT:
+				sequence_Element(context, (Element) semanticObject); 
+				return; 
+			case ExTwentyOnePackage.FUNCTION:
+				sequence_Function(context, (Function) semanticObject); 
+				return; 
+			case ExTwentyOnePackage.INPUT:
+				sequence_Input(context, (Input) semanticObject); 
+				return; 
+			case ExTwentyOnePackage.LAMBDA:
+				sequence_Lambda(context, (Lambda) semanticObject); 
+				return; 
+			case ExTwentyOnePackage.NODE:
+				sequence_Node(context, (Node) semanticObject); 
+				return; 
+			case ExTwentyOnePackage.PARAMETER:
+				sequence_Parameter(context, (org.xtext.example.mydsl.exTwentyOne.Parameter) semanticObject); 
+				return; 
+			case ExTwentyOnePackage.PROGRAM:
+				sequence_Program(context, (Program) semanticObject); 
+				return; 
+			case ExTwentyOnePackage.STREAM:
+				sequence_Stream(context, (Stream) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -47,19 +74,52 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Greeting returns Greeting
+	 *     Declaration returns DataDecl
+	 *     DataDecl returns DataDecl
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID data+=ID data+=ID*)
 	 * </pre>
 	 */
-	protected void sequence_Greeting(ISerializationContext context, Greeting semanticObject) {
+	protected void sequence_DataDecl(ISerializationContext context, DataDecl semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Element returns Element
+	 *
+	 * Constraint:
+	 *     (element=ID | node=[Node|ID] | output=ID)
+	 * </pre>
+	 */
+	protected void sequence_Element(ISerializationContext context, Element semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Declaration returns Function
+	 *     Function returns Function
+	 *
+	 * Constraint:
+	 *     (name=ID lambda=Lambda)
+	 * </pre>
+	 */
+	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.GREETING__NAME));
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.FUNCTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.FUNCTION__NAME));
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.FUNCTION__LAMBDA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.FUNCTION__LAMBDA));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFunctionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFunctionAccess().getLambdaLambdaParserRuleCall_2_0(), semanticObject.getLambda());
 		feeder.finish();
 	}
 	
@@ -67,13 +127,117 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Model returns Model
+	 *     Declaration returns Input
+	 *     Input returns Input
 	 *
 	 * Constraint:
-	 *     greetings+=Greeting+
+	 *     name=ID
 	 * </pre>
 	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+	protected void sequence_Input(ISerializationContext context, Input semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.INPUT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.INPUT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getInputAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Declaration returns Lambda
+	 *     Lambda returns Lambda
+	 *     Node returns Lambda
+	 *     Element returns Lambda
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_Lambda(ISerializationContext context, Lambda semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.NODE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.NODE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLambdaAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Declaration returns Node
+	 *     Node returns Node
+	 *
+	 * Constraint:
+	 *     (name=ID lambda=[Lambda|ID])
+	 * </pre>
+	 */
+	protected void sequence_Node(ISerializationContext context, Node semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.NODE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.NODE__NAME));
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.NODE__LAMBDA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.NODE__LAMBDA));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNodeAccess().getNameIDTerminalRuleCall_0_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getNodeAccess().getLambdaLambdaIDTerminalRuleCall_0_3_0_1(), semanticObject.eGet(ExTwentyOnePackage.Literals.NODE__LAMBDA, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Declaration returns Parameter
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_Parameter(ISerializationContext context, org.xtext.example.mydsl.exTwentyOne.Parameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.PARAMETER__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Program returns Program
+	 *
+	 * Constraint:
+	 *     (name=ID declarations+=Declaration*)
+	 * </pre>
+	 */
+	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Declaration returns Stream
+	 *     Stream returns Stream
+	 *
+	 * Constraint:
+	 *     (inputs+=[Input|ID] inputs+=[Input|ID]* (elements+=[Element|ID] elements+=[Element|ID]*)+)
+	 * </pre>
+	 */
+	protected void sequence_Stream(ISerializationContext context, Stream semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

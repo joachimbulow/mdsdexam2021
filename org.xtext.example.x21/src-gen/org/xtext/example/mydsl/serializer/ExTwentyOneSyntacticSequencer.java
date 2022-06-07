@@ -26,9 +26,32 @@ public class ExTwentyOneSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getExpRule())
+			return getExpToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getTypeRule())
+			return getTypeToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * Exp: INT '+' INT;
+	 */
+	protected String getExpToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "+";
+	}
+	
+	/**
+	 * Type: 
+	 * 	'int' | 'string' | ID
+	 * ;
+	 */
+	protected String getTypeToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "int";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

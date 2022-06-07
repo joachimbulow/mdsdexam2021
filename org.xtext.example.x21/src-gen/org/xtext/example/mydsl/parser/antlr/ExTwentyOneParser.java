@@ -27,7 +27,7 @@ public class ExTwentyOneParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "Program";
 	}
 
 	public ExTwentyOneGrammarAccess getGrammarAccess() {

@@ -6,11 +6,38 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="ExTwentyOne" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="x21" ecorePackage="ExTwentyOne.ecore#/">
-    <genClasses ecoreClass="ExTwentyOne.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Model/greetings"/>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Program">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Program/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Program/declarations"/>
     </genClasses>
-    <genClasses ecoreClass="ExTwentyOne.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Declaration"/>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Parameter/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Function/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Function/lambda"/>
+    </genClasses>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Lambda"/>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Input">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Input/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Node/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Node/lambda"/>
+    </genClasses>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Stream">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Stream/inputs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Stream/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Element/element"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Element/node"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Element/output"/>
+    </genClasses>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//DataDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//DataDecl/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//DataDecl/data"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
