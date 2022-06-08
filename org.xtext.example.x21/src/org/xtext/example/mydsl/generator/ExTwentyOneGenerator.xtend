@@ -21,7 +21,14 @@ import org.xtext.example.mydsl.exTwentyOne.LogicExp
 import org.xtext.example.mydsl.exTwentyOne.DataAccess
 import org.xtext.example.mydsl.exTwentyOne.IfThenElse
 import org.xtext.example.mydsl.exTwentyOne.LetBinding
-import java.util.Arrays
+import org.xtext.example.mydsl.exTwentyOne.Node
+import org.xtext.example.mydsl.exTwentyOne.Stream
+import org.xtext.example.mydsl.exTwentyOne.Element
+import org.xtext.example.mydsl.exTwentyOne.InputOrNode
+import org.xtext.example.mydsl.exTwentyOne.Input
+import java.util.HashMap
+import java.util.Map
+import org.xtext.example.mydsl.exTwentyOne.NodeOrFunction
 
 /**
  * Generates code from your model files on save.
@@ -39,10 +46,9 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 	}
 	
 	def static compile(Program program) {
-		var hello = 12
 		'''
 			package «program.name»;
-			...
+			
 			public class «program.name.toUpper»Main extends GenericMainX21 {
 			// Code for function add1
 			«FOR function : filterDeclarations(program.declarations, typeof(Function))»
@@ -50,26 +56,18 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 			«ENDFOR»
 			
 			// Code for node add1node
-			«FOR function : filterDeclarations(program.declarations, typeof(Function))»
-				«compileFunction(function as Function)»
+			«FOR node : filterDeclarations(program.declarations, typeof(Node))»
+				«compileNode(node as Node)»
 			«ENDFOR»
 			
-			...
-			// Output nodes
-			private OutputNode<Object> node_inc_number_1 = new OutputNode<Object>();
-			public List<Object> getInc_number_1() { return node_inc_number_1.getData(); }
-			...
-			// Initialization of specific nodes
-			protected void initializeNodes() {
-			super.addNode(node_number);
-			super.addNode(node_add1node);
-			...
-			}
-			// Initialize network as a whole
-			protected void initializeNetwork() {
-			node_number.addOutputNode(node_add1node);
-			node_add1node.addOutputNode(node_inc_number_1);
-			...
+			«FOR outputNode : getOutputNodes(program.declarations)»
+				«outputNode.output.compileOutputNode»
+			«ENDFOR»
+			
+			«compileNodeInitialization(program.declarations)»
+			
+			«compileNodeNetwork(program.declarations)»
+			
 			}
 		'''
 	}
@@ -84,14 +82,82 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 	}
 	
 	def static compileNode(Node node) {
+		var functionCompilation = "";
+		if (node.lambda !== null) {
+			functionCompilation = '''
+			«node.lambda.lambdaExp.compileExpression»
+			'''
+		}
+		else {
+			functionCompilation= '''
+			fun_«node.function.name»(input)
+			'''
+		}
 		'''
-		private ComputeNode <Object,Object> node_add1node = new AbstractComputeNode<Object,Object>() {
+		private ComputeNode <Object,Object> node_«node.name» = new AbstractComputeNode<Object,Object>() {
 			protected Object function(Object input) {
-			return fun_add1(input);
+			return «functionCompilation»;
 				}
 		};
 		'''	
 	}
+	
+	def static compileOutputNode(String nodeName) {
+		'''
+		private OutputNode<Object> node_«nodeName» = new OutputNode<Object>();
+					public List<Object> get«nodeName.toFirstUpper»() { return node_nodeName.getData(); }
+		'''
+	}
+	
+	def static compileNodeInitialization(List<Declaration> declarations){
+		var nodesAndInputs = getNodesForInitialization(declarations);
+		var result = '''
+		// Initialization of specific nodes
+		protected void initializeNodes() {
+			«FOR nodeOrInput : nodesAndInputs»
+				super.addNode(«nodeOrInput.compileInputOrNode»);
+			«ENDFOR »
+		}
+		'''
+	}
+	
+	def static compileNodeNetwork(List<Declaration> declarations) {
+		var relationMap = getAllNetworkNodes(declarations);
+		'''
+		protected void initializeNetwork() {
+			«FOR relationMapKey : relationMap.keySet»
+				«relationMapKey».addOutputNode(node_«relationMap.get(relationMapKey)»);
+			«ENDFOR »
+		}
+		'''
+	}
+	
+	def static compileInputOrNode(InputOrNode inputOrNode){
+    	switch inputOrNode {
+    		Input: inputOrNode.name
+    		Node: inputOrNode.name
+    	}
+    }
+    
+    def static compileElement(Element element){
+    	if (element.getNode !== null) {
+    		return element.getNode.compileNodeOrFunction
+    	}
+    	if (element.output !== null) {
+    		return element.output;
+    	}
+    	if(element.element !== null) {
+    		return element.element
+    	}
+    	return "something went wrong in compileElement";
+    }
+    
+    def static compileNodeOrFunction(NodeOrFunction nodeOrFunction){
+    	switch (nodeOrFunction){
+    		Node: nodeOrFunction.name,
+    		Function: nodeOrFunction.name
+    	}
+    }
 	
 	def static dispatch compileExpression(Plus exp) {
 		"Plus!"
@@ -125,11 +191,50 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 		"Expression!"
 	}
 	
-	 def static toUpper(String it) {
+	def static toUpper(String it) {
         toUpperCase
     }
+   
     
     def static filterDeclarations(List<Declaration> declarations, Class<?> type){
     	return declarations.stream.filter(declaration | type.isInstance(declaration)).collect(Collectors.toList());
     }
+    
+    def static getOutputNodes(List<Declaration> declarations) {
+    	var streams = filterDeclarations(declarations, typeof(Stream));
+    	var outputNodes = new ArrayList<Element>();
+    	for (stream : streams) {
+    		outputNodes.addAll((stream as Stream).elements.filter(e | e.output !== null));
+    	}
+    	return outputNodes;
+    }
+    
+    def static getNodesForInitialization(List<Declaration> declarations) {
+    	var inputs = filterDeclarations(declarations, typeof(Input));
+    	var nodes = filterDeclarations(declarations, typeof(Node));
+    	var nodesAndInputs = new ArrayList<InputOrNode>();
+    	for (input : inputs) {
+    		nodesAndInputs.add(input as Input);
+    	}
+    	for (node : nodes) {
+    		nodesAndInputs.add(node as Node);
+    	}
+    	return nodesAndInputs;
+    }
+    
+    def static getAllNetworkNodes(List<Declaration> declarations) {
+    	var streams = filterDeclarations(declarations, typeof(Stream));
+    	var relationMap = new HashMap<String, String>();
+    	for (stream: streams) {
+    		for (inputOrNode : (stream as Stream).inputsOrNodes){
+    			for (element : (stream as Stream).elements){
+    				relationMap.put(inputOrNode.compileInputOrNode, element.compileElement);
+    			}
+    		}
+    	}
+    	return relationMap;
+    }
+    
+    
+    
 }
