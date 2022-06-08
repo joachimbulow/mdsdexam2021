@@ -52,30 +52,43 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final Program program = Iterators.<Program>filter(resource.getAllContents(), Program.class).next();
     String _name = program.getName();
-    String _plus = ("x21/" + _name);
-    String _plus_1 = (_plus + ".java");
+    String _plus = ("x21test/" + _name);
+    String _plus_1 = (_plus + "Main.java");
     fsa.generateFile(_plus_1, 
       ExTwentyOneGenerator.compile(program));
   }
   
   public static CharSequence compile(final Program program) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package ");
-    String _name = program.getName();
-    _builder.append(_name);
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
+    _builder.append("package x21test;");
+    _builder.newLine();
+    _builder.append("import libx21.*;");
+    _builder.newLine();
+    _builder.append("import java.util.List;");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
     String _upper = ExTwentyOneGenerator.toUpper(program.getName());
     _builder.append(_upper);
     _builder.append("Main extends GenericMainX21 {");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("//Inputs");
+    _builder.newLine();
+    {
+      List<Declaration> _filterDeclarations = ExTwentyOneGenerator.filterDeclarations(program.getDeclarations(), Input.class);
+      for(final Declaration input : _filterDeclarations) {
+        CharSequence _compileInput = ExTwentyOneGenerator.compileInput(((Input) input));
+        _builder.append(_compileInput);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.newLine();
     _builder.append("// Code for function add1");
     _builder.newLine();
     {
-      List<Declaration> _filterDeclarations = ExTwentyOneGenerator.filterDeclarations(program.getDeclarations(), Function.class);
-      for(final Declaration function : _filterDeclarations) {
+      List<Declaration> _filterDeclarations_1 = ExTwentyOneGenerator.filterDeclarations(program.getDeclarations(), Function.class);
+      for(final Declaration function : _filterDeclarations_1) {
         CharSequence _compileFunction = ExTwentyOneGenerator.compileFunction(((Function) function));
         _builder.append(_compileFunction);
         _builder.newLineIfNotEmpty();
@@ -85,13 +98,15 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
     _builder.append("// Code for node add1node");
     _builder.newLine();
     {
-      List<Declaration> _filterDeclarations_1 = ExTwentyOneGenerator.filterDeclarations(program.getDeclarations(), Node.class);
-      for(final Declaration node : _filterDeclarations_1) {
+      List<Declaration> _filterDeclarations_2 = ExTwentyOneGenerator.filterDeclarations(program.getDeclarations(), Node.class);
+      for(final Declaration node : _filterDeclarations_2) {
         CharSequence _compileNode = ExTwentyOneGenerator.compileNode(((Node) node));
         _builder.append(_compileNode);
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.newLine();
+    _builder.append("//Output nodes");
     _builder.newLine();
     {
       ArrayList<Element> _outputNodes = ExTwentyOneGenerator.getOutputNodes(program.getDeclarations());
@@ -101,14 +116,43 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append(" ");
     _builder.newLine();
-    ExTwentyOneGenerator.compileNodeInitialization(program.getDeclarations());
+    _builder.append(" ");
+    _builder.newLine();
+    String _compileNodeInitialization = ExTwentyOneGenerator.compileNodeInitialization(program.getDeclarations());
+    _builder.append(_compileNodeInitialization);
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("// Create network");
     _builder.newLine();
     CharSequence _compileNodeNetwork = ExTwentyOneGenerator.compileNodeNetwork(program.getDeclarations());
     _builder.append(_compileNodeNetwork);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public static CharSequence compileInput(final Input input) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("private ComputeNode<Object,Object> node_");
+    String _name = input.getName();
+    _builder.append(_name);
+    _builder.append(" = new InputNode<Object>();");
+    _builder.newLineIfNotEmpty();
+    _builder.append("public void input");
+    String _firstUpper = StringExtensions.toFirstUpper(input.getName());
+    _builder.append(_firstUpper);
+    _builder.append("(Integer input) {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("node_");
+    String _name_1 = input.getName();
+    _builder.append(_name_1, "\t");
+    _builder.append(".put(input);");
+    _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
     return _builder;
@@ -136,7 +180,7 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
     String _name_3 = function.getLambda().getName();
     _builder.append(_name_3);
     _builder.append("){ return (");
-    String _compileExpression = ExTwentyOneGenerator.compileExpression(function.getLambda().getLambdaExp());
+    CharSequence _compileExpression = ExTwentyOneGenerator.compileExpression(function.getLambda().getLambdaExp());
     _builder.append(_compileExpression);
     _builder.append("); }");
     _builder.newLineIfNotEmpty();
@@ -151,7 +195,7 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
       boolean _tripleNotEquals = (_lambda != null);
       if (_tripleNotEquals) {
         StringConcatenation _builder = new StringConcatenation();
-        String _compileExpression = ExTwentyOneGenerator.compileExpression(node.getLambda().getLambdaExp());
+        CharSequence _compileExpression = ExTwentyOneGenerator.compileExpression(node.getLambda().getLambdaExp());
         _builder.append(_compileExpression);
         _builder.newLineIfNotEmpty();
         functionCompilation = _builder.toString();
@@ -198,12 +242,14 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
     _builder.append("public List<Object> get");
     String _firstUpper = StringExtensions.toFirstUpper(nodeName);
     _builder.append(_firstUpper, "\t\t\t");
-    _builder.append("() { return node_nodeName.getData(); }");
+    _builder.append("() { return node_");
+    _builder.append(nodeName, "\t\t\t");
+    _builder.append(".getData(); }");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  public static void compileNodeInitialization(final List<Declaration> declarations) {
+  public static String compileNodeInitialization(final List<Declaration> declarations) {
     ArrayList<InputOrNode> nodesAndInputs = ExTwentyOneGenerator.getNodesForInitialization(declarations);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("// Initialization of specific nodes");
@@ -223,6 +269,7 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
     _builder.append("}");
     _builder.newLine();
     String result = _builder.toString();
+    return result;
   }
   
   public static CharSequence compileNodeNetwork(final List<Declaration> declarations) {
@@ -256,12 +303,14 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
     boolean _matched = false;
     if (inputOrNode instanceof Input) {
       _matched=true;
-      _switchResult = ((Input)inputOrNode).getName();
+      String _name = ((Input)inputOrNode).getName();
+      _switchResult = ("node_" + _name);
     }
     if (!_matched) {
       if (inputOrNode instanceof Node) {
         _matched=true;
-        _switchResult = ((Node)inputOrNode).getName();
+        String _name = ((Node)inputOrNode).getName();
+        _switchResult = ("node_" + _name);
       }
     }
     return _switchResult;
@@ -307,35 +356,47 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
     return _switchResult;
   }
   
-  protected static String _compileExpression(final Plus exp) {
-    return "Plus!";
+  protected static CharSequence _compileExpression(final Plus exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    Object _compileExpression = ExTwentyOneGenerator.compileExpression(exp.getLeft());
+    _builder.append(_compileExpression);
+    _builder.append(" + ");
+    Object _compileExpression_1 = ExTwentyOneGenerator.compileExpression(exp.getRight());
+    _builder.append(_compileExpression_1);
+    return _builder;
   }
   
-  protected static String _compileExpression(final Minus exp) {
-    return "Minus!";
+  protected static CharSequence _compileExpression(final Minus exp) {
+    StringConcatenation _builder = new StringConcatenation();
+    Object _compileExpression = ExTwentyOneGenerator.compileExpression(exp.getLeft());
+    _builder.append(_compileExpression);
+    _builder.append(" + ");
+    Object _compileExpression_1 = ExTwentyOneGenerator.compileExpression(exp.getRight());
+    _builder.append(_compileExpression_1);
+    return _builder;
   }
   
-  protected static String _compileExpression(final LetBinding exp) {
+  protected static CharSequence _compileExpression(final LetBinding exp) {
     return "LetBinding!";
   }
   
-  protected static String _compileExpression(final IfThenElse exp) {
+  protected static CharSequence _compileExpression(final IfThenElse exp) {
     return "IfThenElse!";
   }
   
-  protected static String _compileExpression(final LogicExp exp) {
+  protected static CharSequence _compileExpression(final LogicExp exp) {
     return "LogicExp!";
   }
   
-  protected static String _compileExpression(final DataAccess exp) {
+  protected static CharSequence _compileExpression(final DataAccess exp) {
     return "DataAccess!";
   }
   
-  protected static String _compileExpression(final NewInput exp) {
+  protected static CharSequence _compileExpression(final NewInput exp) {
     return "NewInput!";
   }
   
-  protected static String _compileExpression(final Expression exp) {
+  protected static CharSequence _compileExpression(final Expression exp) {
     return "Expression!";
   }
   
@@ -391,7 +452,7 @@ public class ExTwentyOneGenerator extends AbstractGenerator {
     return relationMap;
   }
   
-  public static String compileExpression(final EObject exp) {
+  public static CharSequence compileExpression(final EObject exp) {
     if (exp instanceof DataAccess) {
       return _compileExpression((DataAccess)exp);
     } else if (exp instanceof IfThenElse) {

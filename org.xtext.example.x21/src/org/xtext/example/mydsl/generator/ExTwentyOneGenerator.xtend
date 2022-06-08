@@ -40,16 +40,24 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val program = resource.allContents.filter(Program).next
 		fsa.generateFile(
-            "x21/" + program.name + ".java",
+            "x21test/" + program.name +  "Main.java",
             program.compile);
 		
 	}
 	
 	def static compile(Program program) {
 		'''
-			package «program.name»;
+			package x21test;
+			import libx21.*;
+			import java.util.List;
 			
 			public class «program.name.toUpper»Main extends GenericMainX21 {
+			
+			//Inputs
+			«FOR input : filterDeclarations(program.declarations, typeof(Input))»
+				«compileInput(input as Input)»
+			«ENDFOR»
+			
 			// Code for function add1
 			«FOR function : filterDeclarations(program.declarations, typeof(Function))»
 				«compileFunction(function as Function)»
@@ -60,15 +68,27 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 				«compileNode(node as Node)»
 			«ENDFOR»
 			
+			//Output nodes
 			«FOR outputNode : getOutputNodes(program.declarations)»
 				«outputNode.output.compileOutputNode»
 			«ENDFOR»
-			
+			 
+			 
 			«compileNodeInitialization(program.declarations)»
 			
+			// Create network
 			«compileNodeNetwork(program.declarations)»
 			
 			}
+		'''
+	}
+	
+	def static compileInput(Input input) {
+		'''
+		private ComputeNode<Object,Object> node_«input.name» = new InputNode<Object>();
+		public void input«input.name.toFirstUpper»(Integer input) {
+			node_«input.name».put(input);
+		}
 		'''
 	}
 	
@@ -105,7 +125,7 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 	def static compileOutputNode(String nodeName) {
 		'''
 		private OutputNode<Object> node_«nodeName» = new OutputNode<Object>();
-					public List<Object> get«nodeName.toFirstUpper»() { return node_nodeName.getData(); }
+					public List<Object> get«nodeName.toFirstUpper»() { return node_«nodeName».getData(); }
 		'''
 	}
 	
@@ -119,6 +139,7 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 			«ENDFOR »
 		}
 		'''
+		return result;
 	}
 	
 	def static compileNodeNetwork(List<Declaration> declarations) {
@@ -134,8 +155,8 @@ class ExTwentyOneGenerator extends AbstractGenerator {
 	
 	def static compileInputOrNode(InputOrNode inputOrNode){
     	switch inputOrNode {
-    		Input: inputOrNode.name
-    		Node: inputOrNode.name
+    		Input: "node_" + inputOrNode.name
+    		Node: "node_" + inputOrNode.name
     	}
     }
     
@@ -160,11 +181,11 @@ class ExTwentyOneGenerator extends AbstractGenerator {
     }
 	
 	def static dispatch compileExpression(Plus exp) {
-		"Plus!"
+		'''«exp.left.compileExpression» + «exp.right.compileExpression»'''
 	}
 	
 	def static dispatch compileExpression(Minus exp) {
-		"Minus!"
+		'''«exp.left.compileExpression» + «exp.right.compileExpression»'''
 	}
 	
 	def static dispatch compileExpression(LetBinding exp) {
