@@ -154,6 +154,14 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ExTwentyOnePackage.TYPE:
+      {
+        Type type = (Type)theEObject;
+        T result = caseType(type);
+        if (result == null) result = caseExpression(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ExTwentyOnePackage.INPUT_OR_NODE:
       {
         InputOrNode inputOrNode = (InputOrNode)theEObject;
@@ -219,6 +227,14 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
         Divide divide = (Divide)theEObject;
         T result = caseDivide(divide);
         if (result == null) result = caseExpression(divide);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ExTwentyOnePackage.PARENTHESIS:
+      {
+        Parenthesis parenthesis = (Parenthesis)theEObject;
+        T result = caseParenthesis(parenthesis);
+        if (result == null) result = caseExpression(parenthesis);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -411,6 +427,22 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseType(Type object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Input Or Node</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -550,6 +582,22 @@ public class ExTwentyOneSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDivide(Divide object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parenthesis</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parenthesis</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParenthesis(Parenthesis object)
   {
     return null;
   }

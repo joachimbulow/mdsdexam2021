@@ -13,6 +13,7 @@
     <genClasses ecoreClass="ExTwentyOne.ecore#//Declaration"/>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Parameter/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Parameter/value"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Function">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Function/name"/>
@@ -20,10 +21,12 @@
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Lambda">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Lambda/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Lambda/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Lambda/lambdaExp"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Input">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Input/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Input/value"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//Node">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Node/name"/>
@@ -42,6 +45,14 @@
     <genClasses ecoreClass="ExTwentyOne.ecore#//DataDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//DataDecl/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//DataDecl/data"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//DataDecl/values"/>
+    </genClasses>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Type/intIdentifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Type/stringValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Type/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Type/intValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//Type/noneValue"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//InputOrNode"/>
     <genClasses ecoreClass="ExTwentyOne.ecore#//NodeOrFunction"/>
@@ -70,6 +81,9 @@
     <genClasses ecoreClass="ExTwentyOne.ecore#//Divide">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Divide/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Divide/right"/>
+    </genClasses>
+    <genClasses ecoreClass="ExTwentyOne.ecore#//Parenthesis">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ExTwentyOne.ecore#//Parenthesis/exp"/>
     </genClasses>
     <genClasses ecoreClass="ExTwentyOne.ecore#//DataAccess">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ExTwentyOne.ecore#//DataAccess/accessedData"/>

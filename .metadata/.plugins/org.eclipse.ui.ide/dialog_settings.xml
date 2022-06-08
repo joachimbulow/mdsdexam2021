@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/Users/joachimbulow/eclipse-workspace"/>
 			<item value="/Users/joachimbulow/eclipse-workspace/org.xtext.example.individual"/>
 			<item value="/Users/joachimbulow/development/repos/school/SemesterProjectE22/ExternalDSL"/>
 			<item value="/Users/joachimbulow/development/repos/school/MDSD_assignments/assignment3"/>
@@ -36,5 +37,8 @@
 		<item key="DIALOG_WIDTH" value="540"/>
 		<item key="DIALOG_HEIGHT" value="367"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item key="OUTSIDE_LOCATION" value="/Users/joachimbulow/eclipse-workspace/Exam2021/okay"/>
 	</section>
 </section>

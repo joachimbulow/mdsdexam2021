@@ -14,6 +14,7 @@ package org.xtext.example.mydsl.exTwentyOne;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Input#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.Input#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getInput()
@@ -43,5 +44,27 @@ public interface Input extends Declaration, InputOrNode
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' containment reference.
+   * @see #setValue(Type)
+   * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getInput_Value()
+   * @model containment="true"
+   * @generated
+   */
+  Type getValue();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.exTwentyOne.Input#getValue <em>Value</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Value</em>' containment reference.
+   * @see #getValue()
+   * @generated
+   */
+  void setValue(Type value);
 
 } // Input

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
 import org.xtext.example.mydsl.exTwentyOne.Expression;
 import org.xtext.example.mydsl.exTwentyOne.Lambda;
+import org.xtext.example.mydsl.exTwentyOne.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +25,7 @@ import org.xtext.example.mydsl.exTwentyOne.Lambda;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.LambdaImpl#getLambdaExp <em>Lambda Exp</em>}</li>
  * </ul>
  *
@@ -50,6 +52,16 @@ public class LambdaImpl extends ElementImpl implements Lambda
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected Type value;
 
   /**
    * The cached value of the '{@link #getLambdaExp() <em>Lambda Exp</em>}' containment reference.
@@ -113,6 +125,56 @@ public class LambdaImpl extends ElementImpl implements Lambda
    * @generated
    */
   @Override
+  public Type getValue()
+  {
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetValue(Type newValue, NotificationChain msgs)
+  {
+    Type oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.LAMBDA__VALUE, oldValue, newValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setValue(Type newValue)
+  {
+    if (newValue != value)
+    {
+      NotificationChain msgs = null;
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExTwentyOnePackage.LAMBDA__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExTwentyOnePackage.LAMBDA__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ExTwentyOnePackage.LAMBDA__VALUE, newValue, newValue));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Expression getLambdaExp()
   {
     return lambdaExp;
@@ -167,6 +229,8 @@ public class LambdaImpl extends ElementImpl implements Lambda
   {
     switch (featureID)
     {
+      case ExTwentyOnePackage.LAMBDA__VALUE:
+        return basicSetValue(null, msgs);
       case ExTwentyOnePackage.LAMBDA__LAMBDA_EXP:
         return basicSetLambdaExp(null, msgs);
     }
@@ -185,6 +249,8 @@ public class LambdaImpl extends ElementImpl implements Lambda
     {
       case ExTwentyOnePackage.LAMBDA__NAME:
         return getName();
+      case ExTwentyOnePackage.LAMBDA__VALUE:
+        return getValue();
       case ExTwentyOnePackage.LAMBDA__LAMBDA_EXP:
         return getLambdaExp();
     }
@@ -203,6 +269,9 @@ public class LambdaImpl extends ElementImpl implements Lambda
     {
       case ExTwentyOnePackage.LAMBDA__NAME:
         setName((String)newValue);
+        return;
+      case ExTwentyOnePackage.LAMBDA__VALUE:
+        setValue((Type)newValue);
         return;
       case ExTwentyOnePackage.LAMBDA__LAMBDA_EXP:
         setLambdaExp((Expression)newValue);
@@ -224,6 +293,9 @@ public class LambdaImpl extends ElementImpl implements Lambda
       case ExTwentyOnePackage.LAMBDA__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case ExTwentyOnePackage.LAMBDA__VALUE:
+        setValue((Type)null);
+        return;
       case ExTwentyOnePackage.LAMBDA__LAMBDA_EXP:
         setLambdaExp((Expression)null);
         return;
@@ -243,6 +315,8 @@ public class LambdaImpl extends ElementImpl implements Lambda
     {
       case ExTwentyOnePackage.LAMBDA__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case ExTwentyOnePackage.LAMBDA__VALUE:
+        return value != null;
       case ExTwentyOnePackage.LAMBDA__LAMBDA_EXP:
         return lambdaExp != null;
     }

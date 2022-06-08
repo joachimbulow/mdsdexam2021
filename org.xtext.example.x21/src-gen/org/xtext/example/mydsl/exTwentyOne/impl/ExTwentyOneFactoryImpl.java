@@ -75,6 +75,7 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
       case ExTwentyOnePackage.STREAM: return createStream();
       case ExTwentyOnePackage.ELEMENT: return createElement();
       case ExTwentyOnePackage.DATA_DECL: return createDataDecl();
+      case ExTwentyOnePackage.TYPE: return createType();
       case ExTwentyOnePackage.INPUT_OR_NODE: return createInputOrNode();
       case ExTwentyOnePackage.NODE_OR_FUNCTION: return createNodeOrFunction();
       case ExTwentyOnePackage.EXPRESSION: return createExpression();
@@ -84,6 +85,7 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
       case ExTwentyOnePackage.MINUS: return createMinus();
       case ExTwentyOnePackage.MULT: return createMult();
       case ExTwentyOnePackage.DIVIDE: return createDivide();
+      case ExTwentyOnePackage.PARENTHESIS: return createParenthesis();
       case ExTwentyOnePackage.DATA_ACCESS: return createDataAccess();
       case ExTwentyOnePackage.IF_THEN_ELSE: return createIfThenElse();
       case ExTwentyOnePackage.LET_BINDING: return createLetBinding();
@@ -218,6 +220,18 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
    * @generated
    */
   @Override
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public InputOrNode createInputOrNode()
   {
     InputOrNodeImpl inputOrNode = new InputOrNodeImpl();
@@ -318,6 +332,18 @@ public class ExTwentyOneFactoryImpl extends EFactoryImpl implements ExTwentyOneF
   {
     DivideImpl divide = new DivideImpl();
     return divide;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Parenthesis createParenthesis()
+  {
+    ParenthesisImpl parenthesis = new ParenthesisImpl();
+    return parenthesis;
   }
 
   /**

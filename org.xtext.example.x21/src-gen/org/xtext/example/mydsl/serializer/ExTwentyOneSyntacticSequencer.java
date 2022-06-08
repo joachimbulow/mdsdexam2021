@@ -22,36 +22,18 @@ public class ExTwentyOneSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected ExTwentyOneGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_LogicExp_EqualsSignKeyword_1_0_or_GreaterThanSignEqualsSignKeyword_1_4_or_GreaterThanSignKeyword_1_2_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_1;
-	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_3_0_a;
-	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_3_0_p;
-	protected AbstractElementAlias match_Primary_NoneKeyword_2_1_or_TypeParserRuleCall_6_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (ExTwentyOneGrammarAccess) access;
 		match_LogicExp_EqualsSignKeyword_1_0_or_GreaterThanSignEqualsSignKeyword_1_4_or_GreaterThanSignKeyword_1_2_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getLogicExpAccess().getEqualsSignKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getLogicExpAccess().getGreaterThanSignEqualsSignKeyword_1_4()), new TokenAlias(false, false, grammarAccess.getLogicExpAccess().getGreaterThanSignKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getLogicExpAccess().getLessThanSignEqualsSignKeyword_1_3()), new TokenAlias(false, false, grammarAccess.getLogicExpAccess().getLessThanSignKeyword_1_1()));
-		match_Primary_LeftParenthesisKeyword_3_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_3_0());
-		match_Primary_LeftParenthesisKeyword_3_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_3_0());
-		match_Primary_NoneKeyword_2_1_or_TypeParserRuleCall_6_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPrimaryAccess().getNoneKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getPrimaryAccess().getTypeParserRuleCall_6_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getTypeRule())
-			return getTypeToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * Type: 
-	 * 	'int' | 'string' | ID | INT
-	 * ;
-	 */
-	protected String getTypeToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "int";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -61,12 +43,6 @@ public class ExTwentyOneSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_LogicExp_EqualsSignKeyword_1_0_or_GreaterThanSignEqualsSignKeyword_1_4_or_GreaterThanSignKeyword_1_2_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_1.equals(syntax))
 				emit_LogicExp_EqualsSignKeyword_1_0_or_GreaterThanSignEqualsSignKeyword_1_4_or_GreaterThanSignKeyword_1_2_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Primary_LeftParenthesisKeyword_3_0_a.equals(syntax))
-				emit_Primary_LeftParenthesisKeyword_3_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Primary_LeftParenthesisKeyword_3_0_p.equals(syntax))
-				emit_Primary_LeftParenthesisKeyword_3_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Primary_NoneKeyword_2_1_or_TypeParserRuleCall_6_1.equals(syntax))
-				emit_Primary_NoneKeyword_2_1_or_TypeParserRuleCall_6_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -82,59 +58,6 @@ public class ExTwentyOneSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * </pre>
 	 */
 	protected void emit_LogicExp_EqualsSignKeyword_1_0_or_GreaterThanSignEqualsSignKeyword_1_4_or_GreaterThanSignKeyword_1_2_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     '('*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'if' ifLogicExp=LogicExp
-	 *     (rule start) (ambiguity) 'let' name=ID
-	 *     (rule start) (ambiguity) 'new' newArrayId=ID
-	 *     (rule start) (ambiguity) ('none' | Type) (rule start)
-	 *     (rule start) (ambiguity) accessedData=ID
-	 *     (rule start) (ambiguity) {Divide.left=}
-	 *     (rule start) (ambiguity) {Minus.left=}
-	 *     (rule start) (ambiguity) {Mult.left=}
-	 *     (rule start) (ambiguity) {Plus.left=}
-	 
-	 * </pre>
-	 */
-	protected void emit_Primary_LeftParenthesisKeyword_3_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     '('+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) {Divide.left=}
-	 *     (rule start) (ambiguity) {Minus.left=}
-	 *     (rule start) (ambiguity) {Mult.left=}
-	 *     (rule start) (ambiguity) {Plus.left=}
-	 
-	 * </pre>
-	 */
-	protected void emit_Primary_LeftParenthesisKeyword_3_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     'none' | Type
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '('* (ambiguity) (rule start)
-	 
-	 * </pre>
-	 */
-	protected void emit_Primary_NoneKeyword_2_1_or_TypeParserRuleCall_6_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

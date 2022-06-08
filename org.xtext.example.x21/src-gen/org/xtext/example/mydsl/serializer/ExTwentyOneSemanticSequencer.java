@@ -19,7 +19,6 @@ import org.xtext.example.mydsl.exTwentyOne.DataDecl;
 import org.xtext.example.mydsl.exTwentyOne.Divide;
 import org.xtext.example.mydsl.exTwentyOne.Element;
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
-import org.xtext.example.mydsl.exTwentyOne.Expression;
 import org.xtext.example.mydsl.exTwentyOne.Function;
 import org.xtext.example.mydsl.exTwentyOne.IfThenElse;
 import org.xtext.example.mydsl.exTwentyOne.Input;
@@ -30,9 +29,11 @@ import org.xtext.example.mydsl.exTwentyOne.Minus;
 import org.xtext.example.mydsl.exTwentyOne.Mult;
 import org.xtext.example.mydsl.exTwentyOne.NewInput;
 import org.xtext.example.mydsl.exTwentyOne.Node;
+import org.xtext.example.mydsl.exTwentyOne.Parenthesis;
 import org.xtext.example.mydsl.exTwentyOne.Plus;
 import org.xtext.example.mydsl.exTwentyOne.Program;
 import org.xtext.example.mydsl.exTwentyOne.Stream;
+import org.xtext.example.mydsl.exTwentyOne.Type;
 import org.xtext.example.mydsl.services.ExTwentyOneGrammarAccess;
 
 @SuppressWarnings("all")
@@ -60,9 +61,6 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case ExTwentyOnePackage.ELEMENT:
 				sequence_Element(context, (Element) semanticObject); 
-				return; 
-			case ExTwentyOnePackage.EXPRESSION:
-				sequence_Primary(context, (Expression) semanticObject); 
 				return; 
 			case ExTwentyOnePackage.FUNCTION:
 				sequence_Function(context, (Function) semanticObject); 
@@ -97,6 +95,9 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case ExTwentyOnePackage.PARAMETER:
 				sequence_Parameter(context, (org.xtext.example.mydsl.exTwentyOne.Parameter) semanticObject); 
 				return; 
+			case ExTwentyOnePackage.PARENTHESIS:
+				sequence_Parenthesis(context, (Parenthesis) semanticObject); 
+				return; 
 			case ExTwentyOnePackage.PLUS:
 				sequence_Exp(context, (Plus) semanticObject); 
 				return; 
@@ -105,6 +106,9 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case ExTwentyOnePackage.STREAM:
 				sequence_Stream(context, (Stream) semanticObject); 
+				return; 
+			case ExTwentyOnePackage.TYPE:
+				sequence_Type(context, (Type) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -147,7 +151,7 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     DataDecl returns DataDecl
 	 *
 	 * Constraint:
-	 *     (name=ID data+=ID data+=ID*)
+	 *     (name=ID data+=ID values+=Type (data+=ID values+=Type)*)
 	 * </pre>
 	 */
 	protected void sequence_DataDecl(ISerializationContext context, DataDecl semanticObject) {
@@ -177,7 +181,6 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Exp.Minus_1_0_1_0 returns Divide
 	 *     Exp.Mult_1_0_2_0 returns Divide
 	 *     Exp.Divide_1_0_3_0 returns Divide
-	 *     Primary returns Divide
 	 *
 	 * Constraint:
 	 *     (left=Exp_Divide_1_0_3_0 right=Primary)
@@ -205,7 +208,6 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Exp.Minus_1_0_1_0 returns Minus
 	 *     Exp.Mult_1_0_2_0 returns Minus
 	 *     Exp.Divide_1_0_3_0 returns Minus
-	 *     Primary returns Minus
 	 *
 	 * Constraint:
 	 *     (left=Exp_Minus_1_0_1_0 right=Primary)
@@ -233,7 +235,6 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Exp.Minus_1_0_1_0 returns Mult
 	 *     Exp.Mult_1_0_2_0 returns Mult
 	 *     Exp.Divide_1_0_3_0 returns Mult
-	 *     Primary returns Mult
 	 *
 	 * Constraint:
 	 *     (left=Exp_Mult_1_0_2_0 right=Primary)
@@ -261,7 +262,6 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Exp.Minus_1_0_1_0 returns Plus
 	 *     Exp.Mult_1_0_2_0 returns Plus
 	 *     Exp.Divide_1_0_3_0 returns Plus
-	 *     Primary returns Plus
 	 *
 	 * Constraint:
 	 *     (left=Exp_Plus_1_0_0_0 right=Primary)
@@ -346,16 +346,19 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     InputOrNode returns Input
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID value=Type)
 	 * </pre>
 	 */
 	protected void sequence_Input(ISerializationContext context, Input semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.INPUT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.INPUT__NAME));
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.INPUT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.INPUT__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getInputAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getInputAccess().getValueTypeParserRuleCall_4_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -367,18 +370,21 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Element returns Lambda
 	 *
 	 * Constraint:
-	 *     (name=ID lambdaExp=Exp)
+	 *     (name=ID value=Type lambdaExp=Exp)
 	 * </pre>
 	 */
 	protected void sequence_Lambda(ISerializationContext context, Lambda semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.LAMBDA__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.LAMBDA__NAME));
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.LAMBDA__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.LAMBDA__VALUE));
 			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.LAMBDA__LAMBDA_EXP) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.LAMBDA__LAMBDA_EXP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLambdaAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getLambdaAccess().getValueTypeParserRuleCall_4_0(), semanticObject.getValue());
 		feeder.accept(grammarAccess.getLambdaAccess().getLambdaExpExpParserRuleCall_7_0(), semanticObject.getLambdaExp());
 		feeder.finish();
 	}
@@ -483,16 +489,19 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID value=Type)
 	 * </pre>
 	 */
 	protected void sequence_Parameter(ISerializationContext context, org.xtext.example.mydsl.exTwentyOne.Parameter semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.PARAMETER__NAME));
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.PARAMETER__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.PARAMETER__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParameterAccess().getValueTypeParserRuleCall_3_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -500,19 +509,26 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Exp returns Expression
-	 *     Exp.Plus_1_0_0_0 returns Expression
-	 *     Exp.Minus_1_0_1_0 returns Expression
-	 *     Exp.Mult_1_0_2_0 returns Expression
-	 *     Exp.Divide_1_0_3_0 returns Expression
-	 *     Primary returns Expression
+	 *     Exp returns Parenthesis
+	 *     Exp.Plus_1_0_0_0 returns Parenthesis
+	 *     Exp.Minus_1_0_1_0 returns Parenthesis
+	 *     Exp.Mult_1_0_2_0 returns Parenthesis
+	 *     Exp.Divide_1_0_3_0 returns Parenthesis
+	 *     Primary returns Parenthesis
+	 *     Parenthesis returns Parenthesis
 	 *
 	 * Constraint:
-	 *     {Expression}
+	 *     exp=Exp
 	 * </pre>
 	 */
-	protected void sequence_Primary(ISerializationContext context, Expression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Parenthesis(ISerializationContext context, Parenthesis semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ExTwentyOnePackage.Literals.PARENTHESIS__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ExTwentyOnePackage.Literals.PARENTHESIS__EXP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParenthesisAccess().getExpExpParserRuleCall_2_0(), semanticObject.getExp());
+		feeder.finish();
 	}
 	
 	
@@ -541,6 +557,26 @@ public class ExTwentyOneSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * </pre>
 	 */
 	protected void sequence_Stream(ISerializationContext context, Stream semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Type returns Type
+	 *     Exp returns Type
+	 *     Exp.Plus_1_0_0_0 returns Type
+	 *     Exp.Minus_1_0_1_0 returns Type
+	 *     Exp.Mult_1_0_2_0 returns Type
+	 *     Exp.Divide_1_0_3_0 returns Type
+	 *     Primary returns Type
+	 *
+	 * Constraint:
+	 *     (intIdentifier='int' | stringValue='string' | id=ID | intValue=INT | noneValue='none')
+	 * </pre>
+	 */
+	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

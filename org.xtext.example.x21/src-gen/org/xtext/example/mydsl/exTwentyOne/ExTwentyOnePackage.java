@@ -133,13 +133,22 @@ public interface ExTwentyOnePackage extends EPackage
   int PARAMETER__NAME = DECLARATION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__VALUE = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Parameter</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
+  int PARAMETER_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.FunctionImpl <em>Function</em>}' class.
@@ -271,13 +280,22 @@ public interface ExTwentyOnePackage extends EPackage
   int LAMBDA__NAME = ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA__VALUE = ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Lambda Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAMBDA__LAMBDA_EXP = ELEMENT_FEATURE_COUNT + 1;
+  int LAMBDA__LAMBDA_EXP = ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Lambda</em>' class.
@@ -286,7 +304,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAMBDA_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+  int LAMBDA_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.InputImpl <em>Input</em>}' class.
@@ -308,13 +326,22 @@ public interface ExTwentyOnePackage extends EPackage
   int INPUT__NAME = DECLARATION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__VALUE = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Input</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
+  int INPUT_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.NodeImpl <em>Node</em>}' class.
@@ -428,13 +455,105 @@ public interface ExTwentyOnePackage extends EPackage
   int DATA_DECL__DATA = DECLARATION_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_DECL__VALUES = DECLARATION_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Data Decl</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
+  int DATA_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 13;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.TypeImpl <em>Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.TypeImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 10;
+
+  /**
+   * The feature id for the '<em><b>Int Identifier</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__INT_IDENTIFIER = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>String Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__STRING_VALUE = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__ID = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Int Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__INT_VALUE = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>None Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__NONE_VALUE = EXPRESSION_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.InputOrNodeImpl <em>Input Or Node</em>}' class.
@@ -444,7 +563,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getInputOrNode()
    * @generated
    */
-  int INPUT_OR_NODE = 10;
+  int INPUT_OR_NODE = 11;
 
   /**
    * The number of structural features of the '<em>Input Or Node</em>' class.
@@ -463,7 +582,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getNodeOrFunction()
    * @generated
    */
-  int NODE_OR_FUNCTION = 11;
+  int NODE_OR_FUNCTION = 12;
 
   /**
    * The number of structural features of the '<em>Node Or Function</em>' class.
@@ -475,25 +594,6 @@ public interface ExTwentyOnePackage extends EPackage
   int NODE_OR_FUNCTION_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl <em>Expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExpressionImpl
-   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getExpression()
-   * @generated
-   */
-  int EXPRESSION = 12;
-
-  /**
-   * The number of structural features of the '<em>Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.NewInputImpl <em>New Input</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -501,7 +601,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getNewInput()
    * @generated
    */
-  int NEW_INPUT = 13;
+  int NEW_INPUT = 14;
 
   /**
    * The feature id for the '<em><b>New Array Id</b></em>' attribute.
@@ -547,7 +647,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getLogicExp()
    * @generated
    */
-  int LOGIC_EXP = 14;
+  int LOGIC_EXP = 15;
 
   /**
    * The feature id for the '<em><b>Left Logic</b></em>' containment reference.
@@ -584,7 +684,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 15;
+  int PLUS = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -621,7 +721,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 16;
+  int MINUS = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -658,7 +758,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getMult()
    * @generated
    */
-  int MULT = 17;
+  int MULT = 18;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -695,7 +795,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getDivide()
    * @generated
    */
-  int DIVIDE = 18;
+  int DIVIDE = 19;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -725,6 +825,34 @@ public interface ExTwentyOnePackage extends EPackage
   int DIVIDE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.ParenthesisImpl <em>Parenthesis</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ParenthesisImpl
+   * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getParenthesis()
+   * @generated
+   */
+  int PARENTHESIS = 20;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESIS__EXP = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Parenthesis</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESIS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.DataAccessImpl <em>Data Access</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -732,7 +860,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getDataAccess()
    * @generated
    */
-  int DATA_ACCESS = 19;
+  int DATA_ACCESS = 21;
 
   /**
    * The feature id for the '<em><b>Accessed Data</b></em>' attribute.
@@ -769,7 +897,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getIfThenElse()
    * @generated
    */
-  int IF_THEN_ELSE = 20;
+  int IF_THEN_ELSE = 22;
 
   /**
    * The feature id for the '<em><b>If Logic Exp</b></em>' containment reference.
@@ -815,7 +943,7 @@ public interface ExTwentyOnePackage extends EPackage
    * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getLetBinding()
    * @generated
    */
-  int LET_BINDING = 21;
+  int LET_BINDING = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -918,6 +1046,17 @@ public interface ExTwentyOnePackage extends EPackage
   EAttribute getParameter_Name();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Parameter#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Parameter#getValue()
+   * @see #getParameter()
+   * @generated
+   */
+  EReference getParameter_Value();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.Function <em>Function</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -971,6 +1110,17 @@ public interface ExTwentyOnePackage extends EPackage
   EAttribute getLambda_Name();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Lambda#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Lambda#getValue()
+   * @see #getLambda()
+   * @generated
+   */
+  EReference getLambda_Value();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Lambda#getLambdaExp <em>Lambda Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1001,6 +1151,17 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   EAttribute getInput_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Input#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Input#getValue()
+   * @see #getInput()
+   * @generated
+   */
+  EReference getInput_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.Node <em>Node</em>}'.
@@ -1151,6 +1312,82 @@ public interface ExTwentyOnePackage extends EPackage
    * @generated
    */
   EAttribute getDataDecl_Data();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.exTwentyOne.DataDecl#getValues <em>Values</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Values</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.DataDecl#getValues()
+   * @see #getDataDecl()
+   * @generated
+   */
+  EReference getDataDecl_Values();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Type
+   * @generated
+   */
+  EClass getType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Type#getIntIdentifier <em>Int Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Int Identifier</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Type#getIntIdentifier()
+   * @see #getType()
+   * @generated
+   */
+  EAttribute getType_IntIdentifier();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Type#getStringValue <em>String Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>String Value</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Type#getStringValue()
+   * @see #getType()
+   * @generated
+   */
+  EAttribute getType_StringValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Type#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Type#getId()
+   * @see #getType()
+   * @generated
+   */
+  EAttribute getType_Id();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Type#getIntValue <em>Int Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Int Value</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Type#getIntValue()
+   * @see #getType()
+   * @generated
+   */
+  EAttribute getType_IntValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.exTwentyOne.Type#getNoneValue <em>None Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>None Value</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Type#getNoneValue()
+   * @see #getType()
+   * @generated
+   */
+  EAttribute getType_NoneValue();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.InputOrNode <em>Input Or Node</em>}'.
@@ -1386,6 +1623,27 @@ public interface ExTwentyOnePackage extends EPackage
   EReference getDivide_Right();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.Parenthesis <em>Parenthesis</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parenthesis</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Parenthesis
+   * @generated
+   */
+  EClass getParenthesis();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.exTwentyOne.Parenthesis#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.exTwentyOne.Parenthesis#getExp()
+   * @see #getParenthesis()
+   * @generated
+   */
+  EReference getParenthesis_Exp();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.exTwentyOne.DataAccess <em>Data Access</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1581,6 +1839,14 @@ public interface ExTwentyOnePackage extends EPackage
     EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
 
     /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER__VALUE = eINSTANCE.getParameter_Value();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.FunctionImpl <em>Function</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1625,6 +1891,14 @@ public interface ExTwentyOnePackage extends EPackage
     EAttribute LAMBDA__NAME = eINSTANCE.getLambda_Name();
 
     /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAMBDA__VALUE = eINSTANCE.getLambda_Value();
+
+    /**
      * The meta object literal for the '<em><b>Lambda Exp</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1649,6 +1923,14 @@ public interface ExTwentyOnePackage extends EPackage
      * @generated
      */
     EAttribute INPUT__NAME = eINSTANCE.getInput_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INPUT__VALUE = eINSTANCE.getInput_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.NodeImpl <em>Node</em>}' class.
@@ -1769,6 +2051,64 @@ public interface ExTwentyOnePackage extends EPackage
      * @generated
      */
     EAttribute DATA_DECL__DATA = eINSTANCE.getDataDecl_Data();
+
+    /**
+     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_DECL__VALUES = eINSTANCE.getDataDecl_Values();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.TypeImpl <em>Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.TypeImpl
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getType()
+     * @generated
+     */
+    EClass TYPE = eINSTANCE.getType();
+
+    /**
+     * The meta object literal for the '<em><b>Int Identifier</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE__INT_IDENTIFIER = eINSTANCE.getType_IntIdentifier();
+
+    /**
+     * The meta object literal for the '<em><b>String Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE__STRING_VALUE = eINSTANCE.getType_StringValue();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE__ID = eINSTANCE.getType_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Int Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE__INT_VALUE = eINSTANCE.getType_IntValue();
+
+    /**
+     * The meta object literal for the '<em><b>None Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE__NONE_VALUE = eINSTANCE.getType_NoneValue();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.InputOrNodeImpl <em>Input Or Node</em>}' class.
@@ -1963,6 +2303,24 @@ public interface ExTwentyOnePackage extends EPackage
      * @generated
      */
     EReference DIVIDE__RIGHT = eINSTANCE.getDivide_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.ParenthesisImpl <em>Parenthesis</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ParenthesisImpl
+     * @see org.xtext.example.mydsl.exTwentyOne.impl.ExTwentyOnePackageImpl#getParenthesis()
+     * @generated
+     */
+    EClass PARENTHESIS = eINSTANCE.getParenthesis();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARENTHESIS__EXP = eINSTANCE.getParenthesis_Exp();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.exTwentyOne.impl.DataAccessImpl <em>Data Access</em>}' class.

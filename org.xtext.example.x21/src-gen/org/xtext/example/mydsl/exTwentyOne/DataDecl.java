@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.DataDecl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.DataDecl#getData <em>Data</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.DataDecl#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getDataDecl()
@@ -57,5 +58,17 @@ public interface DataDecl extends Declaration
    * @generated
    */
   EList<String> getData();
+
+  /**
+   * Returns the value of the '<em><b>Values</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.exTwentyOne.Type}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Values</em>' containment reference list.
+   * @see org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage#getDataDecl_Values()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Type> getValues();
 
 } // DataDecl

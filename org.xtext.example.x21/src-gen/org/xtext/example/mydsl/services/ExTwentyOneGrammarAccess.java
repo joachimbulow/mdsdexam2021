@@ -33,8 +33,8 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Assignment cDeclarationsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDeclarationsDeclarationParserRuleCall_2_0 = (RuleCall)cDeclarationsAssignment_2.eContents().get(0);
 		
-		//Program: 'program' name=ID (declarations+=Declaration)*
-		//;
+		//Program:
+		//    'program' name=ID (declarations+=Declaration)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'program' name=ID (declarations+=Declaration)*
@@ -66,8 +66,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cParameterParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Declaration:
-		//    Function | Input | Node | Stream | DataDecl | Parameter
-		//;
+		//    Function | Input | Node | Stream | DataDecl | Parameter;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Function | Input | Node | Stream | DataDecl | Parameter
@@ -98,14 +97,14 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cTypeParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueTypeParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
 		//Parameter:
-		//    'parameter' name=ID ':' Type
-		//;
+		//    'parameter' name=ID ':' value=Type;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'parameter' name=ID ':' Type
+		//'parameter' name=ID ':' value=Type
 		public Group getGroup() { return cGroup; }
 		
 		//'parameter'
@@ -120,8 +119,11 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
+		//value=Type
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		
 		//Type
-		public RuleCall getTypeParserRuleCall_3() { return cTypeParserRuleCall_3; }
+		public RuleCall getValueTypeParserRuleCall_3_0() { return cValueTypeParserRuleCall_3_0; }
 	}
 	public class FunctionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.Function");
@@ -134,8 +136,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cLambdaLambdaParserRuleCall_3_0 = (RuleCall)cLambdaAssignment_3.eContents().get(0);
 		
 		//Function:
-		//    {Function} 'function' name=ID lambda=Lambda
-		//;
+		//    {Function} 'function' name=ID lambda=Lambda;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Function} 'function' name=ID lambda=Lambda
@@ -167,7 +168,8 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cTypeParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cValueAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cValueTypeParserRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cLambdaExpAssignment_7 = (Assignment)cGroup.eContents().get(7);
@@ -175,11 +177,10 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Lambda:
-		//    {Lambda} '(' name=ID ':' Type ')' '{' lambdaExp=Exp '}'
-		//;
+		//    {Lambda} '(' name=ID ':' value=Type ')' '{' lambdaExp=Exp '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Lambda} '(' name=ID ':' Type ')' '{' lambdaExp=Exp '}'
+		//{Lambda} '(' name=ID ':' value=Type ')' '{' lambdaExp=Exp '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Lambda}
@@ -197,8 +198,11 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//':'
 		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
+		//value=Type
+		public Assignment getValueAssignment_4() { return cValueAssignment_4; }
+		
 		//Type
-		public RuleCall getTypeParserRuleCall_4() { return cTypeParserRuleCall_4; }
+		public RuleCall getValueTypeParserRuleCall_4_0() { return cValueTypeParserRuleCall_4_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
@@ -223,14 +227,14 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final RuleCall cTypeParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cValueAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cValueTypeParserRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
 		
 		//Input:
-		//    {Input} 'input' name=ID ':' Type
-		//;
+		//    {Input} 'input' name=ID ':' value=Type;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Input} 'input' name=ID ':' Type
+		//{Input} 'input' name=ID ':' value=Type
 		public Group getGroup() { return cGroup; }
 		
 		//{Input}
@@ -248,8 +252,11 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//':'
 		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
+		//value=Type
+		public Assignment getValueAssignment_4() { return cValueAssignment_4; }
+		
 		//Type
-		public RuleCall getTypeParserRuleCall_4() { return cTypeParserRuleCall_4; }
+		public RuleCall getValueTypeParserRuleCall_4_0() { return cValueTypeParserRuleCall_4_0; }
 	}
 	public class NodeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.Node");
@@ -268,11 +275,10 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Node:
-		//    {Node} 'node' name=ID '[' (function = [Function] | lambda = Lambda) ']'
-		//;
+		//    {Node} 'node' name=ID '[' (function=[Function] | lambda=Lambda) ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Node} 'node' name=ID '[' (function = [Function] | lambda = Lambda) ']'
+		//{Node} 'node' name=ID '[' (function=[Function] | lambda=Lambda) ']'
 		public Group getGroup() { return cGroup; }
 		
 		//{Node}
@@ -290,10 +296,10 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//'['
 		public Keyword getLeftSquareBracketKeyword_3() { return cLeftSquareBracketKeyword_3; }
 		
-		//(function = [Function] | lambda = Lambda)
+		//(function=[Function] | lambda=Lambda)
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 		
-		//function = [Function]
+		//function=[Function]
 		public Assignment getFunctionAssignment_4_0() { return cFunctionAssignment_4_0; }
 		
 		//[Function]
@@ -302,7 +308,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//ID
 		public RuleCall getFunctionFunctionIDTerminalRuleCall_4_0_0_1() { return cFunctionFunctionIDTerminalRuleCall_4_0_0_1; }
 		
-		//lambda = Lambda
+		//lambda=Lambda
 		public Assignment getLambdaAssignment_4_1() { return cLambdaAssignment_4_1; }
 		
 		//Lambda
@@ -334,11 +340,12 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cElementsElementParserRuleCall_4_2_1_0 = (RuleCall)cElementsAssignment_4_2_1.eContents().get(0);
 		
 		//Stream:
-		//    {Stream} 'stream' inputsOrNodes+=[InputOrNode] (',' inputsOrNodes+=[InputOrNode])* ('to' elements+=Element (',' elements+=Element)* )+
-		//;
+		//    {Stream} 'stream' inputsOrNodes+=[InputOrNode] (',' inputsOrNodes+=[InputOrNode])* ('to' elements+=Element (','
+		//    elements+=Element)*)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Stream} 'stream' inputsOrNodes+=[InputOrNode] (',' inputsOrNodes+=[InputOrNode])* ('to' elements+=Element (',' elements+=Element)* )+
+		//{Stream} 'stream' inputsOrNodes+=[InputOrNode] (',' inputsOrNodes+=[InputOrNode])* ('to' elements+=Element (','
+		//elements+=Element)*)+
 		public Group getGroup() { return cGroup; }
 		
 		//{Stream}
@@ -371,7 +378,8 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//ID
 		public RuleCall getInputsOrNodesInputOrNodeIDTerminalRuleCall_3_1_0_1() { return cInputsOrNodesInputOrNodeIDTerminalRuleCall_3_1_0_1; }
 		
-		//('to' elements+=Element (',' elements+=Element)* )+
+		//('to' elements+=Element (','
+		//   elements+=Element)*)+
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'to'
@@ -383,7 +391,8 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//Element
 		public RuleCall getElementsElementParserRuleCall_4_1_0() { return cElementsElementParserRuleCall_4_1_0; }
 		
-		//(',' elements+=Element)*
+		//(','
+		//   elements+=Element)*
 		public Group getGroup_4_2() { return cGroup_4_2; }
 		
 		//','
@@ -416,8 +425,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cOutputIDTerminalRuleCall_2_1_0 = (RuleCall)cOutputAssignment_2_1.eContents().get(0);
 		
 		//Element:
-		//    {Element} element=ID | '[' (node=[NodeOrFunction] | Lambda) ']' | 'output' output=ID
-		//;
+		//    {Element} element=ID | '[' (node=[NodeOrFunction] | Lambda) ']' | 'output' output=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Element} element=ID | '[' (node=[NodeOrFunction] | Lambda) ']' | 'output' output=ID
@@ -482,21 +490,22 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Assignment cDataAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cDataIDTerminalRuleCall_4_0 = (RuleCall)cDataAssignment_4.eContents().get(0);
 		private final Keyword cColonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final RuleCall cTypeParserRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Assignment cValuesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cValuesTypeParserRuleCall_6_0 = (RuleCall)cValuesAssignment_6.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cDataAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final RuleCall cDataIDTerminalRuleCall_7_1_0 = (RuleCall)cDataAssignment_7_1.eContents().get(0);
 		private final Keyword cColonKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
-		private final RuleCall cTypeParserRuleCall_7_3 = (RuleCall)cGroup_7.eContents().get(3);
+		private final Assignment cValuesAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
+		private final RuleCall cValuesTypeParserRuleCall_7_3_0 = (RuleCall)cValuesAssignment_7_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//DataDecl:
-		//    {DataDecl} 'data' name=ID '{' data+=ID ':' Type (',' data+=ID ':' Type)* '}'
-		//;
+		//    {DataDecl} 'data' name=ID '{' data+=ID ':' values+=Type (',' data+=ID ':' values+=Type)* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DataDecl} 'data' name=ID '{' data+=ID ':' Type (',' data+=ID ':' Type)* '}'
+		//{DataDecl} 'data' name=ID '{' data+=ID ':' values+=Type (',' data+=ID ':' values+=Type)* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{DataDecl}
@@ -523,10 +532,13 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//':'
 		public Keyword getColonKeyword_5() { return cColonKeyword_5; }
 		
-		//Type
-		public RuleCall getTypeParserRuleCall_6() { return cTypeParserRuleCall_6; }
+		//values+=Type
+		public Assignment getValuesAssignment_6() { return cValuesAssignment_6; }
 		
-		//(',' data+=ID ':' Type)*
+		//Type
+		public RuleCall getValuesTypeParserRuleCall_6_0() { return cValuesTypeParserRuleCall_6_0; }
+		
+		//(',' data+=ID ':' values+=Type)*
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//','
@@ -541,8 +553,11 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//':'
 		public Keyword getColonKeyword_7_2() { return cColonKeyword_7_2; }
 		
+		//values+=Type
+		public Assignment getValuesAssignment_7_3() { return cValuesAssignment_7_3; }
+		
 		//Type
-		public RuleCall getTypeParserRuleCall_7_3() { return cTypeParserRuleCall_7_3; }
+		public RuleCall getValuesTypeParserRuleCall_7_3_0() { return cValuesTypeParserRuleCall_7_3_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
@@ -550,30 +565,53 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.Type");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cIntKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cStringKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cINTTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final Assignment cIntIdentifierAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cIntIdentifierIntKeyword_0_0 = (Keyword)cIntIdentifierAssignment_0.eContents().get(0);
+		private final Assignment cStringValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cStringValueStringKeyword_1_0 = (Keyword)cStringValueAssignment_1.eContents().get(0);
+		private final Assignment cIdAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
+		private final Assignment cIntValueAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final RuleCall cIntValueINTTerminalRuleCall_3_0 = (RuleCall)cIntValueAssignment_3.eContents().get(0);
+		private final Assignment cNoneValueAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final Keyword cNoneValueNoneKeyword_4_0 = (Keyword)cNoneValueAssignment_4.eContents().get(0);
 		
 		//Type:
-		//    'int' | 'string' | ID | INT
-		//;
+		//    intIdentifier='int' | stringValue='string' | id=ID | intValue=INT | noneValue="none";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'int' | 'string' | ID | INT
+		//intIdentifier='int' | stringValue='string' | id=ID | intValue=INT | noneValue="none"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//intIdentifier='int'
+		public Assignment getIntIdentifierAssignment_0() { return cIntIdentifierAssignment_0; }
+		
 		//'int'
-		public Keyword getIntKeyword_0() { return cIntKeyword_0; }
+		public Keyword getIntIdentifierIntKeyword_0_0() { return cIntIdentifierIntKeyword_0_0; }
+		
+		//stringValue='string'
+		public Assignment getStringValueAssignment_1() { return cStringValueAssignment_1; }
 		
 		//'string'
-		public Keyword getStringKeyword_1() { return cStringKeyword_1; }
+		public Keyword getStringValueStringKeyword_1_0() { return cStringValueStringKeyword_1_0; }
+		
+		//id=ID
+		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
 		
 		//ID
-		public RuleCall getIDTerminalRuleCall_2() { return cIDTerminalRuleCall_2; }
+		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
+		
+		//intValue=INT
+		public Assignment getIntValueAssignment_3() { return cIntValueAssignment_3; }
 		
 		//INT
-		public RuleCall getINTTerminalRuleCall_3() { return cINTTerminalRuleCall_3; }
+		public RuleCall getIntValueINTTerminalRuleCall_3_0() { return cIntValueINTTerminalRuleCall_3_0; }
+		
+		//noneValue="none"
+		public Assignment getNoneValueAssignment_4() { return cNoneValueAssignment_4; }
+		
+		//"none"
+		public Keyword getNoneValueNoneKeyword_4_0() { return cNoneValueNoneKeyword_4_0; }
 	}
 	public class InputOrNodeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.InputOrNode");
@@ -582,8 +620,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cNodeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//InputOrNode:
-		//    Input | Node
-		//;
+		//    Input | Node;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Input | Node
@@ -602,8 +639,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cFunctionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//NodeOrFunction:
-		//    Node | Function
-		//;
+		//    Node | Function;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Node | Function
@@ -637,20 +673,22 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cRightPrimaryParserRuleCall_1_1_0 = (RuleCall)cRightAssignment_1_1.eContents().get(0);
 		
 		//Exp returns Expression:
-		// Primary (({Plus.left=current} '+'| {Minus.left=current} '-'  | {Mult.left=current} '*'  | {Divide.left=current} '/' ) right=Primary)*
-		//;
+		//    Primary (({Plus.left=current} '+' | {Minus.left=current} '-' | {Mult.left=current} '*' | {Divide.left=current} '/')
+		//    right=Primary)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Primary (({Plus.left=current} '+'| {Minus.left=current} '-'  | {Mult.left=current} '*'  | {Divide.left=current} '/' ) right=Primary)*
+		//Primary (({Plus.left=current} '+' | {Minus.left=current} '-' | {Mult.left=current} '*' | {Divide.left=current} '/')
+		//right=Primary)*
 		public Group getGroup() { return cGroup; }
 		
 		//Primary
 		public RuleCall getPrimaryParserRuleCall_0() { return cPrimaryParserRuleCall_0; }
 		
-		//(({Plus.left=current} '+'| {Minus.left=current} '-'  | {Mult.left=current} '*'  | {Divide.left=current} '/' ) right=Primary)*
+		//(({Plus.left=current} '+' | {Minus.left=current} '-' | {Mult.left=current} '*' | {Divide.left=current} '/')
+		//   right=Primary)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//({Plus.left=current} '+'| {Minus.left=current} '-'  | {Mult.left=current} '*'  | {Divide.left=current} '/' )
+		//({Plus.left=current} '+' | {Minus.left=current} '-' | {Mult.left=current} '*' | {Divide.left=current} '/')
 		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
 		
 		//{Plus.left=current} '+'
@@ -700,26 +738,17 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cLetBindingParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cIfThenElseParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cExpressionAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final Keyword cNoneKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final RuleCall cExpParserRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final RuleCall cNewInputParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cDataAccessParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Action cExpressionAction_6_0 = (Action)cGroup_6.eContents().get(0);
-		private final RuleCall cTypeParserRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
+		private final RuleCall cParenthesisParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cNewInputParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDataAccessParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cTypeParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//// WHat is this rule? ID ( '.' ID )*
 		//Primary returns Expression:
-		// LetBinding | IfThenElse | {Expression} 'none' | '(' Exp ')' | NewInput | DataAccess | {Expression} Type
-		//;
+		//    LetBinding | IfThenElse | Parenthesis | NewInput | DataAccess | Type;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//LetBinding | IfThenElse | {Expression} 'none' | '(' Exp ')' | NewInput | DataAccess | {Expression} Type
+		//LetBinding | IfThenElse | Parenthesis | NewInput | DataAccess | Type
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//LetBinding
@@ -728,41 +757,48 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//IfThenElse
 		public RuleCall getIfThenElseParserRuleCall_1() { return cIfThenElseParserRuleCall_1; }
 		
-		//{Expression} 'none'
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//{Expression}
-		public Action getExpressionAction_2_0() { return cExpressionAction_2_0; }
-		
-		//'none'
-		public Keyword getNoneKeyword_2_1() { return cNoneKeyword_2_1; }
-		
-		//'(' Exp ')'
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
-		
-		//Exp
-		public RuleCall getExpParserRuleCall_3_1() { return cExpParserRuleCall_3_1; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
+		//Parenthesis
+		public RuleCall getParenthesisParserRuleCall_2() { return cParenthesisParserRuleCall_2; }
 		
 		//NewInput
-		public RuleCall getNewInputParserRuleCall_4() { return cNewInputParserRuleCall_4; }
+		public RuleCall getNewInputParserRuleCall_3() { return cNewInputParserRuleCall_3; }
 		
 		//DataAccess
-		public RuleCall getDataAccessParserRuleCall_5() { return cDataAccessParserRuleCall_5; }
-		
-		//{Expression} Type
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//{Expression}
-		public Action getExpressionAction_6_0() { return cExpressionAction_6_0; }
+		public RuleCall getDataAccessParserRuleCall_4() { return cDataAccessParserRuleCall_4; }
 		
 		//Type
-		public RuleCall getTypeParserRuleCall_6_1() { return cTypeParserRuleCall_6_1; }
+		public RuleCall getTypeParserRuleCall_5() { return cTypeParserRuleCall_5; }
+	}
+	public class ParenthesisElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.Parenthesis");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParenthesisAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cExpAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExpExpParserRuleCall_2_0 = (RuleCall)cExpAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Parenthesis returns Expression:
+		//    {Parenthesis} '(' exp=Exp ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Parenthesis} '(' exp=Exp ')'
+		public Group getGroup() { return cGroup; }
+		
+		//{Parenthesis}
+		public Action getParenthesisAction_0() { return cParenthesisAction_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//exp=Exp
+		public Assignment getExpAssignment_2() { return cExpAssignment_2; }
+		
+		//Exp
+		public RuleCall getExpExpParserRuleCall_2_0() { return cExpExpParserRuleCall_2_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 	public class DataAccessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.ExTwentyOne.DataAccess");
@@ -775,8 +811,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cAccessedFieldIDTerminalRuleCall_3_0 = (RuleCall)cAccessedFieldAssignment_3.eContents().get(0);
 		
 		//DataAccess returns Expression:
-		//    {DataAccess} accessedData=ID '.' accessedField=ID
-		//;
+		//    {DataAccess} accessedData=ID '.' accessedField=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{DataAccess} accessedData=ID '.' accessedField=ID
@@ -816,8 +851,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Keyword cEndKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//IfThenElse returns Expression:
-		// {IfThenElse} 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
-		//;
+		//    {IfThenElse} 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{IfThenElse} 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
@@ -879,11 +913,12 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Keyword cRightSquareBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//NewInput:
-		//    {NewInput} 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'
-		//;
+		//    {NewInput} 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)
+		//    * ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{NewInput} 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'
+		//{NewInput} 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)
+		//* ']'
 		public Group getGroup() { return cGroup; }
 		
 		//{NewInput}
@@ -916,7 +951,8 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		//Exp
 		public RuleCall getNewArrayExpsExpParserRuleCall_6_0() { return cNewArrayExpsExpParserRuleCall_6_0; }
 		
-		//(',' newArrayIds+=ID '=' newArrayExps+=Exp)*
+		//(',' newArrayIds+=ID '=' newArrayExps+=Exp)
+		//   *
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//','
@@ -956,8 +992,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Keyword cEndKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//LetBinding returns Expression:
-		//    {LetBinding} 'let' name=ID '=' binding=Exp 'in' body=Exp 'end'
-		//;
+		//    {LetBinding} 'let' name=ID '=' binding=Exp 'in' body=Exp 'end';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{LetBinding} 'let' name=ID '=' binding=Exp 'in' body=Exp 'end'
@@ -1011,8 +1046,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cRightLogicExpParserRuleCall_2_0 = (RuleCall)cRightLogicAssignment_2.eContents().get(0);
 		
 		//LogicExp:
-		//    leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp
-		//;
+		//    leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp
@@ -1065,6 +1099,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	private final NodeOrFunctionElements pNodeOrFunction;
 	private final ExpElements pExp;
 	private final PrimaryElements pPrimary;
+	private final ParenthesisElements pParenthesis;
 	private final DataAccessElements pDataAccess;
 	private final IfThenElseElements pIfThenElse;
 	private final NewInputElements pNewInput;
@@ -1095,6 +1130,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		this.pNodeOrFunction = new NodeOrFunctionElements();
 		this.pExp = new ExpElements();
 		this.pPrimary = new PrimaryElements();
+		this.pParenthesis = new ParenthesisElements();
 		this.pDataAccess = new DataAccessElements();
 		this.pIfThenElse = new IfThenElseElements();
 		this.pNewInput = new NewInputElements();
@@ -1129,8 +1165,8 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 
 	
-	//Program: 'program' name=ID (declarations+=Declaration)*
-	//;
+	//Program:
+	//    'program' name=ID (declarations+=Declaration)*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}
@@ -1140,8 +1176,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Declaration:
-	//    Function | Input | Node | Stream | DataDecl | Parameter
-	//;
+	//    Function | Input | Node | Stream | DataDecl | Parameter;
 	public DeclarationElements getDeclarationAccess() {
 		return pDeclaration;
 	}
@@ -1151,8 +1186,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Parameter:
-	//    'parameter' name=ID ':' Type
-	//;
+	//    'parameter' name=ID ':' value=Type;
 	public ParameterElements getParameterAccess() {
 		return pParameter;
 	}
@@ -1162,8 +1196,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Function:
-	//    {Function} 'function' name=ID lambda=Lambda
-	//;
+	//    {Function} 'function' name=ID lambda=Lambda;
 	public FunctionElements getFunctionAccess() {
 		return pFunction;
 	}
@@ -1173,8 +1206,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Lambda:
-	//    {Lambda} '(' name=ID ':' Type ')' '{' lambdaExp=Exp '}'
-	//;
+	//    {Lambda} '(' name=ID ':' value=Type ')' '{' lambdaExp=Exp '}';
 	public LambdaElements getLambdaAccess() {
 		return pLambda;
 	}
@@ -1184,8 +1216,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Input:
-	//    {Input} 'input' name=ID ':' Type
-	//;
+	//    {Input} 'input' name=ID ':' value=Type;
 	public InputElements getInputAccess() {
 		return pInput;
 	}
@@ -1195,8 +1226,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Node:
-	//    {Node} 'node' name=ID '[' (function = [Function] | lambda = Lambda) ']'
-	//;
+	//    {Node} 'node' name=ID '[' (function=[Function] | lambda=Lambda) ']';
 	public NodeElements getNodeAccess() {
 		return pNode;
 	}
@@ -1206,8 +1236,8 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Stream:
-	//    {Stream} 'stream' inputsOrNodes+=[InputOrNode] (',' inputsOrNodes+=[InputOrNode])* ('to' elements+=Element (',' elements+=Element)* )+
-	//;
+	//    {Stream} 'stream' inputsOrNodes+=[InputOrNode] (',' inputsOrNodes+=[InputOrNode])* ('to' elements+=Element (','
+	//    elements+=Element)*)+;
 	public StreamElements getStreamAccess() {
 		return pStream;
 	}
@@ -1217,8 +1247,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Element:
-	//    {Element} element=ID | '[' (node=[NodeOrFunction] | Lambda) ']' | 'output' output=ID
-	//;
+	//    {Element} element=ID | '[' (node=[NodeOrFunction] | Lambda) ']' | 'output' output=ID;
 	public ElementElements getElementAccess() {
 		return pElement;
 	}
@@ -1228,8 +1257,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//DataDecl:
-	//    {DataDecl} 'data' name=ID '{' data+=ID ':' Type (',' data+=ID ':' Type)* '}'
-	//;
+	//    {DataDecl} 'data' name=ID '{' data+=ID ':' values+=Type (',' data+=ID ':' values+=Type)* '}';
 	public DataDeclElements getDataDeclAccess() {
 		return pDataDecl;
 	}
@@ -1239,8 +1267,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Type:
-	//    'int' | 'string' | ID | INT
-	//;
+	//    intIdentifier='int' | stringValue='string' | id=ID | intValue=INT | noneValue="none";
 	public TypeElements getTypeAccess() {
 		return pType;
 	}
@@ -1250,8 +1277,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//InputOrNode:
-	//    Input | Node
-	//;
+	//    Input | Node;
 	public InputOrNodeElements getInputOrNodeAccess() {
 		return pInputOrNode;
 	}
@@ -1261,8 +1287,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//NodeOrFunction:
-	//    Node | Function
-	//;
+	//    Node | Function;
 	public NodeOrFunctionElements getNodeOrFunctionAccess() {
 		return pNodeOrFunction;
 	}
@@ -1272,8 +1297,8 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Exp returns Expression:
-	// Primary (({Plus.left=current} '+'| {Minus.left=current} '-'  | {Mult.left=current} '*'  | {Divide.left=current} '/' ) right=Primary)*
-	//;
+	//    Primary (({Plus.left=current} '+' | {Minus.left=current} '-' | {Mult.left=current} '*' | {Divide.left=current} '/')
+	//    right=Primary)*;
 	public ExpElements getExpAccess() {
 		return pExp;
 	}
@@ -1284,8 +1309,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	
 	//// WHat is this rule? ID ( '.' ID )*
 	//Primary returns Expression:
-	// LetBinding | IfThenElse | {Expression} 'none' | '(' Exp ')' | NewInput | DataAccess | {Expression} Type
-	//;
+	//    LetBinding | IfThenElse | Parenthesis | NewInput | DataAccess | Type;
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
 	}
@@ -1294,9 +1318,18 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 		return getPrimaryAccess().getRule();
 	}
 	
+	//Parenthesis returns Expression:
+	//    {Parenthesis} '(' exp=Exp ')';
+	public ParenthesisElements getParenthesisAccess() {
+		return pParenthesis;
+	}
+	
+	public ParserRule getParenthesisRule() {
+		return getParenthesisAccess().getRule();
+	}
+	
 	//DataAccess returns Expression:
-	//    {DataAccess} accessedData=ID '.' accessedField=ID
-	//;
+	//    {DataAccess} accessedData=ID '.' accessedField=ID;
 	public DataAccessElements getDataAccessAccess() {
 		return pDataAccess;
 	}
@@ -1306,8 +1339,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//IfThenElse returns Expression:
-	// {IfThenElse} 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'
-	//;
+	//    {IfThenElse} 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end';
 	public IfThenElseElements getIfThenElseAccess() {
 		return pIfThenElse;
 	}
@@ -1317,8 +1349,8 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//NewInput:
-	//    {NewInput} 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'
-	//;
+	//    {NewInput} 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)
+	//    * ']';
 	public NewInputElements getNewInputAccess() {
 		return pNewInput;
 	}
@@ -1328,8 +1360,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//LetBinding returns Expression:
-	//    {LetBinding} 'let' name=ID '=' binding=Exp 'in' body=Exp 'end'
-	//;
+	//    {LetBinding} 'let' name=ID '=' binding=Exp 'in' body=Exp 'end';
 	public LetBindingElements getLetBindingAccess() {
 		return pLetBinding;
 	}
@@ -1339,8 +1370,7 @@ public class ExTwentyOneGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//LogicExp:
-	//    leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp
-	//;
+	//    leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp;
 	public LogicExpElements getLogicExpAccess() {
 		return pLogicExp;
 	}

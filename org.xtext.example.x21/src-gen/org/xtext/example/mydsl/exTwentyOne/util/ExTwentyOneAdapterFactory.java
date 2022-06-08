@@ -126,6 +126,11 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
         return createDataDeclAdapter();
       }
       @Override
+      public Adapter caseType(Type object)
+      {
+        return createTypeAdapter();
+      }
+      @Override
       public Adapter caseInputOrNode(InputOrNode object)
       {
         return createInputOrNodeAdapter();
@@ -169,6 +174,11 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDivide(Divide object)
       {
         return createDivideAdapter();
+      }
+      @Override
+      public Adapter caseParenthesis(Parenthesis object)
+      {
+        return createParenthesisAdapter();
       }
       @Override
       public Adapter caseDataAccess(DataAccess object)
@@ -358,6 +368,21 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.Type
+   * @generated
+   */
+  public Adapter createTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.InputOrNode <em>Input Or Node</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -488,6 +513,21 @@ public class ExTwentyOneAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDivideAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.exTwentyOne.Parenthesis <em>Parenthesis</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.exTwentyOne.Parenthesis
+   * @generated
+   */
+  public Adapter createParenthesisAdapter()
   {
     return null;
   }

@@ -6,17 +6,22 @@ package org.xtext.example.mydsl.exTwentyOne.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.mydsl.exTwentyOne.DataDecl;
 import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
+import org.xtext.example.mydsl.exTwentyOne.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +33,7 @@ import org.xtext.example.mydsl.exTwentyOne.ExTwentyOnePackage;
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.DataDeclImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.DataDeclImpl#getData <em>Data</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.exTwentyOne.impl.DataDeclImpl#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +69,16 @@ public class DataDeclImpl extends DeclarationImpl implements DataDecl
    * @ordered
    */
   protected EList<String> data;
+
+  /**
+   * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValues()
+   * @generated
+   * @ordered
+   */
+  protected EList<Type> values;
 
   /**
    * <!-- begin-user-doc -->
@@ -131,6 +147,37 @@ public class DataDeclImpl extends DeclarationImpl implements DataDecl
    * @generated
    */
   @Override
+  public EList<Type> getValues()
+  {
+    if (values == null)
+    {
+      values = new EObjectContainmentEList<Type>(Type.class, this, ExTwentyOnePackage.DATA_DECL__VALUES);
+    }
+    return values;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case ExTwentyOnePackage.DATA_DECL__VALUES:
+        return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -139,6 +186,8 @@ public class DataDeclImpl extends DeclarationImpl implements DataDecl
         return getName();
       case ExTwentyOnePackage.DATA_DECL__DATA:
         return getData();
+      case ExTwentyOnePackage.DATA_DECL__VALUES:
+        return getValues();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -161,6 +210,10 @@ public class DataDeclImpl extends DeclarationImpl implements DataDecl
         getData().clear();
         getData().addAll((Collection<? extends String>)newValue);
         return;
+      case ExTwentyOnePackage.DATA_DECL__VALUES:
+        getValues().clear();
+        getValues().addAll((Collection<? extends Type>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -181,6 +234,9 @@ public class DataDeclImpl extends DeclarationImpl implements DataDecl
       case ExTwentyOnePackage.DATA_DECL__DATA:
         getData().clear();
         return;
+      case ExTwentyOnePackage.DATA_DECL__VALUES:
+        getValues().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -199,6 +255,8 @@ public class DataDeclImpl extends DeclarationImpl implements DataDecl
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ExTwentyOnePackage.DATA_DECL__DATA:
         return data != null && !data.isEmpty();
+      case ExTwentyOnePackage.DATA_DECL__VALUES:
+        return values != null && !values.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -2,83 +2,69 @@ grammar org.xtext.example.mydsl.ExTwentyOne with org.eclipse.xtext.common.Termin
 
 generate exTwentyOne "http://www.xtext.org/example/mydsl/ExTwentyOne"
 
-Program: 'program' name=ID (declarations+=Declaration)*
-;
+Program:
+	'program' name=ID (declarations+=Declaration)*;
 
-Declaration: 
-	Function | Input | Node | Stream | DataDecl | Parameter
-;
+Declaration:
+	Function | Input | Node | Stream | DataDecl | Parameter;
 
-Parameter: 
-	'parameter' name=ID ':' Type
-;
+Parameter:
+	'parameter' name=ID ':' value=Type;
 
-Function: 
-	{Function} 'function' name=ID lambda=Lambda	
-;
+Function:
+	{Function} 'function' name=ID lambda=Lambda;
 
 Lambda:
-	{Lambda} '(' name=ID ':' Type ')' '{' lambdaExp=Exp '}'
-;
+	{Lambda} '(' name=ID ':' value=Type ')' '{' lambdaExp=Exp '}';
 
 Input:
-	{Input} 'input' name=ID ':' Type
-;
+	{Input} 'input' name=ID ':' value=Type;
 
 Node:
-	{Node} 'node' name=ID '[' (function = [Function] | lambda = Lambda) ']'
-;
+	{Node} 'node' name=ID '[' (function=[Function] | lambda=Lambda) ']';
 
 Stream:
-	{Stream} 'stream' inputsOrNodes+=[InputOrNode] (',' inputsOrNodes+=[InputOrNode])* ('to' elements+=Element (',' elements+=Element)* )+
-;
+	{Stream} 'stream' inputsOrNodes+=[InputOrNode] (',' inputsOrNodes+=[InputOrNode])* ('to' elements+=Element (','
+	elements+=Element)*)+;
 
-Element: 
-	{Element} element=ID | '[' (node=[NodeOrFunction] | Lambda) ']' | 'output' output=ID
-;
+Element:
+	{Element} element=ID | '[' (node=[NodeOrFunction] | Lambda) ']' | 'output' output=ID;
 
 DataDecl:
-	{DataDecl} 'data' name=ID '{' data+=ID ':' Type (',' data+=ID ':' Type)* '}'
-;
+	{DataDecl} 'data' name=ID '{' data+=ID ':' values+=Type (',' data+=ID ':' values+=Type)* '}';
 
-Type: 
-	'int' | 'string' | ID | INT
-;
+Type:
+	intIdentifier='int' | stringValue='string' | id=ID | intValue=INT | noneValue="none";
 
 InputOrNode:
-	Input | Node
-;
+	Input | Node;
 
 NodeOrFunction:
-	Node | Function
-;
+	Node | Function;
 
-Exp returns Expression: 
- Primary (({Plus.left=current} '+'| {Minus.left=current} '-'  | {Mult.left=current} '*'  | {Divide.left=current} '/' ) right=Primary)*
-;
+Exp returns Expression:
+	Primary (({Plus.left=current} '+' | {Minus.left=current} '-' | {Mult.left=current} '*' | {Divide.left=current} '/')
+	right=Primary)*;
 
 // WHat is this rule? ID ( '.' ID )*
-
 Primary returns Expression:
- LetBinding | IfThenElse | {Expression} 'none' | '(' Exp ')' | NewInput | DataAccess | {Expression} Type 
-;
+	LetBinding | IfThenElse | Parenthesis | NewInput | DataAccess | Type;
+
+Parenthesis returns Expression:
+	{Parenthesis} '(' exp=Exp ')';
 
 DataAccess returns Expression:
-	{DataAccess} accessedData=ID '.' accessedField=ID
-;
+	{DataAccess} accessedData=ID '.' accessedField=ID;
 
 IfThenElse returns Expression:
- {IfThenElse} 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end'	
-;
+	{IfThenElse} 'if' ifLogicExp=LogicExp 'then' thenExp=Exp 'else' elseExp=Exp 'end';
 
 NewInput:
-	{NewInput} 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)* ']'
-;
+	{NewInput} 'new' newArrayId=ID '[' newArrayIds+=ID '=' newArrayExps+=Exp (',' newArrayIds+=ID '=' newArrayExps+=Exp)
+	* ']';
 
 LetBinding returns Expression:
-	{LetBinding} 'let' name=ID '=' binding=Exp 'in' body=Exp 'end'
-;
+	{LetBinding} 'let' name=ID '=' binding=Exp 'in' body=Exp 'end';
 
-LogicExp: 
-	leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp
-;
+LogicExp:
+	leftLogic=Exp ('=' | '<' | '>' | '<=' | '>=') rightLogic=Exp;

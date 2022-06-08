@@ -1,9 +1,0 @@
-grammar org.xtext.example.mydsl.ExTwentyOne with org.eclipse.xtext.common.Terminals
-
-generate exTwentyOne "http://www.xtext.org/example/mydsl/ExTwentyOne"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';

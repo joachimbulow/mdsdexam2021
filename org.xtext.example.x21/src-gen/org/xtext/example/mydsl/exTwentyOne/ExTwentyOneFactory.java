@@ -114,6 +114,15 @@ public interface ExTwentyOneFactory extends EFactory
   DataDecl createDataDecl();
 
   /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
+
+  /**
    * Returns a new object of class '<em>Input Or Node</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -193,6 +202,15 @@ public interface ExTwentyOneFactory extends EFactory
    * @generated
    */
   Divide createDivide();
+
+  /**
+   * Returns a new object of class '<em>Parenthesis</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parenthesis</em>'.
+   * @generated
+   */
+  Parenthesis createParenthesis();
 
   /**
    * Returns a new object of class '<em>Data Access</em>'.

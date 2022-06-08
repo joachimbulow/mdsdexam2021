@@ -31,9 +31,11 @@ import org.xtext.example.mydsl.exTwentyOne.NewInput;
 import org.xtext.example.mydsl.exTwentyOne.Node;
 import org.xtext.example.mydsl.exTwentyOne.NodeOrFunction;
 import org.xtext.example.mydsl.exTwentyOne.Parameter;
+import org.xtext.example.mydsl.exTwentyOne.Parenthesis;
 import org.xtext.example.mydsl.exTwentyOne.Plus;
 import org.xtext.example.mydsl.exTwentyOne.Program;
 import org.xtext.example.mydsl.exTwentyOne.Stream;
+import org.xtext.example.mydsl.exTwentyOne.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -118,6 +120,13 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass typeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass inputOrNodeEClass = null;
 
   /**
@@ -175,6 +184,13 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   private EClass divideEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parenthesisEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -332,6 +348,17 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
+  public EReference getParameter_Value()
+  {
+    return (EReference)parameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getFunction()
   {
     return functionEClass;
@@ -387,9 +414,20 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
-  public EReference getLambda_LambdaExp()
+  public EReference getLambda_Value()
   {
     return (EReference)lambdaEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLambda_LambdaExp()
+  {
+    return (EReference)lambdaEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -412,6 +450,17 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
   public EAttribute getInput_Name()
   {
     return (EAttribute)inputEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInput_Value()
+  {
+    return (EReference)inputEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -566,6 +615,83 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
   public EAttribute getDataDecl_Data()
   {
     return (EAttribute)dataDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDataDecl_Values()
+  {
+    return (EReference)dataDeclEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getType()
+  {
+    return typeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getType_IntIdentifier()
+  {
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getType_StringValue()
+  {
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getType_Id()
+  {
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getType_IntValue()
+  {
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getType_NoneValue()
+  {
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -816,6 +942,28 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
    * @generated
    */
   @Override
+  public EClass getParenthesis()
+  {
+    return parenthesisEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getParenthesis_Exp()
+  {
+    return (EReference)parenthesisEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getDataAccess()
   {
     return dataAccessEClass;
@@ -970,6 +1118,7 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
 
     parameterEClass = createEClass(PARAMETER);
     createEAttribute(parameterEClass, PARAMETER__NAME);
+    createEReference(parameterEClass, PARAMETER__VALUE);
 
     functionEClass = createEClass(FUNCTION);
     createEAttribute(functionEClass, FUNCTION__NAME);
@@ -977,10 +1126,12 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
 
     lambdaEClass = createEClass(LAMBDA);
     createEAttribute(lambdaEClass, LAMBDA__NAME);
+    createEReference(lambdaEClass, LAMBDA__VALUE);
     createEReference(lambdaEClass, LAMBDA__LAMBDA_EXP);
 
     inputEClass = createEClass(INPUT);
     createEAttribute(inputEClass, INPUT__NAME);
+    createEReference(inputEClass, INPUT__VALUE);
 
     nodeEClass = createEClass(NODE);
     createEAttribute(nodeEClass, NODE__NAME);
@@ -999,6 +1150,14 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     dataDeclEClass = createEClass(DATA_DECL);
     createEAttribute(dataDeclEClass, DATA_DECL__NAME);
     createEAttribute(dataDeclEClass, DATA_DECL__DATA);
+    createEReference(dataDeclEClass, DATA_DECL__VALUES);
+
+    typeEClass = createEClass(TYPE);
+    createEAttribute(typeEClass, TYPE__INT_IDENTIFIER);
+    createEAttribute(typeEClass, TYPE__STRING_VALUE);
+    createEAttribute(typeEClass, TYPE__ID);
+    createEAttribute(typeEClass, TYPE__INT_VALUE);
+    createEAttribute(typeEClass, TYPE__NONE_VALUE);
 
     inputOrNodeEClass = createEClass(INPUT_OR_NODE);
 
@@ -1030,6 +1189,9 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     divideEClass = createEClass(DIVIDE);
     createEReference(divideEClass, DIVIDE__LEFT);
     createEReference(divideEClass, DIVIDE__RIGHT);
+
+    parenthesisEClass = createEClass(PARENTHESIS);
+    createEReference(parenthesisEClass, PARENTHESIS__EXP);
 
     dataAccessEClass = createEClass(DATA_ACCESS);
     createEAttribute(dataAccessEClass, DATA_ACCESS__ACCESSED_DATA);
@@ -1086,11 +1248,13 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     nodeEClass.getESuperTypes().add(this.getNodeOrFunction());
     streamEClass.getESuperTypes().add(this.getDeclaration());
     dataDeclEClass.getESuperTypes().add(this.getDeclaration());
+    typeEClass.getESuperTypes().add(this.getExpression());
     newInputEClass.getESuperTypes().add(this.getExpression());
     plusEClass.getESuperTypes().add(this.getExpression());
     minusEClass.getESuperTypes().add(this.getExpression());
     multEClass.getESuperTypes().add(this.getExpression());
     divideEClass.getESuperTypes().add(this.getExpression());
+    parenthesisEClass.getESuperTypes().add(this.getExpression());
     dataAccessEClass.getESuperTypes().add(this.getExpression());
     ifThenElseEClass.getESuperTypes().add(this.getExpression());
     letBindingEClass.getESuperTypes().add(this.getExpression());
@@ -1104,6 +1268,7 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
 
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameter_Value(), this.getType(), null, "value", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1111,10 +1276,12 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
 
     initEClass(lambdaEClass, Lambda.class, "Lambda", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLambda_Name(), ecorePackage.getEString(), "name", null, 0, 1, Lambda.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLambda_Value(), this.getType(), null, "value", null, 0, 1, Lambda.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLambda_LambdaExp(), this.getExpression(), null, "lambdaExp", null, 0, 1, Lambda.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputEClass, Input.class, "Input", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInput_Name(), ecorePackage.getEString(), "name", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInput_Value(), this.getType(), null, "value", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1133,6 +1300,14 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     initEClass(dataDeclEClass, DataDecl.class, "DataDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDataDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDataDecl_Data(), ecorePackage.getEString(), "data", null, 0, -1, DataDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataDecl_Values(), this.getType(), null, "values", null, 0, -1, DataDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getType_IntIdentifier(), ecorePackage.getEString(), "intIdentifier", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getType_StringValue(), ecorePackage.getEString(), "stringValue", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getType_Id(), ecorePackage.getEString(), "id", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getType_IntValue(), ecorePackage.getEInt(), "intValue", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getType_NoneValue(), ecorePackage.getEString(), "noneValue", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputOrNodeEClass, InputOrNode.class, "InputOrNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1164,6 +1339,9 @@ public class ExTwentyOnePackageImpl extends EPackageImpl implements ExTwentyOneP
     initEClass(divideEClass, Divide.class, "Divide", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDivide_Left(), this.getExpression(), null, "left", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDivide_Right(), this.getExpression(), null, "right", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parenthesisEClass, Parenthesis.class, "Parenthesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParenthesis_Exp(), this.getExpression(), null, "exp", null, 0, 1, Parenthesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataAccessEClass, DataAccess.class, "DataAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDataAccess_AccessedData(), ecorePackage.getEString(), "accessedData", null, 0, 1, DataAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

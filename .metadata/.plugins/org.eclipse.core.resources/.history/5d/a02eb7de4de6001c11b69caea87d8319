@@ -1,9 +1,0 @@
-grammar org.xtext.example.mydsl.ExamLanguage with org.eclipse.xtext.common.Terminals
-
-generate examLanguage "http://www.xtext.org/example/mydsl/ExamLanguage"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
